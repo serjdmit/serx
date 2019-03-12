@@ -1,0 +1,16 @@
+include ../mixins
+
+header.header
+    .logo SD
+    +nav('nav', ['Главная',
+        'Обо мне',
+        'Навыки',
+        'Работы',
+        'Отзывы',
+        'Связаться'], 3)
+    .socials
+        ul.socials__list
+            each social in ['insta', 'vk', 'github']
+                li.socials__item
+                    a(class=`social__list.social__list_${social}` href="#")
+                        +icon(`${social}`, `${social}`)
