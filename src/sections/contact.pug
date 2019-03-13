@@ -1,1 +1,21 @@
 section.contact
+    h2.contact__title Связаться со мной
+
+    form.contact__form
+        .contact__user
+            .contact__user_name
+                .contact__field_name Ваше имя
+                +icon('user', 'contact__user_icon')
+                input(class="contact__user_name" type="text" name="name")
+            .contact__user_email
+                .contact__field_email Введите выш email
+                +icon('envelope', 'contact__email_icon')
+                input(class="contact__user_email" type="text" name="email")
+        .contact__message
+            .contact__user_message
+                .contact__field_message Сообщение к письму
+                +icon('message', 'contact__message_icon')
+                input(class="contact__user_message" type="text" name="message")
+        .button
+            input(class="button" type="submit" value="Отправить")
+

@@ -1,1 +1,25 @@
 section.works
+    h2.works__title Мои работы
+    .works__content
+        .works__container
+            .works__preview
+                img(class='works__image_big' src="work1")
+                .works__slider
+                each image in (['Work1', 'work2', 'work3', 'work4'])
+                    img(class='works__image_small' src=`${image}`)
+            .works__controlls
+                .works__number 2
+                .works__buttons
+                    button.works__buttons_left >
+                    button.works__buttons_right.works__button_disabled <
+            .works__content
+                .works__tags
+                    each tag in (['HTML', 'CSS', 'Javascript'])
+                        .works__tags_item= tag
+                .works__description
+                    h3.works__description_title Сайт школы образования
+                    .works__description_content
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, molestias odio. Qui beatae delectus non, accusantium sint molestias veniam in?
+                    .works__description_link
+                        +icon('link', 'works__description_icon')
+                        span Посмотреть сайт

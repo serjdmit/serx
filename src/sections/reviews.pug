@@ -1,1 +1,25 @@
 section.reviews
+    h2.reviews__title Что обо мне говорят
+    .reviews__arrows
+        .reviews__arrow_left <
+        .reviews__arrow_right >
+
+    .reviews__container
+        .reviews__block
+            .reviews__quotes
+                +icon('quote', 'review__quotes_icon')
+            .reviews__content
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Non provident aspernatur maiores eius aliquam nostrum cupiditate eum quidem! Amet, officia.
+                .reviews__person
+                    img(class="reviews__person_image" src="person1.jpg")
+                    .reviews__person_name Ковальчук Дмитрий
+                    .reviews__person_position Основатель Loftschool
+        .reviews__block
+            .reviews__quotes
+                +icon('quote', 'review__quotes_icon')
+            .reviews__content
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Non provident aspernatur maiores eius aliquam nostrum cupiditate eum quidem! Amet, officia.
+                .reviews__person
+                    img(class="reviews__person_image" src="person2.jpg")
+                    .reviews__person_name Владимир Сабанцев
+                    .reviews__person_position Преподаватель
