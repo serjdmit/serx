@@ -1,1 +1,26 @@
 footer.footer
+    .footer__left
+        .footer__copyright  &copy; 2019
+        .footer__user
+            .footer__user_name Сергей Дмитриев
+            .footer__user_info Личный сайт веб-разработчика
+    .footer__right
+        .footer__menu
+            +nav('footer__nav', ['Главная',
+                'Обо мне',
+                'Навыки',
+                'Работы',
+                'Отзывы',
+                'Связаться'], 3)
+        .footer__bottom
+            .footer__info
+                .footer__info_about
+                .footer__socials
+                    ul.socials__list
+                        each social in ['insta', 'vk', 'github']
+                            li.socials__item
+                                a(class=`social__list.social__list_${social}` href="#")
+                                    +icon(`${social}`, `${social}`)
+            .footer__quote
+                .footer__quote_body Всегда пишите так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живёте 
+                .footer__quote_name Martin Golding
