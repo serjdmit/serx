@@ -1,0 +1,52 @@
+.about {
+    text-align: left;
+    padding: 65px 160px;
+    background: url("../images/bg/bg_about.jpg") top center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &__left {
+        display: inline-block;
+        min-width: 350px;
+        text-align: left;
+
+        .user__pic {
+            display: block;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 70px;
+        }
+    }
+    &__right {
+        display: inline-block;
+        max-width: 600px;
+    }
+}
+
+.user-data {
+
+    &__item {
+        /* min-width: 300px; */
+        margin-bottom: 10px;
+        &_title {
+            opacity: 0.15;
+            color: #fff;
+            font-weight: 400;
+            line-height: 30px;
+            min-width: 170px;
+            display: inline-block;
+        }
+        &_field {
+            color: #fff;
+            font-weight: 400;
+            line-height: 30px;
+            display: inline-block;
+        }
+    }
+}
