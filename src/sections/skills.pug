@@ -9,6 +9,9 @@ section.skills
                     each skill in (['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'])
                         li.skills__item
                             .skills__item_container
+                                svg(width="126" height="126" preserveAspectRatio="none").skills__level
+                                    circle(r="60" cx="63" cy="63").scills__circle.skills__circle_under
+                                    circle(r="59" cx="63" cy="63").skills__circle.skills__circle_above
                                 .skills__item_name= skill
         .skills__part
             h3.skills__part_title Workflow
@@ -17,5 +20,8 @@ section.skills
                     each skill in (['GIT', 'Terminal', 'Gulp', 'Webpack'])
                         li.skills__item
                             .skills__item_container
+                                svg(width="125" height="125" preserveAspectRatio="none").skills__level
+                                    circle(r="55" cx="60" cy="60").scills__circle.skills__circle_under
+                                    circle(r="55" cx="60" cy="60").skills__circle.skills__circle_above
                                 .skills__item_name= skill
     +image('bg/arms.png', 'skills-image')
