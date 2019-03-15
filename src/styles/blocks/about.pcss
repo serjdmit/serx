@@ -3,11 +3,11 @@
     padding: 65px 160px;
     background: url("../images/bg/bg_about.jpg") top center no-repeat;
     background-size: cover;
-    min-height: 100vh;
     min-width: 100vw;
+    padding-bottom: 200px;
     text-align: center;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-evenly;
 
     &__left {
@@ -22,31 +22,65 @@
             border-radius: 50%;
             margin-bottom: 70px;
         }
+
+        .user-data {
+
+            &__item {
+                margin-bottom: 5px;
+                &_title {
+                    opacity: 0.15;
+                    color: #fff;
+                    font-weight: 400;
+                    line-height: 30px;
+                    min-width: 170px;
+                    display: inline-block;
+                }
+                &_field {
+                    color: #fff;
+                    font-weight: 400;
+                    line-height: 30px;
+                    display: inline-block;
+                }
+            }
+        }
     }
     &__right {
         display: inline-block;
         max-width: 600px;
+        text-align: left;
+
+        .user-about {
+            &__greeting {
+                opacity: 0.5;
+                color: #fff;
+                font-weight: 400;
+                line-height: 30px;
+                margin-bottom: 10px;
+            }
+            &__name {
+                color: #fff;
+                font-size: 36px;
+                font-weight: 700;
+                line-height: 48px;
+                margin-bottom: 30px;
+            }
+            &__content {
+                min-height: 150px;
+                opacity: 0.5;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 30px;
+                /* margin-bottom: 90px; */
+            }
+            &__description {
+                opacity: 0.5;
+                color: #fff;
+                font-size: 16px;
+                font-style: italic;
+                line-height: 30px;
+            }
+        }
     }
 }
 
-.user-data {
-
-    &__item {
-        /* min-width: 300px; */
-        margin-bottom: 10px;
-        &_title {
-            opacity: 0.15;
-            color: #fff;
-            font-weight: 400;
-            line-height: 30px;
-            min-width: 170px;
-            display: inline-block;
-        }
-        &_field {
-            color: #fff;
-            font-weight: 400;
-            line-height: 30px;
-            display: inline-block;
-        }
-    }
-}

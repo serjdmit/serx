@@ -1,22 +1,21 @@
 section.skills
-    h2.skills__title Чем я могу быть полезен вам
     .container
-        .skills-content
-            p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis iste illo pariatur blanditiis architecto vel similique aperiam incidunt corporis quia?
-            .skills__part
-                h3.skills__part_title Front-end
-                .skills__part_content
-                    ul.scills__list
-                        each skill in (['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'])
-                            li.skills__item
-                                .skills__item_container
-                                    .skills__item_level= skill
-            .skills__part
-                h3.skills__part_title Workflow
-                .skills__part_content
-                    ul.scills__list
-                        each skill in (['GIT', 'Terminal', 'Gulp', 'Webpack'])
-                            li.skills__item
-                                .skills__item_container
-                                    .skills__item_level= skill
-    .skills-image
+        h2.skills__title Чем я могу быть полезен вам
+        .skills__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        .skills__part
+            h3.skills__part_title Front-end
+            .skills__part_content
+                ul.skills__list
+                    each skill in (['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'])
+                        li.skills__item
+                            .skills__item_container
+                                .skills__item_name= skill
+        .skills__part
+            h3.skills__part_title Workflow
+            .skills__part_content
+                ul.skills__list
+                    each skill in (['GIT', 'Terminal', 'Gulp', 'Webpack'])
+                        li.skills__item
+                            .skills__item_container
+                                .skills__item_name= skill
+    +image('bg/arms.png', 'skills-image')
