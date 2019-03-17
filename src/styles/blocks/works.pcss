@@ -18,11 +18,12 @@
         padding-top: 90px;
     }
     &__left {
-        width: 65%;
+        width: 80%;
         padding-right: 160px;
     }
     &__right {
-        width: 35%;
+        width: 20%;
+        text-align: left;
     }
     &__preview {
         position: relative;
@@ -87,6 +88,10 @@
             background-color: #2d3c4e;
             display: block;
             fill: #fff;
+
+            &:hover {
+                fill: #f29400;
+            }
         }
     }
 
@@ -94,13 +99,66 @@
         &_right, &_left {
             width: 8px;
             height: 10px;
+            transition:  ease-in-out .2s;
 
             &.disabled {
+                fill: #fff !important;
                 opacity: .3;
             }
         }
         &_left {
             transform: rotate(180deg);
+        }
+    }
+
+    &__tags {
+        padding-bottom: 40px;
+
+        &_item {
+            border-radius: 23px;
+            background-color: rgba(122, 160, 197, .1);
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            padding: 12px 20px;
+            color: rgba(40, 51, 64, .7);
+            font-size: 15px;
+            font-weight: 600;
+        }
+    }
+
+    &__description {
+        &_title {
+            color: #2d3c4e;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 48px;
+            padding-bottom: 40px;
+        }
+        &_content {
+            opacity: 0.7;
+            color: #2b3948;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 30px;
+            padding-bottom: 40px;
+        }
+        &_link {
+
+            span {
+                color: #4b6fd7;
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 48px;
+                display: inline-block;
+            }
+        }
+        &_icon {
+            display: inline-block;
+            margin-right: 20px;
+            width: 15px;
+            height: 15px;
+            fill: #4b6fd7;
         }
     }
 }
