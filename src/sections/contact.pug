@@ -3,18 +3,18 @@ section.contact
 
     form.contact__form
         .contact__user
-            .contact__user_name
-                .contact__field_name Ваше имя
+            .contact__user_name.contact__form__field
                 +icon('user', 'contact__user_icon')
+                label.contact__user_field-name Ваше имя
                 input(class="contact__user_name" type="text" name="name")
-            .contact__user_email
-                .contact__field_email Введите выш email
-                +icon('envelope', 'contact__email_icon')
+            .contact__user_email.contact__form__field
+                +icon('envelope', 'contact__user_icon')
+                label.ccontact__user_field-name Введите выш email
                 input(class="contact__user_email" type="text" name="email")
         .contact__message
-            .contact__user_message
-                .contact__field_message Сообщение к письму
-                +icon('message', 'contact__message_icon')
+            .contact__user_message.contact__form__field
+                +icon('message', 'contact__user_icon')
+                label.contact__user_field-name Сообщение к письму
                 input(class="contact__user_message" type="text" name="message")
         .button
             input(class="button" type="submit" value="Отправить")
