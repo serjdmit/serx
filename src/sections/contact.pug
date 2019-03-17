@@ -4,18 +4,23 @@ section.contact
     form.contact__form
         .contact__user
             .contact__user_name.contact__form__field
-                +icon('user', 'contact__user_icon')
-                label.contact__user_field-name Ваше имя
-                input(class="contact__user_name" type="text" name="name")
+                .contact__form_left  
+                    +icon('user', 'contact__user_icon')
+                .contact__form_right
+                    label.contact__user_field-name Ваше имя
+                    input(type="text" name="name").contact__input
             .contact__user_email.contact__form__field
-                +icon('envelope', 'contact__user_icon')
-                label.ccontact__user_field-name Введите выш email
-                input(class="contact__user_email" type="text" name="email")
-        .contact__message
-            .contact__user_message.contact__form__field
-                +icon('message', 'contact__user_icon')
-                label.contact__user_field-name Сообщение к письму
-                input(class="contact__user_message" type="text" name="message")
+                .contact__form_left 
+                    +icon('envelope', 'contact__user_icon')
+                .contact__form_right
+                    label.contact__user_field-name Введите выш email
+                    input(type="text" name="email").contact__input
+            .contact__message.contact__form__field
+                .contact__form_left.contact__form_left--message
+                    +icon('message', 'contact__user_icon')
+                .contact__form_right
+                    label.contact__user_field-name Сообщение к письму
+                    textarea(name="message").contact__input
         .button
-            input(class="button" type="submit" value="Отправить")
+            input(type="submit" value="Отправить").button__send
 

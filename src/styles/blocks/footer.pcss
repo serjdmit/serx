@@ -1,0 +1,134 @@
+.footer {
+    background-color: #1b1f22;
+    color: #fff;
+    text-align: left;
+    padding: 85px 160px;
+    width: 100vw;
+    padding-bottom: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    &__copyright {
+        opacity: 0.1;
+        color: #fff;
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 30px;
+        display: inline-block;
+        margin-right: 80px;
+        vertical-align: top;
+        margin-top: 10px;
+    }
+    &__user {
+        display: inline-block;
+        width: 170px;
+
+        &_name {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 30px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            vertical-align: top;
+        }
+        &_info {
+            opacity: 0.15;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 30px;
+        }
+    }
+
+    &__nav {
+        width: 690px;
+
+        &__list {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &__item {
+            display: inline-block;
+        }
+        &__link {
+            color: #fff;
+            font-weight: 400;
+            line-height: 30px;
+            text-decoration: none;
+        }
+    }
+
+    &__socials {
+        display: inline-block;
+
+        &__list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__link {
+            margin-left: 40px;
+            width: 50px;
+            height: 50px;
+            display: block;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, .3);
+            border-radius: 50%;
+            transition: ease-in-out .2s;
+
+            &:hover {
+                border-color: #ff9a00;
+
+                .insta {
+                    fill: #ff9a00;
+                    opacity: 1;
+                }
+                .vk {
+                    fill: #ff9a00;
+                    opacity: 1;
+                }
+                .github {
+                    fill: #ff9a00;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .insta {
+            width: 25px;
+            height: 25px;
+            fill: #fff;
+            opacity: .3;
+            transition: ease-in-out .2s;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .vk {
+            width: 31px;
+            fill: #fff;
+            opacity: .3;
+            transition: ease-in-out .2s;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .github {
+            width: 27px;
+            fill: #fff;
+            opacity: .3;
+            transition: ease-in-out .2s;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
