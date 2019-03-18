@@ -14,7 +14,7 @@ footer.footer
                 'Связаться'], 3)
         .footer__bottom
             .footer__info
-                .footer__info_about
+                .footer__info_about Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
                 .footer__socials
                     ul.footer__socials__list
                         each social in ['insta', 'vk', 'github']
@@ -22,5 +22,5 @@ footer.footer
                                 a(href="#").footer__socials__link
                                     +icon(`${social}`, `${social}`)
             .footer__quote
-                .footer__quote_body Всегда пишите так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живёте 
+                article.footer__quote_article Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живёте 
                 .footer__quote_name Martin Golding

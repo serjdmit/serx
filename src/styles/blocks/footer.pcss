@@ -44,6 +44,7 @@
 
     &__nav {
         width: 690px;
+        margin-bottom: 60px;
 
         &__list {
             width: 100%;
@@ -62,6 +63,24 @@
         }
     }
 
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        width: 1000px;
+    }
+
+    &__info {
+        width: 350px;
+
+        &_about {
+            opacity: 0.3;
+            color: #fff;
+            font-weight: 400;
+            line-height: 30px;
+            margin-bottom: 25px;
+        }
+    }
+
     &__socials {
         display: inline-block;
 
@@ -72,12 +91,12 @@
         }
 
         &__link {
-            margin-left: 40px;
+            margin-right: 20px;
             width: 50px;
             height: 50px;
             display: block;
             position: relative;
-            border: 2px solid rgba(255, 255, 255, .3);
+            border: 1px solid rgba(255, 255, 255, .3);
             border-radius: 50%;
             transition: ease-in-out .2s;
 
@@ -100,8 +119,7 @@
         }
 
         .insta {
-            width: 25px;
-            height: 25px;
+            width: 20px;
             fill: #fff;
             opacity: .3;
             transition: ease-in-out .2s;
@@ -111,7 +129,7 @@
             transform: translate(-50%, -50%);
         }
         .vk {
-            width: 31px;
+            width: 25px;
             fill: #fff;
             opacity: .3;
             transition: ease-in-out .2s;
@@ -121,7 +139,7 @@
             transform: translate(-50%, -50%);
         }
         .github {
-            width: 27px;
+            width: 22px;
             fill: #fff;
             opacity: .3;
             transition: ease-in-out .2s;
@@ -129,6 +147,23 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
+        }
+    }
+
+    &__quote {
+        width: 450px;
+
+        &_article {
+            opacity: 0.3;
+            color: #fff;
+            font-weight: 400;
+            line-height: 30px;
+            margin-bottom: 25px;
+        }
+        &_name {
+            color: #fff;
+            font-style: italic;
+            line-height: 30px;
         }
     }
 }
