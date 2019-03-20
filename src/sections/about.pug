@@ -1,16 +1,18 @@
 section.about
     .about__left
-        +image('content/user.jpg', 'user__pic')
-        ul.user-data
-            li.user-data__item
-                .user-data__item_title Проживаю:
-                .user-data__item_field Таллинн
-            li.user-data__item
-                .user-data__item_title Возраст:
-                .user-data__item_field 27
-            li.user-data__item
-                .user-data__item_title Родился:
-                .user-data__item_field 14 ноября 1991
+        .user
+            +image('content/user.jpg', 'user__pic')
+            table.user-info
+                tr
+                    th.user-info__title Проживаю:
+                    td.user-info__data Таллинн
+                tr
+                    th.user-info__title Возраст:
+                    td.user-info__data 27
+                tr
+                    th.user-info__title Родился:
+                    td.user-info__data 14 ноября 1991
+
     .about__right
         .user-about
             .user-about__greeting Привет, меня зовут
