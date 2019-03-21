@@ -4,25 +4,24 @@ section.skills
             h2.title Чем я могу быть полезен вам
             .content.skills__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
             .skills__block
-                h3.title.title--small Front-end
-                .skills__content
-                    ul.skills__list
-                        each skill in (['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'])
-                            li.skills__item
-                                .skills__item_container
-                                    svg(width="126" height="126" preserveAspectRatio="none").skills__level
-                                        circle(r="60" cx="63" cy="63").scills__circle.skills__circle_under
-                                        circle(r="59" cx="63" cy="63").skills__circle.skills__circle_above
-                                    .skills__item_name= skill
+                h3.title.title--small Workflow
+                ul.skills-list
+                    each skill in (['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'])
+                        li.skills-list__item
+                            .skills-list__skill
+                                svg(width="126" height="126" preserveAspectRatio="none").skills-list__level
+                                    circle(r="60" cx="63" cy="63").skills-list__circle.skills-list__circle--under
+                                    circle(r="59" cx="63" cy="63").skills-list__circle.skills-list__circle--above
+                                .skills-list__name= skill
             .skills__block
                 h3.title.title--small Workflow
-                .skills__content
-                    ul.skills__list
-                        each skill in (['GIT', 'Terminal', 'Gulp', 'Webpack'])
-                            li.skills__item
-                                .skills__item_container
-                                    svg(width="125" height="125" preserveAspectRatio="none").skills__level
-                                        circle(r="55" cx="60" cy="60").scills__circle.skills__circle_under
-                                        circle(r="55" cx="60" cy="60").skills__circle.skills__circle_above
-                                    .skills__item_name= skill
-        +image('bg/arms.png', 'skills-image')
+                ul.skills-list
+                    each skill in (['GIT', 'Terminal', 'Gulp', 'Webpack'])
+                        li.skills-list__item
+                            .skills-list__skill
+                                svg(width="126" height="126" preserveAspectRatio="none").skills-list__level
+                                    circle(r="60" cx="63" cy="63").skills-list__circle.skills-list__circle--under
+                                    circle(r="59" cx="63" cy="63").skills-list__circle.skills-list__circle--above
+                                .skills-list__name= skill
+        .skills__left
+            +image('bg/arms.png', 'skills__image')

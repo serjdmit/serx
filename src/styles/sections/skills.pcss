@@ -1,13 +1,21 @@
 .skills {
-    padding: 65px 160px;
     background: url("../images/bg/bg_skills.jpg") top center no-repeat;
     background-size: cover;
     width: 100vw;
+    position: relative;
+
+    &__left {
+        width: 33%;
+    }
 
     &__content {
         padding-bottom: 80px;
     }
-    /* &__list {
-        display: block;
-    } */
+
+    &__image {
+        position: absolute;
+        left: 0;
+        bottom: -50px;
+        max-width: 45%;
+    }
 }

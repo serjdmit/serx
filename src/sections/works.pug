@@ -1,27 +1,28 @@
 section.works
-    h2.works__title Мои работы
-    .works__content
+    .container.container__works.container__works--title
+        h2.title.title--dark Мои работы
+    .container.container__works
         .works__left
-            .works__preview
-                +image(`works/1.jpg`, 'works__image_big')
-                .works__slider
+            .preview
+                +image(`works/1.jpg`, 'preview__image')
+                .preview__slider
                     each image in (['1', '2', '3', '4'])
-                        +image(`works/${image}.jpg`, 'works__image_small')
-                .works__controlls
-                    .works__number 2
-                    .works__buttons
-                        button.works__buttons_square
-                            +icon('arrow-right', 'works__arrow_right')
-                        button.works__buttons_square.works__buttons_disabled
-                            +icon('arrow-right', 'works__arrow_left disabled')
+                        +image(`works/${image}.jpg`, 'preview__small-image')
+                .slider
+                    .slider__number 2
+                    .slider__buttons
+                        button.button
+                            +icon('arrow-right', 'button__arrow')
+                        button.button.button--disabled
+                            +icon('arrow-right', 'button__arrow button__arrow--left button__arrow--disabled')
         .works__right
-            .works__tags
+            .tags
                 each tag in (['HTML', 'CSS', 'Javascript'])
-                    .works__tags_item= tag
+                    .tags__item= tag
             .works__description
-                h3.works__description_title Сайт школы образования
-                .works__description_content
+                h3.title.title--dark Сайт школы образования
+                .content.content--dark
                     p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, molestias odio. Qui beatae delectus non, accusantium sint molestias veniam in?
-                a(href="#").works__description_link
-                    +icon('link', 'works__description_icon')
+                a(href="#").link
+                    +icon('link', 'link__icon')
                     span Посмотреть сайт

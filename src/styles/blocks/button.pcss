@@ -1,0 +1,36 @@
+.button {
+    width: 50px;
+    height: 50px;
+    background-color: #2d3c4e;
+    display: block;
+    cursor: pointer;
+    fill: #fff;
+    transition:  ease-in-out .2s;
+
+    &:hover {
+        fill: #f29400;
+    }
+
+    &__arrow {
+        width: 8px;
+        height: 10px;
+        transform: rotate(180deg);
+
+        &--disabled {
+            fill: #fff !important;
+            opacity: .3;
+        }
+        &--left {
+            transform: rotate(0);
+        }
+    }
+    &--circle {
+        border: 3px solid #fff;
+        background: none;
+        border-radius: 50%;
+
+        &:hover {
+            border-color: #f29400;
+        }
+    }
+}

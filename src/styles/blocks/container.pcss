@@ -1,27 +1,41 @@
 .container {
+    display: flex;
 
-    &--hero {
+    &__hero {
         height: 100vh;
         min-height: 650px;
         text-align: center;
-        display: flex;
         align-items: center;
         justify-content: space-between;
         flex-direction: column;
         padding-bottom: 400px;
     }
 
-    &--about {
-        display: flex;
+    &__about {
         justify-content: space-evenly;
         padding-top: 65px;
         padding-bottom: 190px;
     }
 
     &__skills {
-        display: flex;
         align-items: flex-start;
         justify-content: space-between;
         flex-direction: row-reverse;
+        padding: 65px 0;
+    }
+
+    &__works {
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-bottom: 150px;
+
+        &--title {
+            padding-top: 90px;
+            padding-bottom: 0;
+        }
+    }
+
+    &__bottom {
+        flex-direction: column;
     }
 }

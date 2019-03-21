@@ -20,10 +20,9 @@ body
             include ./sections/works.pug
 
             .wrapper-bottom
-                .wrapper-bottom_left
+                .container.container__bottom
                     include ./sections/reviews.pug
                     include ./sections/contact.pug
-                .wrapper-bottom_right
-                    +image('bg/leaf.png', 'wrapper-bottom_leaf')
+                +image('bg/leaf.png', 'wrapper-bottom_leaf')
     include ./sections/footer
 
