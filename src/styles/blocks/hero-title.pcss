@@ -5,11 +5,18 @@
         opacity: 0.4;
         color: #fff;
         font-size: 18px;
-        font-weight: 400;
+        font-weight: 600;
         line-height: 30px;
         display: inline-block;
         width: 165px;
         vertical-align: top;
+
+        &--small {
+            width: auto;
+            display: block;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
     }
 
     &__name {
@@ -22,5 +29,18 @@
         line-height: 60px;
         text-align: left;
         margin-left: 60px;
+
+        &--small {
+            font-weight: 700;
+            display: block;
+            font-size: 36px;
+            line-height: 48px;
+            width: auto;
+            margin-left: 0;
+        }
+    }
+
+    &__about {
+        margin-bottom: 25px;
     }
 }
