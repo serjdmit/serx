@@ -1,26 +1,26 @@
 section.contact
-    h2.contact__title Связаться со мной
+    h2.title.title--big Связаться со мной
 
-    form.contact__form
-        .contact__user
-            .contact__user_name.contact__form__field
-                .contact__form_left  
+    form.form
+        .form-data
+            .form__field.user__name
+                .form__left  
                     +icon('user', 'contact__user_icon')
-                .contact__form_right
-                    label.contact__user_field-name Ваше имя
-                    input(type="text" name="name").contact__input
-            .contact__user_email.contact__form__field
-                .contact__form_left 
+                .form__right
+                    label.form__field Ваше имя
+                    input(type="text" name="name").form__input
+            .form__field.user__email
+                .form__left 
                     +icon('envelope', 'contact__user_icon')
-                .contact__form_right
-                    label.contact__user_field-name Введите выш email
-                    input(type="text" name="email").contact__input
-            .contact__message.contact__form__field
-                .contact__form_left.contact__form_left--message
-                    +icon('message', 'contact__user_icon')
-                .contact__form_right
-                    label.contact__user_field-name Сообщение к письму
-                    textarea(name="message").contact__input
-        .button
-            input(type="submit" value="Отправить").button__send
+                .form__right
+                    label.form__field Введите выш email
+                    input(type="text" name="email").form__input
+        .form__field.message
+            .form__left.form_left--message
+                +icon('message', 'contact__user_icon')
+            .form__right
+                label.form__field Сообщение к письму
+                textarea(name="message").form__input
+        .button-block
+            input(type="submit" value="Отправить").button.button--send
 
