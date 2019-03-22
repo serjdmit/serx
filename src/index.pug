@@ -9,20 +9,30 @@ head
     title Portfolio | main page
 body
     .wrapper
-        .maincontent
-            //- +image('content/user.jpg', 'user-pic')
-            //- +icon('link', 'link-class')
-            //- .icon-bg
-            //- include ./sections/header.pug
+        .parallax
+            .parallax__layer
+                +image('parallax/layer-01.png', 'parallax__image')
+            .parallax__layer
+                +image('parallax/layer-02.png', 'parallax__image')
+            .parallax__layer
+                +image('parallax/layer-03.png', 'parallax__image')
+            .parallax__layer
+                +image('parallax/layer-04.png', 'parallax__image')
             include ./sections/hero.pug
-            include ./sections/about.pug
-            include ./sections/skills.pug
-            include ./sections/works.pug
 
-            .wrapper-bottom
-                .container.container__bottom
-                    include ./sections/reviews.pug
-                    include ./sections/contact.pug
-                +image('bg/leaf.png', 'wrapper-bottom_leaf')
-    include ./sections/footer
+            .maincontent
+                //- +image('content/user.jpg', 'user-pic')
+                //- +icon('link', 'link-class')
+                //- .icon-bg
+                //- include ./sections/header.pug
+                include ./sections/about.pug
+                include ./sections/skills.pug
+                include ./sections/works.pug
+
+                .wrapper-bottom
+                    .container.container__bottom
+                        include ./sections/reviews.pug
+                        include ./sections/contact.pug
+                    +image('bg/leaf.png', 'wrapper-bottom_leaf')
+                include ./sections/footer
 
