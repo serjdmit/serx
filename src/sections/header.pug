@@ -12,5 +12,5 @@ header.header
         ul.socials__list
             each social in ['insta', 'vk', 'github']
                 li.socials__item
-                    a(class=`socials__list.socials__list_${social}` href="#")
-                        +icon(`${social}`, `${social}`)
+                    a(href="#").socials__link
+                        +icon(`${social}`, `${social} socials__icon`)

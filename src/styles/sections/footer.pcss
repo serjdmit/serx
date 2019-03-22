@@ -9,41 +9,35 @@
     align-items: flex-start;
     justify-content: space-between;
 
-    &__copyright {
-        opacity: 0.1;
-        color: #fff;
-        font-size: 48px;
-        font-weight: 600;
-        line-height: 30px;
-        display: inline-block;
-        margin-right: 80px;
-        vertical-align: top;
-        margin-top: 10px;
+    &__left {
+        width: 30%;
     }
-    &__user {
-        display: inline-block;
+    &__right {
+        width: 65%;
+        max-width: 1000px;
+    }
+    &__hero-title {
         width: 170px;
-
-        &_name {
-            color: #fff;
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 30px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            vertical-align: top;
-        }
-        &_info {
-            opacity: 0.15;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 30px;
-        }
+    }
+    &__hero-name {
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 30px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        margin-left: 0;
+        text-align: left;
+    }
+    &__hero-info {
+        display: block;
+        opacity: 0.15;
+        text-align: left;
     }
 
     &__nav {
-        width: 690px;
+        width: 100%;
+        max-width: 690px;
         margin-bottom: 60px;
 
         &__list {
@@ -66,104 +60,18 @@
     &__bottom {
         display: flex;
         justify-content: space-between;
-        width: 1000px;
+        width: 100%;
     }
 
     &__info {
-        width: 350px;
-
-        &_about {
-            opacity: 0.3;
-            color: #fff;
-            font-weight: 400;
-            line-height: 30px;
-            margin-bottom: 25px;
-        }
+        width: 45%;
     }
 
-    &__socials {
-        display: inline-block;
-
-        &__list {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        &__link {
-            margin-right: 20px;
-            width: 50px;
-            height: 50px;
-            display: block;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, .3);
-            border-radius: 50%;
-            transition: ease-in-out .2s;
-
-            &:hover {
-                border-color: #ff9a00;
-
-                .insta {
-                    fill: #ff9a00;
-                    opacity: 1;
-                }
-                .vk {
-                    fill: #ff9a00;
-                    opacity: 1;
-                }
-                .github {
-                    fill: #ff9a00;
-                    opacity: 1;
-                }
-            }
-        }
-
-        .insta {
-            width: 20px;
-            fill: #fff;
-            opacity: .3;
-            transition: ease-in-out .2s;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .vk {
-            width: 25px;
-            fill: #fff;
-            opacity: .3;
-            transition: ease-in-out .2s;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .github {
-            width: 22px;
-            fill: #fff;
-            opacity: .3;
-            transition: ease-in-out .2s;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
+    &__about {
+        margin-bottom: 25px;
     }
 
     &__quote {
-        width: 450px;
-
-        &_article {
-            opacity: 0.3;
-            color: #fff;
-            font-weight: 400;
-            line-height: 30px;
-            margin-bottom: 25px;
-        }
-        &_name {
-            color: #fff;
-            font-style: italic;
-            line-height: 30px;
-        }
+        width: 45%;
     }
 }
