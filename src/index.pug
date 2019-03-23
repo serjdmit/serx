@@ -8,6 +8,7 @@ head
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
 body
+    include ./templates/entry.pug
     .wrapper
         .parallax
             .parallax__layer
@@ -29,7 +30,16 @@ body
                 //- .icon-bg
                 //- include ./sections/header.pug
                 include ./sections/about.pug
-                include ./sections/skills.pug
+                //- include ./sections/skills.pug
+                section.skills
+                    .container.container__skills
+                        .skills__right
+                            h2.title Чем я могу быть полезен вам
+                            .content.skills__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                            .skills__widget
+                                #skills-component
+                        .skills__left
+                            +image('bg/arms.png', 'skills__image')
                 include ./sections/works.pug
 
                 .wrapper-bottom
@@ -38,4 +48,3 @@ body
                         include ./sections/contact.pug
                     +image('bg/leaf.png', 'wrapper-bottom_leaf')
                 include ./sections/footer
-
