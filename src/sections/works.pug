@@ -1,28 +1,5 @@
 section.works
     .container.container__works.container__works--title
         h2.title.title--dark Мои работы
-    .container.container__works
-        .works__left
-            .preview
-                +image(`works/1.jpg`, 'preview__image')
-                .preview__slider
-                    each image in (['1', '2', '3', '4'])
-                        +image(`works/${image}.jpg`, 'preview__small-image')
-                .slider
-                    .slider__number 2
-                    .slider__buttons
-                        button.button
-                            +icon('arrow-right', 'button__arrow')
-                        button.button.button--disabled
-                            +icon('arrow-right', 'button__arrow button__arrow--left button__arrow--disabled')
-        .works__right
-            .tags
-                each tag in (['HTML', 'CSS', 'Javascript'])
-                    .tags__item= tag
-            .works__description
-                h3.title.title--dark Сайт школы образования
-                .content.content--dark
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, molestias odio. Qui beatae delectus non, accusantium sint molestias veniam in?
-                a(href="#").link
-                    +icon('link', 'link__icon')
-                    span Посмотреть сайт
+    #slider-container
+        

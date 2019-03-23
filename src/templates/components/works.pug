@@ -1,0 +1,58 @@
+script(type="text/x-template")#slider-component
+    .container.container__works
+        display(
+            :works="works"
+            :currentWork="currentWork"
+            @slide="handleSlide"
+        )
+        info(
+            :currentWork="currentWork"
+        )
+
+script(type="text/x-template")#slider-display
+    .works__left
+        .preview(data-slide="1")
+            img(:src="currentWork.photo").preview__image
+            btns(
+                @slide="direction => $emit('slide', direction)"
+            )
+            thumbs(
+                :works="works"
+                :currentWork="currentWork"
+            )
+
+script(type="text/x-template")#slider-thumbs
+    ul.preview__slider
+        li.preview__thumb(
+            v-for="work in works" :key="work.id"
+            :class="{preview__thumb_active: currentWork.id === work.id}"
+        )
+            a.preview__thumb-link
+                //- +image(`works/slider-1.jpg`, 'preview__small-image')
+                img(:src="work.photo").preview__small-image
+
+script(type="text/x-template")#slider-btns
+    .preview__buttons
+        button(@click.prevent="$emit('slide', 'prev')").button.button--disabled
+            +icon('arrow-right', 'button__arrow')
+        button(@click.prevent="$emit('slide', 'next')").button
+            +icon('arrow-right', 'button__arrow button__arrow--left')
+
+
+script(type="text/x-template")#slider-info
+    .works__right
+        tags(
+           :tagsArray="tagsArray" 
+        )
+        .works__description
+            h3.title.title--dark {{currentWork.title}}
+            .content.content--dark
+                p {{currentWork.desc}}
+            a(:href="currentWork.link").link
+                +icon('link', 'link__icon')
+                span Посмотреть сайт
+
+script(type="text/x-template")#slider-tags
+    .tags
+        .tags__list(v-for="tag in tagsArray")
+            .tags__item {{tag}}
