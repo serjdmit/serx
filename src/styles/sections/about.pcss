@@ -7,13 +7,17 @@
 
     &__left {
         display: inline-block;
-        min-width: 350px;
+        /* min-width: 50%; */
         text-align: left;
     }
     &__right {
         display: inline-block;
-        max-width: 600px;
+        width: 60%;
         text-align: left;
+
+        @include tablets() {
+            width: 45%;
+        }
     }
     &__content {
         margin-bottom: 90px;

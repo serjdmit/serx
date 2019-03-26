@@ -5,6 +5,7 @@
     display: block;
     cursor: pointer;
     fill: #fff;
+    outline: none;
     transition:  ease-in-out .2s;
 
     &:hover {
@@ -34,7 +35,7 @@
         }
     }
     &--send {
-        padding: 20px 90px;
+        padding: 35px 120px;
         width: auto;
         height: auto;
         background: linear-gradient(to right, #ea7400 0%, #f29400 100%);
@@ -42,9 +43,12 @@
         color: #fff;
         font-size: 18px;
         font-weight: 700;
-        line-height: 48px;
         text-transform: uppercase;
         position: relative;
+
+        @include desktop() {
+            margin: 0 auto;
+        }
 
         &:before {
             content: "Отправить";
@@ -53,9 +57,10 @@
             left: 0;
             top: 0;
             position: absolute;
+            padding: 35px 120px;
+            box-sizing: border-box;
             z-index: 1;
-            line-height: 88px;
-            transition: ease-in-out .2s;
+            transition: ease-in-out .3s;
             background: linear-gradient(to right, #f29400 0%, #ea7400 100%);
             opacity: 0;
         }

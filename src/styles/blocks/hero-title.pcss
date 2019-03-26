@@ -1,5 +1,7 @@
 .hero-title {
     display: inline-block;
+    text-align: center;
+    min-width: 800px;
 
     &__info {
         opacity: 0.4;
@@ -12,12 +14,23 @@
         vertical-align: top;
         text-align: right;
 
+        @include tablets() {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         &--small {
             text-align: left;
             width: auto;
             display: block;
             font-size: 16px;
             margin-bottom: 20px;
+
+            @include tablets() {
+                margin: 0;
+                text-align: left;
+            }
         }
     }
 
@@ -33,6 +46,14 @@
         margin-left: 60px;
         vertical-align: top;
 
+        @include tablets() {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 48px;
+            width: 50%;
+        }
+
         &--small {
             font-weight: 700;
             display: block;
@@ -40,6 +61,12 @@
             line-height: 48px;
             width: auto;
             margin-left: 0;
+
+            @include tablets() {
+                margin: 0;
+                text-align: left;
+                width: 40%;
+            }
         }
     }
 
@@ -52,5 +79,9 @@
         top: 23%;
         left: 50%;
         transform: translateX(-50%);
+
+        @include tablets() {
+            top: 20%;
+        }
     }
 }

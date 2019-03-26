@@ -11,7 +11,7 @@ script(type="text/x-template")#slider-component
 
 script(type="text/x-template")#slider-display
     .works__left
-        .preview(data-slide="1")
+        .preview(:data-slide="currentWork.id")
             img(:src="currentWork.photo").preview__image
             btns(
                 @slide="direction => $emit('slide', direction)"

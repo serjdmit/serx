@@ -1,13 +1,6 @@
 .footer {
     background-color: #1b1f22;
     color: #fff;
-    text-align: left;
-    padding: 85px 160px;
-    width: 100vw;
-    padding-bottom: 200px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
 
     &__left {
         width: 30%;
@@ -33,6 +26,7 @@
         display: block;
         opacity: 0.15;
         text-align: left;
+        min-width: auto;
     }
 
     &__nav {
@@ -42,12 +36,10 @@
 
         &__list {
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
         }
         &__item {
             display: inline-block;
+            margin: 0 50px 10px 0;
         }
         &__link {
             color: #fff;
@@ -61,17 +53,36 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+
+        @include desktop() {
+            display: block;
+        }
     }
 
     &__info {
         width: 45%;
+        display: inline-block;
+
+        @include desktop() {
+            margin-bottom: 35px;
+            width: auto;
+        }
     }
 
     &__about {
         margin-bottom: 25px;
+
+        @include desktop() {
+            margin-bottom: 10px;
+        }
     }
 
     &__quote {
         width: 45%;
+        display: inline-block;
+
+        @include desktop() {
+            width: auto;
+        }
     }
 }

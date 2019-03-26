@@ -1,14 +1,28 @@
 .works {
     &__left {
         width: 60%;
+
+        @include desktop() {
+            width: 90%;
+        }
     }
     &__right {
         width: 30%;
+
+        @include desktop() {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__description {
         .content {
             padding-bottom: 40px;
+
+            @include desktop() {
+                display: block;
+                margin: 0 auto;
+            }
         }
     }
 }

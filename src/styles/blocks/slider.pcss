@@ -2,6 +2,10 @@
     position: relative;
     width: 100%;
 
+    @include desktop() {
+        padding-bottom: 60px;
+    }
+
     &__thumb {
         transition: ease-in-out .2s;
         border: 0 solid #f29400;
@@ -54,5 +58,9 @@
         right: -150px;
         position: absolute;
         z-index: -1;
+
+        @include desktop() {
+
+        }
     }
 }

@@ -2,8 +2,7 @@
     background: url(../images/bg/bg_bottom.jpg) #ccc top center no-repeat;
     background-size: cover;
     text-align: left;
-    padding: 140px 160px;
-    width: 100vw;
+    padding-top: 140px;
     padding-bottom: 200px;
     display: flex;
     align-items: flex-start;
@@ -15,5 +14,9 @@
         right: -215px;
         width: 616px;
         height: 442px;
+
+        @include desktop() {
+            right: -400px;
+        }
     }
 }
