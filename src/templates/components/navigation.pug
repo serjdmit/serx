@@ -1,17 +1,10 @@
 script(type="text/x-template")#navigation-block
     nav.nav#navigation
         ul.nav__list
-            li.nav__item
-                a.nav__link(href='#') Главная
-            li.nav__item
-                a.nav__link(href='#') Обо мне
-            li.nav__item
-                a.nav__link(href='#') Навыки
-            li.nav__item.nav__item_active
-                a.nav__link(href='#') Работы
-            li.nav__item
-                a.nav__link(href='#') Отзывы
-            li.nav__item
-                a.nav__link(href='#') Связаться
+            li.nav__item(v-for="item in items")  
+                a.nav__link(href='#') {{item.link}}
 
-script(type="text/x-template")#nav-button
+script(type="text/x-template")#nav-hamburger
+    button.hamburger.hamburger--elastic(type='button', aria-label='Menu', aria-controls='navigation' v-on:click="toggleActive" :class="{'is-active': isActive}")
+        span.hamburger-box
+            span.hamburger-inner
