@@ -1,8 +1,8 @@
 script(type="text/x-template")#navigation-block
-    nav.nav#navigation
+    nav.nav(:class="{'is-active': isActive}")#navigation
         ul.nav__list
             li.nav__item(v-for="item in items")  
-                a.nav__link(href='#') {{item.link}}
+                a.nav__link(:href='item.link') {{item.name}}
 
 script(type="text/x-template")#nav-hamburger
     button.hamburger.hamburger--elastic(type='button', aria-label='Menu', aria-controls='navigation' v-on:click="toggleActive" :class="{'is-active': isActive}")

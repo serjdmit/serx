@@ -6,7 +6,16 @@ const thumbs = {
     template: "#slider-thumbs",
     props: {
         works: Array,
-        currentWork: Object
+        currentWork: Object,
+        thumbId: Number
+    },
+    // data: {
+    //     thumbId: Number
+    // },
+    methods: {
+        getThumbId() {
+            thumbId = dataset.ThumbId;
+        }
     }
 }
 const btns = {

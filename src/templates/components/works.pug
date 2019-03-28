@@ -26,6 +26,8 @@ script(type="text/x-template")#slider-thumbs
         li.preview__thumb(
             v-for="work in works" :key="work.id"
             :class="{preview__thumb_active: currentWork.id === work.id}"
+            :data-thumb-id="work.id"
+            :data-some="thumbId"
         )
             a.preview__thumb-link
                 //- +image(`works/slider-1.jpg`, 'preview__small-image')

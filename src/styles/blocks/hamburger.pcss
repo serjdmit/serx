@@ -1,7 +1,11 @@
 .hamburger {
   padding: $hamburger-padding-y $hamburger-padding-x;
-  display: inline-block;
+  display: none;
   cursor: pointer;
+
+  @include tablets() {
+      display: inline-block;
+  }
 
   transition-property: opacity, filter;
   transition-duration: 0.15s;
