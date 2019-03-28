@@ -10,14 +10,30 @@
         font-weight: 700;
         line-height: 48px;
         padding-bottom: 15px;
+
+        @include phones() {
+            text-align: center;
+        }
     }
 
     &--big {
         font-size: 36px;
         line-height: 48px;
+
+        @include phones() {
+            font-size: 28px;
+            text-align: left !important;
+        }
     }
 
     &--dark {
         color: #2b3948;
+        @include phones() {
+            margin: 0 auto;
+        }
+    }
+
+    @include phones() {
+        padding-bottom: 25px;
     }
 }

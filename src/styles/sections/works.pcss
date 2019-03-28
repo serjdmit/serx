@@ -5,6 +5,10 @@
         @include desktop() {
             width: 90%;
         }
+        @include phones() {
+            margin-left: -9%;
+            width: 118%;
+        }
     }
     &__right {
         width: 30%;
@@ -12,6 +16,11 @@
         @include desktop() {
             width: 100%;
             text-align: center;
+        }
+
+        @include phones() {
+            width: 100%;
+            text-align: left;
         }
     }
 
@@ -23,6 +32,10 @@
                 display: block;
                 margin: 0 auto;
             }
+            @include desktop() {
+                padding-bottom: 25px;
+            }
+            
         }
     }
 }

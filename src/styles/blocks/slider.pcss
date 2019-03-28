@@ -41,11 +41,19 @@
         position: absolute;
         z-index: 2;
         right: 0;
+
+        @include phones() {
+            display: none;
+        }
     }
     &__buttons {
         position: absolute;
         bottom: 60px;
         right: -50px;
+
+        @include phones() {
+            right: 0;
+        }
     }
     &:after {
         content: attr(data-slide);
@@ -59,8 +67,8 @@
         position: absolute;
         z-index: -1;
 
-        @include desktop() {
-
+        @include phones() {
+            display: none;
         }
     }
 }

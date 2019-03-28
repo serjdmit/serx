@@ -81,7 +81,18 @@
         transform: translateX(-50%);
 
         @include tablets() {
-            top: 20%;
+            display: none;
+        }
+    }
+    &--tablet {
+        display: none;
+
+        @include tablets() {
+            display: block;
+            position: absolute;
+            top: 23%;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 }

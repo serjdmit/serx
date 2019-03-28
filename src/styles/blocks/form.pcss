@@ -17,11 +17,18 @@
         @include desktop() {
             text-align: left;
         }
+        @include phones() {
+            width: 100%;
+        }
+        
 
         &--message {
             @include desktop() {
                 width: 86%;
             }
+        }
+        @include phones() {
+            width: 100%;
         }
     }
     &__left, &__right {

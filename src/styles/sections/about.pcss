@@ -9,6 +9,10 @@
         display: inline-block;
         /* min-width: 50%; */
         text-align: left;
+
+        @include phones() {
+            display: block;
+        }
     }
     &__right {
         display: inline-block;
@@ -18,9 +22,16 @@
         @include tablets() {
             width: 45%;
         }
+        @include phones() {
+            display: block;
+            width: 100%;
+        }
     }
     &__content {
         margin-bottom: 90px;
+        @include phones() {
+            margin-bottom: 45px;
+        }
     }
 
     &:before {

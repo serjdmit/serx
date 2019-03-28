@@ -1,5 +1,9 @@
 .container {
     display: flex;
+    @include phones() {
+        padding-top: 45px !important;
+        padding-bottom: 70px !important;
+    }
 
     &__hero {
         height: 100vh;
@@ -9,12 +13,22 @@
         justify-content: space-between;
         flex-direction: column;
         padding-bottom: 250px;
+
+        @include phones() {
+            padding-top: 0 !important;
+        }
     }
 
     &__about {
         justify-content: space-evenly;
         padding-top: 65px;
         padding-bottom: 190px;
+
+        @include phones() {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
     }
 
     &__skills {
@@ -39,22 +53,38 @@
         @include desktop() {
             flex-direction: column;
         }
+        @include phones() {
+            padding-top: 0 !important;
+        }
 
         &--title {
             padding-top: 90px;
             padding-bottom: 0;
+
+            @include phones() {
+                padding-bottom: 30px !important;
+                padding-top: 90px !important;
+            }
         }
     }
 
     &__bottom {
         flex-direction: column;
+
+        @include phones() {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
     }
 
     &__footer {
-        /* text-align: left; */
         padding-top: 85px;
         padding-bottom: 100px;
         align-items: flex-start;
         justify-content: space-between;
+
+        @include tablets() {
+            flex-direction: column;
+        }
     }
 }

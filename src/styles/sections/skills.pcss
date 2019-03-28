@@ -16,6 +16,9 @@
             margin-bottom: -60px;
         
         }
+        @include phones() {
+            margin-top: -90px;
+        }
     }
     &__right {
         @include desktop() {
@@ -28,6 +31,10 @@
 
     &__content {
         padding-bottom: 80px;
+
+        @include phones() {
+            padding-bottom: 25px;
+        }
     }
 
     &__image {
