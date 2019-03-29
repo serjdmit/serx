@@ -91,7 +91,7 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, "./dist"),
       filename: "[name].[hash].build.js",
-      publicPath: isProductionBuild ? publicPath : "./dist",
+      publicPath: isProductionBuild ? publicPath : "https://github.com/serjdmit/serx",
       chunkFilename: "[chunkhash].js"
     },
     module: {
