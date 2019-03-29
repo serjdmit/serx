@@ -1,27 +1,5 @@
 section.contact
     h2.title.title--big Связаться со мной
 
-    form.form(id="message")
-        .form__block
-            .form__field
-                .form__left  
-                    +icon('user', 'form__icon')
-                .form__right
-                    label.form__label Ваше имя
-                    input(type="text" name="name").form__input
-            .form__field
-                .form__left 
-                    +icon('envelope', 'form__icon')
-                .form__right
-                    label.form__label Введите выш email
-                    input(type="text" name="email").form__input
-        .form__block
-            .form__field.form__field--message
-                .form__left.form__left--message
-                    +icon('message', 'form__icon')
-                .form__right.form__right--message
-                    label.form__label Сообщение к письму
-                    textarea(name="message").form__input.form__input--message
-        .button-block
-            button(type="submit" value="Отправить" form="message").button.button--send Отправить
+    #message-component
 
