@@ -6,16 +6,7 @@ const thumbs = {
     template: "#slider-thumbs",
     props: {
         works: Array,
-        currentWork: Object,
-        thumbId: Number
-    },
-    // data: {
-    //     thumbId: Number
-    // },
-    methods: {
-        getThumbId() {
-            thumbId = dataset.ThumbId;
-        }
+        currentWork: Object
     }
 }
 const btns = {
@@ -105,6 +96,9 @@ new Vue ({
                     break;
             }
         },
+        selectWork(id){
+          this.currentIndex = (id - 1);
+        }
     },
     created() {
         const data = require('../data/works.json');

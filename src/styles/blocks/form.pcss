@@ -6,19 +6,25 @@
         @include desktop() {
             text-align: center;
         }
+
+        @include tablets() {
+            margin-bottom: 0;
+        }
     }
     &__field {
         border-bottom: 2px solid #fff;
         display: inline-block;
         margin-right: 50px;
+        margin-top: 50px;
         width: 40%;
         vertical-align: top;
 
         @include desktop() {
             text-align: left;
         }
-        @include phones() {
+        @include tablets() {
             width: 100%;
+            margin-right: 0;
         }
         
 
@@ -27,7 +33,7 @@
                 width: 86%;
             }
         }
-        @include phones() {
+        @include tablets() {
             width: 100%;
         }
     }
@@ -42,18 +48,33 @@
     }
     &__right {
         width: 80%;
+        position: relative;
 
-        &--message {
-            width: 90%;
-        }
+        // &--message {
+        //     width: 90%;
+
+        //     @include phones() {
+        //         width: 80%;
+        //     }
+        // }
     }
     &__label {
-        display: block;
-        opacity: 0.3;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 30px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 48px;
+        transition: ease-in-out .2s;
+        position: absolute;
+        pointer-events: none;
+
+        &.active {
+            opacity: 0.3;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 30px;
+            top: -30px;
+        }
     }
     &__input {
         background: transparent;

@@ -1,9 +1,11 @@
 script(type="text/x-template")#slider-component
     .container.container__works
         display(
-            :works="works"
-            :currentWork="currentWork"
-            @slide="handleSlide"
+            :works="works",
+            :currentWork="currentWork",
+            :currentIndex="currentIndex",
+            @slide="handleSlide",
+            @select="selectWork"
         )
         info(
             :currentWork="currentWork"
@@ -17,8 +19,9 @@ script(type="text/x-template")#slider-display
                 @slide="direction => $emit('slide', direction)"
             )
             thumbs(
-                :works="works"
-                :currentWork="currentWork"
+                :works="works",
+                :currentWork="currentWork",
+                @select="workId => $emit('select', workId)"
             )
 
 script(type="text/x-template")#slider-thumbs
@@ -26,8 +29,7 @@ script(type="text/x-template")#slider-thumbs
         li.preview__thumb(
             v-for="work in works" :key="work.id"
             :class="{preview__thumb_active: currentWork.id === work.id}"
-            :data-thumb-id="work.id"
-            :data-some="thumbId"
+            @click.prevent="$emit('select', work.id)"
         )
             a.preview__thumb-link
                 //- +image(`works/slider-1.jpg`, 'preview__small-image')

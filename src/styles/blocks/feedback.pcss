@@ -12,13 +12,22 @@
             width: auto;
             max-width: 300px;
         }
+        @include tablets() {
+            max-width: 80%;
+            margin-bottom: 30px;
+        }
         @include phones() {
             max-width: 100%;
+            margin-bottom: 0;
         }
     }
 
     &__article {
         margin-bottom: 30px;
+
+        @include tablets() {
+            margin-bottom: 10px;
+        }
     }
 
     @include phones() {

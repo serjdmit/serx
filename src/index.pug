@@ -47,7 +47,17 @@ body
 
                 .wrapper-bottom
                     .container.container__bottom
-                        include ./sections/reviews.pug
-                        include ./sections/contact.pug
-                    +image('bg/leaf.png', 'wrapper-bottom_leaf')
+                        .wrapper-bottom__left
+                            include ./sections/reviews.pug
+                            include ./sections/contact.pug
+                        .wrapper-bottom__right
+                            .leafs
+                                .leafs__layer
+                                    +image('leafs/1.png', 'leafs__image')
+                                .leafs__layer
+                                    +image('leafs/2.png', 'leafs__image')
+                                .leafs__layer
+                                    +image('leafs/3.png', 'leafs__image')
+                                .leafs__layer
+                                    +image('leafs/4.png', 'leafs__image')
                 include ./sections/footer

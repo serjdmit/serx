@@ -76,23 +76,23 @@
 
     &--parallax {
         position: absolute;
-        top: 23%;
+        top: 25%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
 
-        @include tablets() {
+        @include desktop() {
             display: none;
         }
     }
     &--tablet {
         display: none;
 
-        @include tablets() {
+        @include desktop() {
             display: block;
             position: absolute;
-            top: 23%;
+            top: 35%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
         }
     }
 }

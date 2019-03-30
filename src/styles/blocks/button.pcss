@@ -67,6 +67,10 @@
             transition: ease-in-out .3s;
             background: linear-gradient(to right, #f29400 0%, #ea7400 100%);
             opacity: 0;
+            
+            @include phones() {
+                padding: 20px 0;
+            }
         }
 
         &:hover {
