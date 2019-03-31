@@ -25,15 +25,16 @@ script(type="text/x-template")#slider-display
             )
 
 script(type="text/x-template")#slider-thumbs
-    ul.preview__slider
-        li.preview__thumb(
-            v-for="work in works" :key="work.id"
-            :class="{preview__thumb_active: currentWork.id === work.id}"
-            @click.prevent="$emit('select', work.id)"
-        )
-            a.preview__thumb-link
-                //- +image(`works/slider-1.jpg`, 'preview__small-image')
-                img(:src="work.photo").preview__small-image
+    .preview__slider
+        flickity(ref="flickity" :options="flickityOptions")
+            .preview__thumb(
+                v-for="work in works" :key="work.id"
+                :class="{preview__thumb_active: currentWork.id === work.id}"
+                @click.prevent="$emit('select', work.id)"
+            )
+                a.preview__thumb-link
+                    //- +image(`works/slider-1.jpg`, 'preview__small-image')
+                    img(:src="work.photo").preview__small-image
 
 script(type="text/x-template")#slider-btns
     .preview__buttons

@@ -1,8 +1,6 @@
 .feedback {
-    display: inline-block;
-    margin-right: 50px;
-    vertical-align: top;
-
+    /* padding-right: 50px; */
+    width: 50%;
 
     &__content {
         display: inline-block;
@@ -30,13 +28,9 @@
         }
     }
 
-    @include phones() {
+    @include tablets() {
         margin: 0;
-        display: none;
-        
-        &.active {
-            display: block;
-        }
+        width: 100%;
     }
 }
 .quotes {

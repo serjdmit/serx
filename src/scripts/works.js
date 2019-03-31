@@ -1,12 +1,26 @@
 import Vue from 'vue';
+import Flickity from 'vue-flickity';
 
 
 
 const thumbs = {
     template: "#slider-thumbs",
+    components: {
+        Flickity
+    },
     props: {
         works: Array,
-        currentWork: Object
+        currentWork: Object,
+        flickityOptions: Object
+    },
+    // Настройки не работают
+    data: {
+        flickityOptions: {
+            initialIndex: 3,
+            prevNextButtons: false,
+            pageDots: false,
+            wrapAround: true
+        }
     }
 }
 const btns = {

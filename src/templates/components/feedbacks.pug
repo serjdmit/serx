@@ -1,0 +1,24 @@
+script(type="text/x-template")#reviews-block 
+    .reviews__top-block
+        h2.title.reviews__title.title--big Что обо мне говорят
+        .reviews__buttons
+            button( @click="previous()" ).button.reviews__button.button--circle
+                +icon('arrow-right', 'button__arrow')
+            button( @click="next()" ).button.reviews__button.button--circle
+                +icon('arrow-right', 'button__arrow button__arrow--left')
+
+script(type="text/x-template")#feedbacks-block
+    //- .feedbacks
+    flickity(ref="flickity" :options="flickityOptions")
+        .feedback(v-for='feedback in feedbacks')
+            .quotes
+                +icon('quote', 'quotes__icon')
+            .feedback__content
+                article.content.feedback__article {{feedback.text}}
+                .person
+                    .person__left
+                        +image('content/user.jpg', 'person__avatar')
+                        //- img(:src=require(`images/content/${feedback['author-pic']}`)).person__avatar
+                    .person__right
+                        .person__name {{ feedback['author-name'] }}
+                        .person__occ {{ feedback['author-occ'] }}

@@ -7,3 +7,4 @@ import "./scripts/skills";
 import "./scripts/works";
 import "./scripts/navigation";
 import "./scripts/message";
+import "./scripts/feedbacks";
