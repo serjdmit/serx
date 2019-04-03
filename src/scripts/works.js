@@ -16,10 +16,11 @@ const thumbs = {
     // Настройки не работают
     data: {
         flickityOptions: {
-            initialIndex: 3,
+            initialIndex: 1,
             prevNextButtons: false,
             pageDots: false,
-            wrapAround: true
+            wrapAround: true,
+            cellAlign: 'left'
         }
     }
 }
@@ -35,7 +36,8 @@ const display = {
     },
     props: {
         works: Array,
-        currentWork: Object
+        currentWork: Object,
+        flickityOptions: Object
     }
 }
 
@@ -73,7 +75,14 @@ new Vue ({
     data() {
         return {
             works: [],
-            currentIndex: 0
+            currentIndex: 0,
+            flickityOptions: {
+                initialIndex: 1,
+                prevNextButtons: false,
+                pageDots: false,
+                wrapAround: true,
+                cellAlign: 'left'
+            }
         }
     },
     computed: {
