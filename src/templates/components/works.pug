@@ -38,7 +38,7 @@ script(type="text/x-template")#slider-thumbs
 
 script(type="text/x-template")#slider-btns
     .preview__buttons
-        button(@click.prevent="$emit('slide', 'prev')").button.button--disabled
+        button(@click.prevent="$emit('slide', 'prev')").button
             +icon('arrow-right', 'button__arrow')
         button(@click.prevent="$emit('slide', 'next')").button
             +icon('arrow-right', 'button__arrow button__arrow--left')

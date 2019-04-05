@@ -21,6 +21,9 @@
                                 a.nav__link Отзывы
         main.page
             .container
+
+                //////////////////////// ABOUT /////////////////////////////
+
                 section.page.skills-page
                     .title-block
                         h1.title.title__skills-page Блок "Обо мне"
@@ -28,68 +31,111 @@
                             .add-icon.add-icon__title
                                 .plus-icon.plus-icon--small +
                             .add-button__title Добавить группу
-                    ul.skills-group
-                        li.skills-group-block
-                            .container
-                                .skills-group-header
-                                    .skills-group-block__name Workflow
-                                    input(type="text" placeholder="Название новой группы" value="Workflow").skills-group-block__input.hidden
-                                    .skills-group-block__buttons
-                                        .buttons-block
-                                            button.buttons-block__button.buttons-block__button--check
-                                            button.buttons-block__button.buttons-block__button--remove
-                                        .buttons-block.hidden
-                                            button.buttons-block__button.buttons-block__button--change
-                            hr.skills-line
-                            .container
-                                .skills-group-body
-                                    table.skills
-                                        tr.skills-row
-                                            td.skills-name HTML5
-                                            td.skill-percents 100
-                                            td.skill-percents-sign %
-                                            td.skill-buttons
-                                                .buttons-block
-                                                    button.buttons-block__button.buttons-block__button--check
-                                                    button.buttons-block__button.buttons-block__button--remove
-                                                .buttons-block.hidden
-                                                    button.buttons-block__button.buttons-block__button--change
-                                                    button.buttons-block__button.buttons-block__button--delete
-                                        tr.skills-row.active
-                                            td.skills-name CSS3
-                                            td.skill-percents 90
-                                            td.skill-percents-sign %
-                                            td.skill-buttons
-                                                .buttons-block.hidden
-                                                    button.buttons-block__button.buttons-block__button--check
-                                                    button.buttons-block__button.buttons-block__button--remove
+                    .content-block
+                        ul.cards-group
+                            li.card-block.card-block__skills
+                                .container
+                                    .container
+                                        .card-block__header
+                                            .card-block__name Workflow
+                                            input(type="text" placeholder="Название новой группы" value="Workflow").card-block__input.hidden
+                                            .card-block__buttons
                                                 .buttons-block
                                                     button.buttons-block__button.buttons-block__button--change
-                                                    button.buttons-block__button.buttons-block__button--delete
-                                        tr.skills-row
-                                            td.skills-name JavaScript
-                                            td.skill-percents 80
-                                            td.skill-percents-sign %
-                                            td.skill-buttons
-                                                .buttons-block.hidden
-                                                    button.buttons-block__button.buttons-block__button--check
-                                                    button.buttons-block__button.buttons-block__button--remove
-                                                .buttons-block
-                                                    button.buttons-block__button.buttons-block__button--change
-                                                    button.buttons-block__button.buttons-block__button--delete
-                                    table.add-skill
-                                        tr.add-skill__row
-                                            td.add-skill-name
-                                                input(type="text" placeholder="Новый навык").add-skill-name__input
-                                            td.add-skill-percents
-                                                input(type="text" placeholder="100").add-skill-percents__input
-                                                .add-skill-percents__sign %
-                                            td.add-skill-button
-                                                button.add-skill-button__add.add-button
-                                                    .add-icon
-                                                        .plus-icon +
+                                    hr.card-line
+                                    .container
+                                        .card-block__body
+                                            table.card-table
+                                                tr.card-table__row
+                                                    td.card-table__cell.card-table__cell--name
+                                                        input(type="text" placeholder="Навык" value="HTML5").card-cell-input
+                                                    td.card-table__cell.card-table__cell--percents.skill-percents
+                                                        input(type="text" placeholder="100" value="100").card-cell-input
+                                                    td.card-table__cell.card-table__cell--percents-sign %
+                                                    td.card-table__cell.card-table__cell--buttons
+                                                        .buttons-block
+                                                            button.buttons-block__button.buttons-block__button--check
+                                                            button.buttons-block__button.buttons-block__button--remove
+                                                tr.card-table__row.skills-row
+                                                    td.card-table__cell.card-table__cell--name
+                                                        .card-cell-label CSS3
+                                                    td.card-table__cell.card-table__cell--percents
+                                                        .card-cell-label 90
+                                                    td.card-table__cell.card-table__cell--percents-sign %
+                                                    td.card-table__cell.card-table__cell--buttons
+                                                        .buttons-block
+                                                            button.buttons-block__button.buttons-block__button--change
+                                                            button.buttons-block__button.buttons-block__button--delete
+                                                tr.card-table__row
+                                                    td.card-table__cell.card-table__cell--name
+                                                        .card-cell-label JavaScript
+                                                    td.card-table__cell.card-table__cell--percents
+                                                        .card-cell-label 80
+                                                    td.card-table__cell.card-table__cell--percents-sign %
+                                                    td.card-table__cell.card-table__cell--buttons
+                                                        .buttons-block
+                                                            button.buttons-block__button.buttons-block__button--change
+                                                            button.buttons-block__button.buttons-block__button--delete
+                                            table.add-skill
+                                                tr.add-skill__row
+                                                    td.add-skill-name
+                                                        input(type="text" placeholder="Новый навык").add-skill-name__input
+                                                    td.add-skill-percents
+                                                        input(type="text" placeholder="100").add-skill-percents__input
+                                                        .add-skill-percents__sign %
+                                                    td.add-skill-button
+                                                        button.add-skill-button__add.add-button
+                                                            .add-icon
+                                                                .plus-icon +
 
-                                        
+                //////////////////////// WORKS /////////////////////////////
+
+                section.page.works-page
+                    .title-block
+                        h1.title.title__skills-page Блок "Работы"
+                    .content-block
+                        .card-block.card-block--full-width
+                            .container
+                                .container
+                                    .card-block__header
+                                        .card-block__name Редактирование работы
+                                hr.card-line
+                                .card-block__body.card-block__body--flex-row
+                                    .card-block__left
+                                        .container
+                                            .upload
+                                                .upload__desc Перетащите или загрузите для загрузки изображения
+                                                button.button.button__upload Загрузить
+                                    .card-block__right
+                                        .container
+                                            form.card-block__form
+                                                .card-block__form-field
+                                                    label.card-block__label Название
+                                                    input(type="text" placeholder="Название работы" value="").card-block__input
+                                                .card-block__form-field
+                                                    label.card-block__label Ссылка
+                                                    input(type="text" placeholder="Введите ссылку" value="").card-block__input
+                                                .card-block__form-field
+                                                    label.card-block__label Описание
+                                                    textarea
+                                                .card-block__form-field
+                                                    label.card-block__label Добавление тега
+                                                    input(type="text" placeholder="Впишите теги через запятую" value="").card-block__input
+                                                    .tags
+                                                        .tag
+                                                            .tag__name HTML
+                                                            .tag__remove.buttons-block__button.buttons-block__button--remove
+                                                        .tag
+                                                            .tag__name CSS
+                                                            .tag__remove.buttons-block__button.buttons-block__button--remove
+                                                        .tag
+                                                            .tag__name Javascript
+                                                            .tag__remove.buttons-block__button.buttons-block__button--remove
+                                                .card-block__form-buttons
+                                                    button.button.button--cancel Отмена
+                                                    button.button Сохранить
+                                                
+                    
 
 </template>
 
@@ -117,8 +163,7 @@ export default {
 
     .admin-template {
         background-color: #f9fafe;
-        height: 100vh;
-        min-height: 630px;
+        min-height: 100vh;
     }
     .admin-panel {
         height: 80px;
@@ -195,15 +240,16 @@ export default {
     .nav__link {
         color: rgba(65,76,99,.7);
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
         line-height: 36.14px;
-        padding: 30px;
+        padding: 20px 25px;
+        margin-right: 5px;
         display: inline-block;
+        transition: ease-in-out .2s;
 
-        &--active {
+        &--active, &:hover {
             color: #383bcf;
             border-bottom: 3px solid #383bcf;
-            font-weight: 700;
         }
     }
 
@@ -214,7 +260,7 @@ export default {
     }
 
     .title-block {
-        padding: 15px 0;
+        padding: 15px 0 40px;
         display: block;
     }
 
@@ -283,48 +329,18 @@ export default {
         display: inline-block;
     }
 
-    /******************************** SKILLS-GROUP *********************************/
+    /******************************** BUTTONS *********************************/
 
-    .skills-group {
-        display: block;
-        padding: 15px 0;
-    }
-
-    .skills-group-block {
-        display: inline-block;
-        margin-right: 15px;
-        width: 45%;
-        box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.07);
-        background-color: #fff;
-    }
-
-    /******************************** SKILLS-GROUP-HEADER *********************************/
-
-    .skills-group-header {
-        display: flex;
-        justify-content: space-between;
-        align-content: center;
-        height: 75px;
-        padding: 30px 0;
-    }
-
-    .skills-group-block__name {
-        color: #414c63;
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 15px;
-    }
-    .skills-group-block__input {
-    }
-    .skills-group-block__buttons {
-    }
-
-    .skills-line {
-        width: 100%;
-        height: 1px;
-        color: #1f232d;
-        opacity: 0.15;
-        margin: 0;
+    .button {
+        border-radius: 25px;
+        background-image: linear-gradient(to right, #006aed 0%, #3f35cb 100%);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 50px;
+        height: 50px;
+        text-transform: uppercase;
+        padding: 0 40px;
     }
 
     .buttons-block {
@@ -356,64 +372,172 @@ export default {
         }
     }
 
-    /******************************** SKILLS-BODY *********************************/
+    /******************************** CARDS-GROUP *********************************/
 
-    .skills-group-body {
+    .cards-group {
+        display: block;
+        padding: 15px 0;
+    }
+
+    .card-block {
+        display: inline-block;
+        margin-right: 15px;
+        width: 30%;
+        box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.07);
+        background-color: #fff;
+
+        &--full-width {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .card-block__skills {
+        width: 45%;
+    }
+
+    /******************************** CARD-HEADER *********************************/
+
+    .card-block__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 75px;
+    }
+
+    .card-block__name {
+        color: #414c63;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 15px;
+    }
+    .card-block__input {
+        color: #414c63;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 15px;
+        border: none;
+        border-bottom: 1px solid #000;
+        width: 70%;
+        max-width: 273px;
+        height: 40px;
+        font-weight: 700;
+    }
+
+    .card-line {
+        width: 100%;
+        height: 1px;
+        color: #1f232d;
+        opacity: 0.15;
+        margin: 0;
+    }
+
+    .card-block__body {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         justify-content: space-between;
         width: 100%;
         min-height: 375px;
+        padding-top: 15px;
+
+        &--flex-row {
+            flex-direction: row;
+            align-items: flex-start;
+        }
     }
 
-    /******************************** SKILLS-TABLE *********************************/
+    .card-block__left, .card-block__right {
+        width: 50%;
+        display: block;
+        padding-top: 15px;
+    }
 
-    .skills {
+    /******************************** CARD-TABLE *********************************/
+
+    .card-table {
         width: 100%;
     }
-    .skills-row {
-        td {
-            padding: 10px 0 0 0;
-            color: rgba(65, 76, 99, .7);
-            font-weight: 600;
-            line-height: 32px;
-        }
 
-        .skills-name {
+    .card-table__cell {
+        height: 40px;
+        padding: 5px 0;
+        color: rgba(65, 76, 99, .7);
+        font-weight: 600;
+        line-height: 32px;
+
+        &--name {
             width: 60%;
             padding-right: 10px;
         }
-        .skill-percents {
+        &--percents {
             width: 10%;
         }
-        .skill-buttons {
+        &--buttons {
             display: flex;
             justify-content: flex-end;
         }
+    }
+    .card-cell-input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #000;
+        font-weight: 600;
+    }
+
+    /******************************** UPLOAD *********************************/
+
+    .upload {
+        width: 100%;
+        height: 276px;
+        border: 1px dashed #a1a1a1;
+        background-color: #dee4ed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .upload__desc {
+        max-width: 250px;
+        opacity: 0.5;
+        color: #414c63;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 33.89px;
+        margin-bottom: 25px;
+        display: block;
     }
 
     /******************************** ADD-SKILL-TABLE *********************************/
 
     .add-skill {
-        width: 80%;
+        max-width: 80%;
         border-spacing: 5px;
         padding: 30px 0;
     }
 
     .add-skill-name {
         border-bottom: 1px solid #1f232d;
-        padding: 15px;
+        padding: 0 15px;
     }
     .add-skill-name__input {
         background: transparent;
         border: none;
+        width: 100%;
+        height: 50px;
+        outline: none;
+        color: #414c63;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.2;
     }
 
     .add-skill-percents {
-        width: 100px;
+        width: 110px;
         border-bottom: 1px solid #1f232d;
-        padding: 15px;
+        padding: 0 15px;
         display: flex;
         justify-content: space-between;
     }
@@ -421,15 +545,25 @@ export default {
         background: transparent;
         border: none;
         display: inline-block;
-        width: 40px;
+        width: 100%;
+        height: 50px;
+        outline: none;
+        color: #414c63;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.2;
     }
     .add-skill-percents__sign {
         display: inline-block;
+        padding: 15px;
+        color: #414c63;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.2;
     }
 
     .add-skill-button {
-        padding: 0 15px;
-        padding-right: 0;
+        width: 40px;
     }
     .add-skill-button__add {
         padding: 0;

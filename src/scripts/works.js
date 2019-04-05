@@ -10,17 +10,23 @@ const thumbs = {
     },
     props: {
         works: Array,
-        currentWork: Object,
-        flickityOptions: Object
+        currentWork: Object
+    },
+    computed: {
+        handleSlide(direction) {
+            console.log(direction);
+        }
     },
     // Настройки не работают
-    data: {
-        flickityOptions: {
-            initialIndex: 1,
-            prevNextButtons: false,
-            pageDots: false,
-            wrapAround: true,
-            cellAlign: 'left'
+    data() {
+        return {
+            flickityOptions: {
+                initialIndex: 1,
+                prevNextButtons: false,
+                pageDots: false,
+                wrapAround: true,
+                cellAlign: 'left'
+            }
         }
     }
 }
@@ -75,14 +81,7 @@ new Vue ({
     data() {
         return {
             works: [],
-            currentIndex: 0,
-            flickityOptions: {
-                initialIndex: 1,
-                prevNextButtons: false,
-                pageDots: false,
-                wrapAround: true,
-                cellAlign: 'left'
-            }
+            currentIndex: 0
         }
     },
     computed: {
@@ -114,6 +113,7 @@ new Vue ({
                 case 'next' :
                     this.currentIndex++;
                     break;
+                        
                 case 'prev' :
                     this.currentIndex--;
                     break;
