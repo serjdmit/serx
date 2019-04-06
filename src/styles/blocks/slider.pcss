@@ -41,6 +41,9 @@
         z-index: 2;
         right: 0;
 
+        @include tablets() {
+            width: 480px;
+        }
         @include phones() {
             display: none;
         }

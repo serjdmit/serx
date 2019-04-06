@@ -1,5 +1,5 @@
 .parallax {
-    background: #edd1b9;
+    background: rgba(27,31,34,1);
     position: fixed;
     top: 0;
     left: 0;
@@ -16,46 +16,45 @@
         width: 100%;
         height: 100%;
         z-index: -1;
-
-        &:nth-child(4) {
-            &:after {
-                content: "";
-                position: absolute;
-                z-index: 5;
-                left: 0;
-                bottom: 0;
-                height: 250px;
-                width: 100%;
-                background: linear-gradient(0deg, rgba(27,31,34,1) 0%, rgba(27,31,34,.99) 10%, rgba(27,31,34,.97) 20%, rgba(27,31,34,.94) 30%, rgba(27,31,34,.90) 40%, rgba(27,31,34,.85) 50%, rgba(27,31,34,.79) 60%, rgba(27,31,34,.72) 70%, rgba(0,0,0,0) 100%);
-            }
-        }
     }
 
     &__image {
         position: absolute;
-        /* bottom: 0;
-        left: 50%;
-        transform: translateX(-50%); */
         min-width: 100%;
         min-height: 100%;
-        /* -webkit-transform: translateX(-50%); */
-        /* transform: translateX(-50%); */
         object-fit: cover;
         object-position: center 30%;
     }
 }
 
-$layers: 4;
+$layers: 5;
 
 @for $layerNum from $layers through 1 {
     .parallax__layer:nth-child(#{$layerNum}) {
         $currentLayer: calc($layers - $layerNum);
         $perspective: calc($currentLayer * -1 * 50px );
         $scale: calc($currentLayer * .5 + 1);
+        $zIndex: calc($currentLayer * -10 - 1);
 
         transform: translateZ($perspective) scale($scale);
+        z-index: $zIndex;
     }
 }
+
+@include tablets() {
+    .parallax__layer {
+        &:nth-child(3) {
+            transform: translateZ(-50px) scale(1.5);
+            z-index: -10;
+        }
+        &:nth-child(4) {
+            transform: translateZ(-100px) scale(2);
+            z-index: -20;
+        }
+    }
+}
+
+
 
 .maincontent {
     position: absolute;

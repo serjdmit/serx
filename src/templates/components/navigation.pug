@@ -4,6 +4,13 @@ script(type="text/x-template")#navigation-block
             li.nav__item(v-for="item in items")  
                 a.nav__link(:href='item.link') {{item.name}}
 
+script(type="text/x-template")#socials-block
+    .socials
+        ul.socials__list
+            li.socials__item(v-for="social in socials")
+                a(:href="social.link").socials__link
+                    i(:class="`fab fa-${social.name} socials__icon`")
+
 script(type="text/x-template")#nav-hamburger
     button.hamburger.hamburger--elastic(type='button', aria-label='Menu', aria-controls='navigation' v-on:click="toggleActive" :class="{'is-active': isActive}")
         span.hamburger-box

@@ -42,38 +42,28 @@
     }
     &__left {
         &--message {
-            padding-top: 50px;
+            padding-top: 5px;
             vertical-align: top;
         }
     }
     &__right {
         width: 80%;
         position: relative;
+        perspective: 100px;
 
-        // &--message {
-        //     width: 90%;
-
-        //     @include phones() {
-        //         width: 80%;
-        //     }
-        // }
     }
     &__label {
         color: #fff;
         font-size: 18px;
         font-weight: 700;
-        line-height: 48px;
+        line-height: 36px;
         transition: ease-in-out .2s;
         position: absolute;
         pointer-events: none;
 
         &.active {
             opacity: 0.3;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 30px;
-            top: -30px;
+            transform: translate3d(-45px, -45px, -20px);
         }
     }
     &__input {
@@ -85,7 +75,7 @@
         color: #fff;
         font-size: 18px;
         font-weight: 700;
-        line-height: 48px;
+        line-height: 36px;
     }
     &__icon {
         width: 30px;
@@ -93,6 +83,7 @@
         fill: #fff;
         opacity: 0.3;
         margin-right: 20px;
+        margin-bottom: -8px;
         display: inline-block;
     }
 }

@@ -7,6 +7,7 @@ head
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 body
     include ./templates/entry.pug
     .wrapper
@@ -15,14 +16,12 @@ body
                 +image('parallax/layer-01.png', 'parallax__image')
             .parallax__layer
                 +image('parallax/layer-02.png', 'parallax__image')
+            .parallax__layer
                 h1.hero-title.hero-title--parallax
                     .hero-title__info Личный сайт веб разработчика
                     .hero-title__name Сергей Дмитриев
             .parallax__layer
                 +image('parallax/layer-03.png', 'parallax__image')
-                h1.hero-title.hero-title--tablet
-                    .hero-title__info Личный сайт веб разработчика
-                    .hero-title__name Сергей Дмитриев
             .parallax__layer
                 +image('parallax/layer-04.png', 'parallax__image')
             include ./sections/hero.pug

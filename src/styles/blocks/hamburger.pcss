@@ -5,6 +5,7 @@
 
   @include tablets() {
       display: inline-block;
+      z-index: 200;
   }
 
   transition-property: opacity, filter;
@@ -12,15 +13,6 @@
   transition-timing-function: linear;
 
   outline: none;
-
-  // Normalize (<button>)
-//   font: inherit;
-//   color: inherit;
-//   text-transform: none;
-//   background-color: transparent;
-//   border: 0;
-//   margin: 0;
-//   overflow: visible;
 
   &:hover {
     @if $hamburger-hover-use-filter == true {

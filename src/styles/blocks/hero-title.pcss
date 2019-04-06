@@ -76,18 +76,11 @@
 
     &--parallax {
         position: absolute;
-        top: 25%;
+        top: 26%;
         left: 50%;
         transform: translate(-50%, -50%);
 
-        @include desktop() {
-            display: none;
-        }
-    }
-    &--tablet {
-        display: none;
-
-        @include desktop() {
+        @include tablets() {
             display: block;
             position: absolute;
             top: 35%;

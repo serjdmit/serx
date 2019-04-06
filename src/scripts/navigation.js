@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
+
+
 let menu = new Vue ({
     el: "#navigation-component",
     template: "#navigation-block",
@@ -15,6 +17,15 @@ let menu = new Vue ({
     created() {
         const data = require('../data/navigation.json');
         this.items = data;
+    }
+});
+
+let socials = new Vue ({
+    el: "#socials-component",
+    template: "#socials-block",
+    created() {
+        const data = require('../data/socials.json');
+        this.socials = data;
     }
 });
 

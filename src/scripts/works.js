@@ -12,12 +12,14 @@ const thumbs = {
         works: Array,
         currentWork: Object
     },
-    computed: {
-        handleSlide(direction) {
-            console.log(direction);
+    methods: {
+        next() {
+            this.$refs.flickity.next();
+        },
+        previous() {
+            this.$refs.flickity.previous();
         }
     },
-    // Настройки не работают
     data() {
         return {
             flickityOptions: {
@@ -25,25 +27,21 @@ const thumbs = {
                 prevNextButtons: false,
                 pageDots: false,
                 wrapAround: true,
-                cellAlign: 'left'
+                // freeScroll: true,
+                cellAlign: 'right'
             }
         }
     }
-}
-const btns = {
-    template: "#slider-btns"
 }
 
 const display = {
     template: "#slider-display",
     components: {
-        thumbs,
-        btns
+        thumbs
     },
     props: {
         works: Array,
-        currentWork: Object,
-        flickityOptions: Object
+        currentWork: Object
     }
 }
 
