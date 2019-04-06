@@ -11,52 +11,39 @@ head
 body
     include ./templates/entry.pug
     .wrapper
-        .parallax
-            .parallax__layer
-                +image('parallax/layer-01.png', 'parallax__image')
-            .parallax__layer
-                +image('parallax/layer-02.png', 'parallax__image')
-            .parallax__layer
-                h1.hero-title.hero-title--parallax
-                    .hero-title__info Личный сайт веб разработчика
-                    .hero-title__name Сергей Дмитриев
-            .parallax__layer
-                +image('parallax/layer-03.png', 'parallax__image')
-            .parallax__layer
-                +image('parallax/layer-04.png', 'parallax__image')
+
+        .maincontent
+            //- +image('content/user.jpg', 'user-pic')
+            //- +icon('link', 'link-class')
+            //- .icon-bg
+            //- include ./sections/header.pug
             include ./sections/hero.pug
+            include ./sections/about.pug
+            //- include ./sections/skills.pug
+            section.skills
+                .container.container__skills
+                    .skills__right
+                        h2.title Чем я могу быть полезен вам
+                        .content.skills__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                        .skills__widget
+                            #skills-component
+                    .skills__left
+                        +image('bg/arms.png', 'skills__image')
+            include ./sections/works.pug
 
-            .maincontent
-                //- +image('content/user.jpg', 'user-pic')
-                //- +icon('link', 'link-class')
-                //- .icon-bg
-                //- include ./sections/header.pug
-                include ./sections/about.pug
-                //- include ./sections/skills.pug
-                section.skills
-                    .container.container__skills
-                        .skills__right
-                            h2.title Чем я могу быть полезен вам
-                            .content.skills__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-                            .skills__widget
-                                #skills-component
-                        .skills__left
-                            +image('bg/arms.png', 'skills__image')
-                include ./sections/works.pug
-
-                .wrapper-bottom
-                    .container.container__bottom
-                        .wrapper-bottom__left
-                            include ./sections/reviews.pug
-                            include ./sections/contact.pug
-                        .wrapper-bottom__right
-                            .leafs
-                                .leafs__layer
-                                    +image('leafs/1.png', 'leafs__image')
-                                .leafs__layer
-                                    +image('leafs/2.png', 'leafs__image')
-                                .leafs__layer
-                                    +image('leafs/3.png', 'leafs__image')
-                                .leafs__layer
-                                    +image('leafs/4.png', 'leafs__image')
-                include ./sections/footer
+            .wrapper-bottom
+                .container.container__bottom
+                    .wrapper-bottom__left
+                        include ./sections/reviews.pug
+                        include ./sections/contact.pug
+                    .wrapper-bottom__right
+                        .leafs
+                            .leafs__layer
+                                +image('leafs/1.png', 'leafs__image')
+                            .leafs__layer
+                                +image('leafs/2.png', 'leafs__image')
+                            .leafs__layer
+                                +image('leafs/3.png', 'leafs__image')
+                            .leafs__layer
+                                +image('leafs/4.png', 'leafs__image')
+            include ./sections/footer
