@@ -1,4 +1,7 @@
 import Vue from 'vue';
+import VScrollLock from 'v-scroll-lock';
+
+Vue.use(VScrollLock);
 
 
 
@@ -7,11 +10,14 @@ let menu = new Vue ({
     template: "#navigation-block",
     data: {
         items: [],
-        isActive: false
+        open: false
     },
     // methods: {
-    //     toggleActive() {
-    //         this.isActive = false
+    //     openModal () {
+    //         this.open = true
+    //     },
+    //     closeModal () {
+    //         this.open = false
     //     }
     // },
     created() {
@@ -20,7 +26,7 @@ let menu = new Vue ({
     }
 });
 
-let socials = new Vue ({
+new Vue ({
     el: "#socials-component",
     template: "#socials-block",
     created() {
@@ -33,12 +39,14 @@ new Vue ({
     el: "#nav-button",
     template: "#nav-hamburger",
     data :{
-        isActive: false
+        open: false
     },
     methods: {
         toggleActive() {
-            menu.isActive = !menu.isActive;
-            this.isActive = menu.isActive;
+            menu.open = !menu.open;
+            this.open = menu.open;
+
+
         }
     }
 });
