@@ -30,4 +30,28 @@
             bottom: -100px;
         }
     }
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 5;
+        left: 0;
+        bottom: 0;
+        height: 250px;
+        width: 100%;
+        background: linear-gradient(0deg,
+            rgba(27,31,34,1) 0%,
+            rgba(27,31,34,.95) 10%,
+            rgba(27,31,34,.85) 20%,
+            rgba(27,31,34,.75) 30%,
+            rgba(27,31,34,.63) 40%,
+            rgba(27,31,34,.52) 50%,
+            rgba(27,31,34,.37) 60%,
+            rgba(27,31,34,.25) 70%,
+            rgba(27,31,34,.13) 80%,
+            rgba(27,31,34,.03) 90%,
+            rgba(27,31,34,0) 100%
+        );
+
+    }
 }
