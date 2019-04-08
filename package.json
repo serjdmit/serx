@@ -58,6 +58,7 @@
     "v-scroll-lock": "^1.0.1",
     "vue": "^2.6.7",
     "vue-flickity": "^1.1.2",
+    "vue-parallaxy": "^1.1.1",
     "vue-router": "^3.0.2"
   }
 }

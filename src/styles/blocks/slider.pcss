@@ -27,6 +27,8 @@
 
     &__image {
         width: 100%;
+        z-index: 3;
+        position: relative;
     }
     &__small-image {
 
@@ -38,7 +40,7 @@
         width: 640px;
         overflow: hidden;
         position: absolute;
-        z-index: 2;
+        z-index: 4;
         right: 0;
 
         @include tablets() {
@@ -52,6 +54,7 @@
         position: absolute;
         bottom: 60px;
         right: -50px;
+        z-index: 5;
 
         @include phones() {
             right: 0;
@@ -67,7 +70,7 @@
         bottom: 160px;
         right: -150px;
         position: absolute;
-        z-index: -1;
+        /* z-index: -1; */
 
         @include phones() {
             display: none;
