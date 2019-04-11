@@ -1,248 +1,16 @@
 <template lang="pug">
 
     .admin-template
-        header.header
-            .admin-panel
+        template
+            header.header
+                app-header
+            section.menu
+                tabs
+            main.page
                 .container
-                    .admin
-                        img(src="../images/content/user.jpg").admin__avatar
-                        .admin__name Сергей Дмитриев
-                        .admin-panel-name Панель администратора
-                    a.logout(href="#") Выйти
-            .menu
-                .container
-                    nav.nav
-                        ul.nav__list
-                            li.nav__item
-                                a.nav__link.nav__link--active Обо мне
-                            li.nav__item
-                                a.nav__link Работы
-                            li.nav__item
-                                a.nav__link Отзывы
-        main.page
-            .container
-
-                //////////////////////// ABOUT /////////////////////////////
-
-                section.page.skills-page
-                    .title-block
-                        h1.title.title__skills-page Блок "Обо мне"
-                        button.add-skills-group
-                            .add-icon.add-icon__title
-                                .plus-icon.plus-icon--small +
-                            .add-button__title Добавить группу
-                    .content-block
-                        ul.cards-group
-                            li.card-block.card-block__skills
-                                .container
-                                    .container
-                                        .card-block__header
-                                            .card-block__name Workflow
-                                            input(type="text" placeholder="Название новой группы" value="Workflow").card-block__input.hidden
-                                            .card-block__buttons
-                                                .buttons-block
-                                                    button.buttons-block__button.buttons-block__button--change
-                                    hr.card-line
-                                    .container
-                                        .card-block__body
-                                            table.card-table
-                                                tr.card-table__row
-                                                    td.card-table__cell.card-table__cell--name
-                                                        input(type="text" placeholder="Навык" value="HTML5").card-cell-input
-                                                    td.card-table__cell.card-table__cell--percents.skill-percents
-                                                        input(type="text" placeholder="100" value="100").card-cell-input
-                                                    td.card-table__cell.card-table__cell--percents-sign %
-                                                    td.card-table__cell.card-table__cell--buttons
-                                                        .buttons-block
-                                                            button.buttons-block__button.buttons-block__button--check
-                                                            button.buttons-block__button.buttons-block__button--remove
-                                                tr.card-table__row.skills-row
-                                                    td.card-table__cell.card-table__cell--name
-                                                        .card-cell-label CSS3
-                                                    td.card-table__cell.card-table__cell--percents
-                                                        .card-cell-label 90
-                                                    td.card-table__cell.card-table__cell--percents-sign %
-                                                    td.card-table__cell.card-table__cell--buttons
-                                                        .buttons-block
-                                                            button.buttons-block__button.buttons-block__button--change
-                                                            button.buttons-block__button.buttons-block__button--delete
-                                                tr.card-table__row
-                                                    td.card-table__cell.card-table__cell--name
-                                                        .card-cell-label JavaScript
-                                                    td.card-table__cell.card-table__cell--percents
-                                                        .card-cell-label 80
-                                                    td.card-table__cell.card-table__cell--percents-sign %
-                                                    td.card-table__cell.card-table__cell--buttons
-                                                        .buttons-block
-                                                            button.buttons-block__button.buttons-block__button--change
-                                                            button.buttons-block__button.buttons-block__button--delete
-                                            table.add-skill
-                                                tr.add-skill__row
-                                                    td.add-skill-name
-                                                        input(type="text" placeholder="Новый навык").add-skill-name__input
-                                                    td.add-skill-percents
-                                                        input(type="text" placeholder="100").add-skill-percents__input
-                                                        .add-skill-percents__sign %
-                                                    td.add-skill-button
-                                                        button.add-skill-button__add.add-button
-                                                            .add-icon
-                                                                .plus-icon +
-
-                //////////////////////// WORKS /////////////////////////////
-
-                section.page.works-page
-                    .title-block
-                        h1.title.title__skills-page Блок "Работы"
-                    .content-block
-                        .card-block.card-block--full-width
-                            .container
-                                .container
-                                    .card-block__header
-                                        .card-block__name Редактирование работы
-                                hr.card-line
-                                .card-block__body.card-block__body--flex-row
-                                    .card-block__left
-                                        .container
-                                            form.upload
-                                                label.upload__label
-                                                    .upload__desc Перетащите или загрузите для загрузки изображения
-                                                    .button.button__upload Загрузить
-                                                    input(name="review-avatar" type="file").upload__input
-                                    .card-block__right
-                                        .container
-                                            form.card-block__form
-                                                .card-block__form-field
-                                                    label.card-block__label Название
-                                                    input(type="text" placeholder="Название работы" value="").card-block__input.card-block__input--long
-                                                .card-block__form-field
-                                                    label.card-block__label Ссылка
-                                                    input(type="text" placeholder="Введите ссылку" value="").card-block__input.card-block__input--long
-                                                .card-block__form-field
-                                                    label.card-block__label Описание
-                                                    textarea.card-block__textarea
-                                                .card-block__form-field
-                                                    label.card-block__label Добавление тега
-                                                    input(type="text" placeholder="Впишите теги через запятую" value="").card-block__input.card-block__input--long
-                                                    .tags
-                                                        .tag
-                                                            .tag__inner
-                                                                .tag__name HTML
-                                                                .tag__remove.buttons-block__button.buttons-block__button--remove
-                                                        .tag
-                                                            .tag__inner
-                                                                .tag__name CSS
-                                                                .tag__remove.buttons-block__button.buttons-block__button--remove
-                                                        .tag
-                                                            .tag__inner
-                                                                .tag__name Javascript
-                                                                .tag__remove.buttons-block__button.buttons-block__button--remove
-                                                .card-block__form-buttons
-                                                    button.button.button--cancel Отмена
-                                                    button.button Сохранить
-                               
-                        ul.cards-group
-                            li.card-block.card-add
-                                .add-icon.add-icon--big
-                                    .plus-icon.plus-icon--big +
-                                .card-add__label Добавить работу
-
-                            li.card-block.card-block__works
-                                .card-block__header
-                                    img(src="../images/works/slider-1.jpg").card-block__preview
-                                    .tags.tags--absolute
-                                        .tag.tag--to-left
-                                            .tag__inner
-                                                .tag__name HTML
-                                        .tag.tag--to-left
-                                            .tag__inner
-                                                .tag__name CSS
-                                        .tag.tag--to-left
-                                            .tag__inner
-                                                .tag__name JavaScript
-                                .container
-                                    .card-block__body
-                                        .container
-                                            .card-block__name Сайт школы образования
-                                            .card-block__content(
-                                            ) Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                                            a(href="http://loftschool.ru").card-block__link http://loftschool.ru
-                                            .card-block__edit-block
-                                                button.card-block__edit
-                                                    .card-block__edit-lable Править
-                                                    .card-block__edit-icon.buttons-block__button
-                                                button.card-block__delete
-                                                    .card-block__edit-lable Удалить
-                                                    .card-block__edit-icon.card-block__edit-icon--remove.buttons-block__button
+                    main.content-container
+                        router-view
                 
-                
-                
-                //////////////////////// REVIEWS /////////////////////////////
-                section.page.reviews-page
-                    .title-block
-                        h1.title.title__skills-page Блок "Отзывы"
-                    .content-block
-                        .card-block.card-block--full-width
-                            .container
-                                .container
-                                    .card-block__header
-                                        .card-block__name Новый отзыв
-                                hr.card-line
-                                .container
-                                    .card-block__body.card-block__body--flex-row
-                                        .card-block__left.card-block__left--content-width
-                                            .container
-                                                form.upload.upload--avatar
-                                                    label.upload__label.upload__label--avatar
-                                                        .upload__avatar-wrap
-                                                            i.fas.fa-user.upload__avatar
-                                                        .upload__desc.upload__desc--avatar Добавить фото
-                                                        input(name="review-avatar" type="file").upload__input
-                                        .card-block__right.card-block__right--content-width
-                                            .container
-                                                form.card-block__form
-                                                    .card-block__form-header
-                                                        .card-block__form-field.card-block__form-field--row
-                                                            label.card-block__label Имя автора
-                                                            input(type="text" placeholder="Имя автора" value="").card-block__input.card-block__input--long
-                                                        .card-block__form-field.card-block__form-field--row
-                                                            label.card-block__label Титул автора
-                                                            input(type="text" placeholder="Титул автора" value="").card-block__input.card-block__input--long
-                                                    .card-block__form-field
-                                                        label.card-block__label Отзыв
-                                                        textarea.card-block__textarea.card-block__form-buttons
-                                                    .card-block__form-buttons
-                                                        button.button.button--cancel Отмена
-                                                        button.button Сохранить
-                        ul.cards-group
-                            li.card-block.card-add
-                                .add-icon.add-icon--big
-                                    .plus-icon.plus-icon--big +
-                                .card-add__label Добавить работу
-
-                            li.card-block.card-block__works
-                                .card-block__header
-                                    .container
-                                        .container
-                                            .card-block__header--user
-                                                .card-block__header-avatar
-                                                    img(src="../images/content/user.jpg").admin__avatar
-                                                .card-block__name
-                                                    .card-block__user-name Владимир Сабанцев
-                                                    .card-block__user-occ Преподаватель
-                                        hr.card-line
-                                .container
-                                    .card-block__body
-                                        .container
-                                            .card-block__name Сайт школы образования
-                                            .card-block__content(
-                                            ) Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                                            .card-block__edit-block
-                                                button.card-block__edit
-                                                    .card-block__edit-lable Править
-                                                    .card-block__edit-icon.buttons-block__button
-                                                button.card-block__delete
-                                                    .card-block__edit-lable Удалить
-                                                    .card-block__edit-icon.card-block__edit-icon--remove.buttons-block__button
                 
 
 
@@ -252,8 +20,12 @@
 </template>
 
 <script>
+import { mapState, mapActions, mapGetters } from "vuex";
 export default {
-    
+    components: {
+        appHeader: () => import("components/header"),
+        tabs: () => import("components/tabs")
+    }
 }
 </script>
 
