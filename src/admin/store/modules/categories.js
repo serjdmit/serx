@@ -16,7 +16,6 @@ export default {
                 });
                 return response;
             } catch (error) {
-                console.log('lalala');
                 throw new Error(
                     error.response.data.error || error.response.data.message
                 );
@@ -34,5 +33,17 @@ export default {
                 );
             }
         }
+        // async addNewSkillGroup(store, groupTitle) {
+        //     try {
+        //         const response = await this.$axios.post('/categories', {
+
+        //         });
+        //         return response
+        //     } catch (error) {
+        //         throw new Error(
+        //             error.response.data.error || error.response.data.message
+        //         );
+        //     }
+        // }
     }
 };

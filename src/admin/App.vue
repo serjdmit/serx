@@ -34,110 +34,53 @@ export default {
     @import "../styles/mixins.pcss";
     @import "../styles/layout/base.pcss";
     @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+
     
-    .hidden {
-        display: none !important;
-    }
-    .header {
-        width: 100vw;
-    }
-
-    /*************************** HEADER ********************************/
-    /************************** ADMIN-PANEL *********************************/
-
-    .admin-template {
-        background-color: #f9fafe;
-        min-height: 100vh;
-    }
-    .admin-panel {
-        height: 80px;
-        background-color: #3e3e59;
-        background-image: linear-gradient(to right, #3e3e59 0%, #454573 100%);
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-        }
-    }
-
-    .admin {
-        width: 70%;
-    }
-    .admin__avatar {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        display: inline-block;
-        margin-right: 20px;
-        vertical-align: middle;
-    }
-    .admin__name {
-        color: #fff;
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 34px;
-        display: inline-block;
-        margin-right: 30px;
-        vertical-align: middle;
-    }
-    .admin-panel-name {
-        opacity: 0.5;
-        color: #fff;
-        font-family: "Open Sans";
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 34px;
-        display: inline-block;
-        vertical-align: middle;
-    }
-    .logout {
-        opacity: 0.7;
-        color: #fff;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 24px;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-
-    /***************************** MENU ******************************/
-
-    .menu {
-        display: block;
-        background-color: #fff;
-    }
-    .nav {
-        height: 100%;
-        display: block;
-    }
-    .nav__list {
-        display: block;
-        height: 100%;
-    }
-    .nav__item {
-        display: inline-block;
-        vertical-align: top;
-        height: 100%;
-    }
-    .nav__link {
-        color: rgba(65,76,99,.7);
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 36.14px;
-        padding: 20px 25px;
-        margin-right: 5px;
-        display: inline-block;
-        transition: ease-in-out .2s;
-
-        &--active, &:hover {
-            color: #383bcf;
-            border-bottom: 3px solid #383bcf;
-        }
-    }
 
     /******************************** MAIN *********************************/
+    button {
+        border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+        border-style: solid;
+        border-width: 1px;
+        background-color: buttonface;
+    }
+    .root-wrapper-container {
+        height: 100%;
+    }
+    .header-container {
+        background: linear-gradient(to right, #3e3e59, #454573);
+        padding: 15px 0;
+        @include phones {
+            padding: 20px 0;
+        }
+    }
+    .root-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .admin-wrapper {
+        display: flex;
+        .maincontent {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    }
+    .content-container {
+        /* background: url("~images/bg/admin.jpg") center center no-repeat / cover; */
+        flex: 1;
+        padding-top: 60px;
+        @include phones {
+            padding-top: 30px;
+        }
+    }
+    .page-title {
+        margin-bottom: 60px;
+        font-size: 21px;
+        font-weight: bold;
+    }
 
     .page {
         padding: 15px 0;

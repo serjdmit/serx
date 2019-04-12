@@ -66,3 +66,10 @@
                                         .card-block__edit-lable Удалить
                                         .card-block__edit-icon.card-block__edit-icon--remove.buttons-block__button
 </template>
+
+<style lang="postcss" scoped>
+    .card-block__user-occ {
+        font-size: 16px;
+    }
+</style>
+

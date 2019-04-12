@@ -31,8 +31,8 @@ export default {
   data() {
     return {
       user: {
-        name: "admin",
-        password: "admin"
+        name: "",
+        password: ""
       }
     };
   },
@@ -46,7 +46,7 @@ export default {
         $axios.defaults.headers["Authorization"] = `Bearer ${token}`;
         this.$router.replace("/");
       } catch (error) {
-        //error handling
+        alert(error.message);
       }
     }
   }
