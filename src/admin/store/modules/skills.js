@@ -28,13 +28,13 @@ export default {
                 commit("ADD_SKILL", response.data);
                 return response;
             } catch (error) {
-                // error handling
+                alert(error.message)
             }
         },
 
         async fetchSkills({ commit }, skill) {
             try {
-                const response = await this.$axios.get("/skills/1", skill);
+                const response = await this.$axios.get("/skills/134", skill);
                 commit("SET_SKILLS", response.data);
                 return response;
             } catch (error) {

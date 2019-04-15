@@ -13,12 +13,18 @@
             ul.cards-group
                 li.card-block.card-block__skills(v-if="showAddingForm")
                     skills-add()
-                li.card-block.card-block__skills(v-if="false")
-                    skills-group()
+                li.card-block.card-block__skills(
+                    v-for="category in categories"
+                    :key="category.id"
+                )
+                    skills-group(
+                        :category="category"
+                        :skills="filterSkillsByCategoryId(category.id)"
+                    )
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
     components: {
         skillsAdd: () => import('components/skills-add.vue'),
@@ -29,14 +35,31 @@ export default {
             showAddingForm: false
         }
     },
-    methods: {
-        ...mapActions('categories', ['fetchCategories'])
+    computed: {
+        ...mapState('categories', {
+            categories: state => state.categories
+        }),
+        ...mapState('skills', {
+            skills: state => state.skills
+        })
     },
-    created() {
+    methods: {
+        ...mapActions('categories', ['fetchCategories']),
+        ...mapActions('skills', ['fetchSkills']),
+        filterSkillsByCategoryId(categoryId) {
+            return this.skills.filter(skill => skill.category === categoryId);
+        }
+    },
+    async created() {
         try {
-            this.fetchCategories();
+            await this.fetchCategories();
         } catch (error) {
-            alert('Произошла ошибка');
+            alert('Произошла ошибка призагрузке категорий');
+        }
+        try {
+            await this.fetchSkills();
+        } catch (error) {
+            alert('Произошла ошибка при загрузке скиллов');
         }
     }
 }

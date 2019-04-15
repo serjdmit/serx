@@ -27,23 +27,22 @@ export default {
                 commit("SET_CATEGORIES", response.data.reverse());
                 return response;
             } catch (error) {
-                console.log('lalala2');
+                throw new Error(
+                    error.response.data.error || error.response.data.message
+                );
+            }
+        },
+        async addNewSkillGroup(store, groupTitle) {
+            try {
+                const response = await this.$axios.post('/categories', {
+
+                });
+                return response
+            } catch (error) {
                 throw new Error(
                     error.response.data.error || error.response.data.message
                 );
             }
         }
-        // async addNewSkillGroup(store, groupTitle) {
-        //     try {
-        //         const response = await this.$axios.post('/categories', {
-
-        //         });
-        //         return response
-        //     } catch (error) {
-        //         throw new Error(
-        //             error.response.data.error || error.response.data.message
-        //         );
-        //     }
-        // }
     }
 };

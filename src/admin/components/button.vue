@@ -36,3 +36,9 @@
         }
     };
 </script>
+<style lang="postcss">
+    button {
+        border: none;
+        outline: none;
+    }
+</style>

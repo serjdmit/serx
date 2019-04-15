@@ -39,10 +39,8 @@ export default {
 
     /******************************** MAIN *********************************/
     button {
-        border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
-        border-style: solid;
-        border-width: 1px;
-        background-color: buttonface;
+        border: none;
+        outline: none;
     }
     .root-wrapper-container {
         height: 100%;
