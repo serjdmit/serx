@@ -15,7 +15,7 @@
                 input(
                     type="text"
                     placeholder="Название группы"
-                    v-model="editedCaregory.title"
+                    v-model="editedCategory.title"
                     @keyup.enter="save"
                     @keyup.esc="editmode = false"
                 ).card-block__input
@@ -63,7 +63,7 @@ export default {
                 percent: ""
             },
             editmode: false,
-            editedCaregory: {...this.category},
+            editedCategory: {...this.category},
         }
     },
     components: {

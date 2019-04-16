@@ -11,26 +11,26 @@ const guard = axios.create({ baseURL });
 
 const router = new VueRouter({ routes });
 
-// router.beforeEach(async (to, from, next) => {
-//     const isPublicRoute = to.matched.some(record => record.meta.public);
-//     const isUserLogged = store.getters["user/userIsLogged"];
+router.beforeEach(async (to, from, next) => {
+    const isPublicRoute = to.matched.some(record => record.meta.public);
+    const isUserLogged = store.getters["/admin#/user/userIsLogged"];
 
-//     if (isPublicRoute === false && isUserLogged === false) {
-//         const token = localStorage.getItem('token');
-//         guard.defaults.headers['Authorization'] = `Bearer ${token}`;
+    if (isPublicRoute === false && isUserLogged === false) {
+        const token = localStorage.getItem('token');
+        guard.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-//         try {
-//             const response = await guard.get('/user');
-//             store.commit('user/SET_USER', response.data.user);
-//             next();
-//         } catch (error) {
-//             router.replace('/login');
-//             localStorage.removeItem('token');
-//         }
+        try {
+            const response = await guard.get('/user');
+            store.commit('user/SET_USER', response.data.user);
+            next();
+        } catch (error) {
+            router.replace('/login');
+            localStorage.removeItem('token');
+        }
 
-//     } else {
-//         next();
-//     }
-// });
+    } else {
+        next();
+    }
+});
 
 export default router;
