@@ -15,9 +15,21 @@
                 ).buttons-block__button.buttons-block__button--delete
     tr(v-else).card-table__row
         td.card-table__cell.card-table__cell--name
-            input(type="text" v-model="editedSkill.title" placeholder="Навык").card-cell-input
+            input(
+                type="text"
+                v-model="editedSkill.title"
+                @keyup.enter="save"
+                @keyup.esc="editmode = false"
+                placeholder="Навык"
+            ).card-cell-input
         td.card-table__cell.card-table__cell--percents.skill-percents
-            input(type="text" v-model="editedSkill.percent" placeholder="100").card-cell-input
+            input(
+                type="text"
+                v-model="editedSkill.percent"
+                @keyup.enter="save"
+                @keyup.esc="editmode = false"
+                placeholder="100"
+            ).card-cell-input
         td.card-table__cell.card-table__cell--percents-sign %
         td.card-table__cell.card-table__cell--buttons
             .buttons-block

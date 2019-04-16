@@ -1,12 +1,32 @@
 <template lang="pug">
     .container
         .container
-            .card-block__header
+            .card-block__header(v-if="editmode === false")
                 h2.card-block__name {{category.category}}
-                // input(type="text" placeholder="Название новой группы" value="Workflow").card-block__input.hidden
                 .card-block__buttons
                     .buttons-block
-                        button.buttons-block__button.buttons-block__button--change
+                        button(
+                            @click="editmode = true"
+                        ).buttons-block__button.buttons-block__button--change
+                        button(
+                            @click="removeExistedCategory"
+                        ).buttons-block__button.buttons-block__button--delete
+            .card-block__header(v-else)
+                input(
+                    type="text"
+                    placeholder="Название группы"
+                    v-model="editedCaregory.title"
+                    @keyup.enter="save"
+                    @keyup.esc="editmode = false"
+                ).card-block__input
+                .card-block__buttons
+                    .buttons-block
+                        button(
+                            @click="save"
+                        ).buttons-block__button.buttons-block__button--check
+                        button(
+                            @click="editmode = false"
+                        ).buttons-block__button.buttons-block__button--remove
         hr.card-line
         .container
             .card-block__body
@@ -41,7 +61,9 @@ export default {
                 category: this.category.id,
                 title: "",
                 percent: ""
-            }
+            },
+            editmode: false,
+            editedCaregory: {...this.category},
         }
     },
     components: {
@@ -49,11 +71,27 @@ export default {
     },
     methods: {
         ...mapActions('skills', ['addSkill']),
+        ...mapActions('categories', ['removeCategory', 'editCategory']),
         async addNewSkill() {
             try {
                 await this.addSkill(this.skill)
             } catch (error) {
                 alert(error.message)
+            }
+        },
+        async removeExistedCategory() {
+            try {
+                await this.removeCategory(this.category.id);
+            } catch (error) {
+                alert(error.message)
+            }
+        },
+        async save() {
+            try {
+                await this.editCategory(this.editedCaregory);
+                this.editmode = false;
+            } catch (error) {
+                alert(error.message);
             }
         }
     }

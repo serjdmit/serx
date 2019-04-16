@@ -2,11 +2,23 @@
     .container
         .container
             .card-block__header
-                input(type="text" v-model="skillTitle" placeholder="Название новой группы").card-block__input
+                input(
+                    type="text"
+                    v-model="skillTitle"
+                    @keyup.esc="editMode"
+                    @keyup.enter="addSkillGroup"
+                    placeholder="Название новой группы"
+                ).card-block__input
                 .card-block__buttons
                     .buttons-block
-                        button(type="button" @click="addSkillGroup").buttons-block__button.buttons-block__button--check
-                        button.buttons-block__button.buttons-block__button--remove
+                        button(
+                            type="button"
+                            @click="addSkillGroup"
+                        ).buttons-block__button.buttons-block__button--check
+                        button(
+                            type="button"
+                            @click="editMode"
+                        ).buttons-block__button.buttons-block__button--remove
         hr.card-line
         .container
             .card-block__body
@@ -27,6 +39,9 @@
 <script>
 import { mapActions } from "vuex";
 export default {
+    // created() {
+    //     this.$emit('closed');
+    // },
     data() {
         return {
             skillTitle: ""
@@ -37,10 +52,14 @@ export default {
         async addSkillGroup() {
             try {
                 await this.addNewSkillGroup(this.skillTitle);
-                this.skillTitle = "";     
+                this.skillTitle = "";
+                this.$emit('closed');
             } catch (error) {
                 alert(error.message);
             }
+        },
+        editMode() {
+            this.$emit('closed');
         }
     }
 }

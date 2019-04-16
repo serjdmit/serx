@@ -12,7 +12,9 @@
         .content-block
             ul.cards-group
                 li.card-block.card-block__skills(v-if="showAddingForm")
-                    skills-add()
+                    skills-add(
+                        @closed="handleClose"
+                    )
                 li.card-block.card-block__skills(
                     v-for="category in categories"
                     :key="category.id"
@@ -48,6 +50,9 @@ export default {
         ...mapActions('skills', ['fetchSkills']),
         filterSkillsByCategoryId(categoryId) {
             return this.skills.filter(skill => skill.category === categoryId);
+        },
+        handleClose() {
+            this.showAddingForm = false;
         }
     },
     async created() {
