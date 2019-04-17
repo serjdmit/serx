@@ -9,7 +9,7 @@
                 .card-block__body.card-block__body--flex-row
                     .card-block__left.card-block__left--content-width
                         .container
-                            form.upload.upload--avatar
+                            .upload.upload--avatar
                                 label.upload__label.upload__label--avatar
                                     .upload__avatar-wrap
                                         .upload__avatar-filled(
@@ -30,26 +30,28 @@
                                 .card-block__form-header
                                     .card-block__form-field.card-block__form-field--row
                                         label.card-block__label Имя автора
-                                        input(type="text" placeholder="Имя автора" value="").card-block__input.card-block__input--long
+                                        input(type="text" v-model="review.author" placeholder="Имя автора" value="").card-block__input.card-block__input--long
                                     .card-block__form-field.card-block__form-field--row
                                         label.card-block__label Титул автора
-                                        input(type="text" placeholder="Титул автора" value="").card-block__input.card-block__input--long
+                                        input(type="text" v-model="review.occ" placeholder="Титул автора" value="").card-block__input.card-block__input--long
                                 .card-block__form-field
                                     label.card-block__label Отзыв
-                                    textarea.card-block__textarea.card-block__form-buttons
+                                    textarea(v-model="review.text").card-block__textarea.card-block__form-buttons
                                 .card-block__form-buttons
                                     button.button.button--cancel Отмена
-                                    button.button Сохранить
+                                    button.button(@click="addReview") Сохранить
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
     data() {
         return {
             rendedPhotoUrl: "",
             review: {
-                desc: "",
-                title: "",
-                photo: ""
+                // photo: this.appendFileAndRenderPhoto,
+                author: "",
+                occ: "",
+                text: ""
             }
         };
     },
@@ -65,6 +67,14 @@ export default {
                 };
             } catch (error) {
                 alert("sh*t happens :(");
+            }
+        },
+        ...mapActions('reviews', ['addNewReview']),
+        async addReview() {
+            try {
+                const response = await this.addNewReview(this.review)
+            } catch (error) {
+                alert(error.message)
             }
         }
     }

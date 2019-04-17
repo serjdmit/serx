@@ -6,7 +6,7 @@ export default {
         reviews: []
     },
     mutations: {
-        SET_REVIEW: (state, reviews) => {
+        SET_REVIEWS: (state, reviews) => {
             state.reviews = reviews;
         },
         ADD_REVIEW: (state, newReview) => {
@@ -22,7 +22,7 @@ export default {
         }
     },
     actions: {
-        async addReview({ commit }, review) {
+        async addNewReview({ commit }, review) {
             try {
                 const response = await this.$axios.post("/reviews", review);
                 commit("ADD_REVIEW", response.data);
@@ -34,8 +34,8 @@ export default {
 
         async fetchReviews({ commit }, review) {
             try {
-                const response = await this.$axios.get("/reviews", review);
-                commit("SET_REVIEW", response.data);
+                const response = await this.$axios.get("/reviews/134", review);
+                commit("SET_REVIEWS", response.data);
                 return response;
             } catch (error) {
                 // error handling

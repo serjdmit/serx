@@ -39,9 +39,6 @@
 <script>
 import { mapActions } from "vuex";
 export default {
-    // created() {
-    //     this.$emit('closed');
-    // },
     data() {
         return {
             skillTitle: ""
