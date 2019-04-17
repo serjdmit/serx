@@ -69,7 +69,6 @@ export default {
     .content-container {
         /* background: url("~images/bg/admin.jpg") center center no-repeat / cover; */
         flex: 1;
-        padding-top: 60px;
         @include phones {
             padding-top: 30px;
         }

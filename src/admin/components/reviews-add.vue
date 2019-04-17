@@ -30,16 +30,18 @@
                                 .card-block__form-header
                                     .card-block__form-field.card-block__form-field--row
                                         label.card-block__label Имя автора
-                                        input(type="text" v-model="review.author" placeholder="Имя автора" value="").card-block__input.card-block__input--long
+                                        input(type="text" v-model="review.author" placeholder="Имя автора").card-block__input.card-block__input--long
                                     .card-block__form-field.card-block__form-field--row
                                         label.card-block__label Титул автора
-                                        input(type="text" v-model="review.occ" placeholder="Титул автора" value="").card-block__input.card-block__input--long
+                                        input(type="text" v-model="review.occ" placeholder="Титул автора").card-block__input.card-block__input--long
                                 .card-block__form-field
                                     label.card-block__label Отзыв
                                     textarea(v-model="review.text").card-block__textarea.card-block__form-buttons
                                 .card-block__form-buttons
-                                    button.button.button--cancel Отмена
-                                    button.button(@click="addReview") Сохранить
+                                    button.button.button--cancel(
+                                        @click="formOpened"
+                                    ) Отмена
+                                    button.button(@click="addNewReview") Сохранить
 </template>
 <script>
 import { mapActions } from "vuex";
@@ -48,7 +50,7 @@ export default {
         return {
             rendedPhotoUrl: "",
             review: {
-                // photo: this.appendFileAndRenderPhoto,
+                photo: "",
                 author: "",
                 occ: "",
                 text: ""
@@ -70,14 +72,26 @@ export default {
             }
         },
         ...mapActions('reviews', ['addNewReview']),
+        formOpened() {
+            this.$emit("closed");
+        },
+        createReviewFormData() {
+            const formData = new FormData();
+            formData.append("author", this.review.author);
+            formData.append("occ", this.review.occ);
+            formData.append("text", this.review.text);
+            formData.append("photo", this.review.photo);
+            return formData;
+        },
         async addReview() {
-            try {
-                const response = await this.addNewReview(this.review)
-            } catch (error) {
-                alert(error.message)
-            }
+                try {
+                    const reviewFormData = this.createReviewFormData();
+                    await this.addNewReview(reviewFormData);
+                } catch (error) {
+                    alert(error.message);
+                }
+            },
         }
-    }
 }
 </script>
 

@@ -3,9 +3,12 @@
         .title-block
             h1.title.title__skills-page Блок "Отзывы"
         .content-block
-            reviews-add()
+            reviews-add(
+                v-if="showAddingForm"
+                @closed="handleClose"
+            )
             ul.cards-group
-                li.card-block.card-add
+                li(@click="showAddingForm = true" v-if="showAddingForm === false").card-block.card-add
                     .add-icon.add-icon--big
                         .plus-icon.plus-icon--big +
                     .card-add__label Добавить работу

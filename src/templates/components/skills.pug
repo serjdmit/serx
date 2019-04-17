@@ -1,6 +1,6 @@
 script(type="text/x-template")#skills-block
     .skills-container
-        .skills-block(v-for="skill in skills" :key="skill.skillsGroup")
+        .skills-block(v-for="skill in skills" :key="skill.category")
             skills-row(
                 :skill="skill"
             )
