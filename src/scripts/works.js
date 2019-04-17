@@ -10,17 +10,18 @@ const thumbs = {
     },
     props: {
         works: Array,
-        currentWork: Object,
-        flickityOptions: Object
+        currentWork: Object
     },
     // Настройки не работают
-    data: {
-        flickityOptions: {
-            initialIndex: 1,
-            prevNextButtons: false,
-            pageDots: false,
-            wrapAround: true,
-            cellAlign: 'left'
+    data() { 
+        return{
+            flickityOptions: {
+                initialIndex: 1,
+                prevNextButtons: false,
+                pageDots: false,
+                wrapAround: true,
+                cellAlign: 'left'
+            }
         }
     }
 }
@@ -70,7 +71,7 @@ new Vue ({
     template: "#slider-component",
     components: {
         display,
-        info
+        info,
     },
     data() {
         return {
