@@ -1,5 +1,57 @@
 .hero {
-    /* background: url("../images/bg/bg_main.jpg") top center no-repeat;
-    background-size: cover; */
     width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    /* &:before {
+        content: "SD";
+        opacity: 0.02;
+        font-size: 1280px;
+        font-weight: 900;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -600px;
+        width: 2560px;
+        height: 100%;
+        color: #fff;
+    } */
+
+    @include tablets() {
+        &:before {
+            font-size: 640px;
+            bottom: -160px;
+        }
+    }
+    @include phones() {
+        &:before {
+            font-size: 480px;
+            bottom: -100px;
+        }
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 5;
+        left: 0;
+        bottom: 0;
+        height: 250px;
+        width: 100%;
+        background: linear-gradient(0deg,
+            rgba(27,31,34,1) 0%,
+            rgba(27,31,34,.95) 10%,
+            rgba(27,31,34,.85) 20%,
+            rgba(27,31,34,.75) 30%,
+            rgba(27,31,34,.63) 40%,
+            rgba(27,31,34,.52) 50%,
+            rgba(27,31,34,.37) 60%,
+            rgba(27,31,34,.25) 70%,
+            rgba(27,31,34,.13) 80%,
+            rgba(27,31,34,.03) 90%,
+            rgba(27,31,34,0) 100%
+        );
+
+    }
 }

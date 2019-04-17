@@ -12,33 +12,46 @@ const thumbs = {
         works: Array,
         currentWork: Object
     },
+<<<<<<< HEAD
     // Настройки не работают
     data() { 
         return{
+=======
+    methods: {
+        next() {
+            this.$refs.flickity.next();
+        },
+        previous() {
+            this.$refs.flickity.previous();
+        }
+    },
+    data() {
+        return {
+>>>>>>> 59d49c43bc81f41dd51bf1f96aa28a534c70d9de
             flickityOptions: {
                 initialIndex: 1,
                 prevNextButtons: false,
                 pageDots: false,
                 wrapAround: true,
+<<<<<<< HEAD
                 cellAlign: 'left'
+=======
+                // freeScroll: true,
+                cellAlign: 'right'
+>>>>>>> 59d49c43bc81f41dd51bf1f96aa28a534c70d9de
             }
         }
     }
-}
-const btns = {
-    template: "#slider-btns"
 }
 
 const display = {
     template: "#slider-display",
     components: {
-        thumbs,
-        btns
+        thumbs
     },
     props: {
         works: Array,
-        currentWork: Object,
-        flickityOptions: Object
+        currentWork: Object
     }
 }
 
@@ -76,14 +89,7 @@ new Vue ({
     data() {
         return {
             works: [],
-            currentIndex: 0,
-            flickityOptions: {
-                initialIndex: 1,
-                prevNextButtons: false,
-                pageDots: false,
-                wrapAround: true,
-                cellAlign: 'left'
-            }
+            currentIndex: 0
         }
     },
     computed: {
@@ -115,6 +121,7 @@ new Vue ({
                 case 'next' :
                     this.currentIndex++;
                     break;
+                        
                 case 'prev' :
                     this.currentIndex--;
                     break;

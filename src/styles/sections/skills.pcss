@@ -3,7 +3,6 @@
     background-size: cover;
     width: 100vw;
     position: relative;
-    overflow: hidden;
 
     &__left {
         width: 33%;
@@ -50,7 +49,12 @@
             width: 66%;
             left: auto;
             max-width: 100%;
+            left: -7px;
             bottom: 0;
         }
+    }
+
+    @include tablets() {
+        overflow: hidden;
     }
 }

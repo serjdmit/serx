@@ -1,15 +1,23 @@
 import Vue from 'vue';
+import VScrollLock from 'v-scroll-lock';
+
+Vue.use(VScrollLock);
+
+
 
 let menu = new Vue ({
     el: "#navigation-component",
     template: "#navigation-block",
     data: {
         items: [],
-        isActive: false
+        open: false
     },
     // methods: {
-    //     toggleActive() {
-    //         this.isActive = false
+    //     openModal () {
+    //         this.open = true
+    //     },
+    //     closeModal () {
+    //         this.open = false
     //     }
     // },
     created() {
@@ -19,15 +27,26 @@ let menu = new Vue ({
 });
 
 new Vue ({
+    el: "#socials-component",
+    template: "#socials-block",
+    created() {
+        const data = require('../data/socials.json');
+        this.socials = data;
+    }
+});
+
+new Vue ({
     el: "#nav-button",
     template: "#nav-hamburger",
     data :{
-        isActive: false
+        open: false
     },
     methods: {
         toggleActive() {
-            menu.isActive = !menu.isActive;
-            this.isActive = menu.isActive;
+            menu.open = !menu.open;
+            this.open = menu.open;
+
+
         }
     }
 });

@@ -15,33 +15,29 @@ script(type="text/x-template")#slider-display
     .works__left
         .preview(:data-slide="currentWork.id")
             img(:src="currentWork.photo").preview__image
-            btns(
-                @slide="direction => $emit('slide', direction)"
-            )
             thumbs(
                 :works="works",
                 :currentWork="currentWork",
                 @select="workId => $emit('select', workId)"
+                @slide="direction => $emit('slide', direction)"
             )
 
 script(type="text/x-template")#slider-thumbs
-    .preview__slider
-        flickity(ref="flickity" :options="flickityOptions")
-            .preview__thumb(
-                v-for="work in works" :key="work.id"
-                :class="{preview__thumb_active: currentWork.id === work.id}"
-                @click.prevent="$emit('select', work.id)"
-            )
-                a.preview__thumb-link
-                    //- +image(`works/slider-1.jpg`, 'preview__small-image')
-                    img(:src="work.photo").preview__small-image
-
-script(type="text/x-template")#slider-btns
-    .preview__buttons
-        button(@click.prevent="$emit('slide', 'prev')").button.button--disabled
-            +icon('arrow-right', 'button__arrow')
-        button(@click.prevent="$emit('slide', 'next')").button
-            +icon('arrow-right', 'button__arrow button__arrow--left')
+    .slider-thumbs
+        .preview__slider
+            flickity(ref="flickity" :options="flickityOptions")
+                .preview__thumb(
+                    v-for="work in works" :key="work.id"
+                    :class="{preview__thumb_active: currentWork.id === work.id}"
+                    @click.prevent="$emit('select', work.id)"
+                )
+                    a.preview__thumb-link
+                        img(:src="work.photo").preview__small-image
+        .preview__buttons
+            button(@click.prevent="$emit('slide', 'prev')" @click="previous()").button
+                +icon('arrow-right', 'button__arrow')
+            button(@click.prevent="$emit('slide', 'next')" @click="next()").button
+                +icon('arrow-right', 'button__arrow button__arrow--left')
 
 
 script(type="text/x-template")#slider-info
