@@ -4,6 +4,7 @@
             .container
                 .card-block__header
                     .card-block__name Новый отзыв
+                    pre {{ edit }}
             hr.card-line
             .container
                 .card-block__body.card-block__body--flex-row
@@ -39,13 +40,17 @@
                                     textarea(v-model="review.text").card-block__textarea.card-block__form-buttons
                                 .card-block__form-buttons
                                     button.button.button--cancel(
-                                        @click="formOpened"
+                                        @click="closeForm"
                                     ) Отмена
-                                    button.button(@click="addNewReview") Сохранить
+                                    button.button(@click="save") Сохранить
 </template>
 <script>
 import { mapActions } from "vuex";
+import axios from "axios";
 export default {
+    props: {
+        edit: Object
+    },
     data() {
         return {
             rendedPhotoUrl: "",
@@ -54,7 +59,8 @@ export default {
                 author: "",
                 occ: "",
                 text: ""
-            }
+            },
+            editedReview: {...this.edit}
         };
     },
     methods: {
@@ -71,8 +77,8 @@ export default {
                 alert("sh*t happens :(");
             }
         },
-        ...mapActions('reviews', ['addNewReview']),
-        formOpened() {
+        ...mapActions('reviews', ['addNewReview', 'editReview']),
+        closeForm() {
             this.$emit("closed");
         },
         createReviewFormData() {
@@ -84,14 +90,35 @@ export default {
             return formData;
         },
         async addReview() {
-                try {
-                    const reviewFormData = this.createReviewFormData();
-                    await this.addNewReview(reviewFormData);
-                } catch (error) {
-                    alert(error.message);
-                }
-            },
+            try {
+                const reviewFormData = this.createReviewFormData();
+                await this.addNewReview(reviewFormData);
+            } catch (error) {
+                alert(error.message);
+            }
+        },
+        async save() {
+            try {
+                const reviewFormData = this.createReviewFormData();
+                await this.editReview(this.review.id, reviewFormData);
+                // this.closeForm();
+            } catch (error) {
+                alert(error.message);
+            }
+        },
+        editReview() {
+            if(this.edit.id !== ""){
+                this.review = this.edit;
+                this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo
+            }
         }
+    },
+    created() {
+        this.editReview()
+    },
+    updated() {
+        this.editReview()
+    }
 }
 </script>
 
