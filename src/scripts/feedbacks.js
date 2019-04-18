@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import axios from 'axios';
 import Flickity from 'vue-flickity';
 
 let feedSlider = new Vue({
@@ -17,9 +18,15 @@ let feedSlider = new Vue({
             cellAlign: 'left'
         }
     },
+    methods: {
+        fetchData() {
+            axios.get('https://webdev-api.loftschool.com/reviews/134').then(response => {
+                this.feedbacks = response.data;
+            });
+        },
+    },
     created() {
-        const data = require('../data/reviews.json');
-        this.feedbacks = data;
+        this.fetchData()
     }
 });
 
@@ -33,6 +40,6 @@ new Vue({
         
         previous() {
             feedSlider.$refs.flickity.previous();
-        }
+        },
     }
 });

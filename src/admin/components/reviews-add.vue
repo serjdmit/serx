@@ -99,14 +99,13 @@ export default {
         },
         async save() {
             try {
-                const reviewFormData = this.createReviewFormData();
-                await this.editReview(this.review.id, reviewFormData);
+                await this.editReview(this.edit);
                 // this.closeForm();
             } catch (error) {
                 alert(error.message);
             }
         },
-        editReview() {
+        editReviewMode() {
             if(this.edit.id !== ""){
                 this.review = this.edit;
                 this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo
@@ -114,10 +113,10 @@ export default {
         }
     },
     created() {
-        this.editReview()
+        this.editReviewMode()
     },
     updated() {
-        this.editReview()
+        this.editReviewMode()
     }
 }
 </script>

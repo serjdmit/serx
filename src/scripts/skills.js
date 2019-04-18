@@ -5,8 +5,7 @@ import axios from 'axios';
 const skill = {
     template: "#skill",
     props: {
-        skillName: String,
-        skillPercents: Number
+        skill: Object
     },
     methods: {
         drawColoredCircle() {
@@ -15,7 +14,7 @@ const skill = {
             const dashArrey = parseInt(
                 getComputedStyle(circle).getPropertyValue('stroke-dasharray')
             );
-            const percents = (dashArrey / 100) * (100 - this.skillPercents);
+            const percents = (dashArrey / 100) * (100 - this.skill.percent);
             circle.style.strokeDashoffset = percents;
         }
     },
@@ -31,7 +30,17 @@ const skillsRow = {
         skill
     },
     props: {
-        skill: Object
+        skills: Array,
+        category: Object
+    },
+    data() {
+        return {
+            skill: {
+                category: this.category.id,
+                title: "",
+                percent: ""
+            },
+        }
     }
 }
 
@@ -44,21 +53,24 @@ new Vue({
     },
     data() {
         return {
-            skills: [],
-            // posts: []
+            categories: [],
+            skills: []
         }
     },
     methods: {
         fetchData() {
             axios.get('https://webdev-api.loftschool.com/categories/134').then(response => {
-                this.skills = response.data;
-                console.log(this.skills[0]);
+                this.categories = response.data;
             });
-        }
+            axios.get('https://webdev-api.loftschool.com/skills/134').then(response => {
+                this.skills = response.data;
+            });
+        },
+        filterSkillsByCategoryId(categoryId) {
+            return this.skills.filter(skill => skill.category === categoryId);
+        },
     },
     created() {
-        // const data = require("../data/skills.json");
-        // this.skills = data;
         this.fetchData();
     }
 })

@@ -8,17 +8,16 @@ script(type="text/x-template")#reviews-block
                 +icon('arrow-right', 'button__arrow button__arrow--left')
 
 script(type="text/x-template")#feedbacks-block
-    //- .feedbacks
-    flickity(ref="flickity" :options="flickityOptions")
-        .feedback(v-for='feedback in feedbacks')
+    flickity(v-if="Object.keys(feedbacks).length > 0" ref="flickity" :options="flickityOptions")
+        .feedback(v-for='feedback in feedbacks' :key="feedback.id")
             .quotes
                 +icon('quote', 'quotes__icon')
             .feedback__content
                 article.content.feedback__article {{feedback.text}}
                 .person
                     .person__left
-                        +image('content/user.jpg', 'person__avatar')
+                        img(:src="`https://webdev-api.loftschool.com/${feedback.photo}`").person__avatar
                         //- img(:src=require(`images/content/${feedback['author-pic']}`)).person__avatar
                     .person__right
-                        .person__name {{ feedback['author-name'] }}
-                        .person__occ {{ feedback['author-occ'] }}
+                        .person__name {{ feedback['author'] }}
+                        .person__occ {{ feedback['occ'] }}
