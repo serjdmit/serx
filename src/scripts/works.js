@@ -12,11 +12,6 @@ const thumbs = {
         works: Array,
         currentWork: Object
     },
-<<<<<<< HEAD
-    // Настройки не работают
-    data() { 
-        return{
-=======
     methods: {
         next() {
             this.$refs.flickity.next();
@@ -27,18 +22,13 @@ const thumbs = {
     },
     data() {
         return {
->>>>>>> 59d49c43bc81f41dd51bf1f96aa28a534c70d9de
             flickityOptions: {
                 initialIndex: 1,
                 prevNextButtons: false,
                 pageDots: false,
                 wrapAround: true,
-<<<<<<< HEAD
-                cellAlign: 'left'
-=======
                 // freeScroll: true,
                 cellAlign: 'right'
->>>>>>> 59d49c43bc81f41dd51bf1f96aa28a534c70d9de
             }
         }
     }

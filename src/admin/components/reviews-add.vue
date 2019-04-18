@@ -48,7 +48,7 @@ export default {
         return {
             rendedPhotoUrl: "",
             review: {
-                // photo: this.appendFileAndRenderPhoto,
+                photo: "",
                 author: "",
                 occ: "",
                 text: ""
@@ -69,10 +69,13 @@ export default {
                 alert("sh*t happens :(");
             }
         },
-        ...mapActions('reviews', ['addNewReview']),
-        async addReview() {
+        ...mapActions('reviews', ['addReview']),
+        async addNewReview() {
+                console.log('sxsx');
+
             try {
-                const response = await this.addNewReview(this.review)
+                
+                const response = await this.addReview(this.review)
             } catch (error) {
                 alert(error.message)
             }

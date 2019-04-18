@@ -22,7 +22,7 @@ export default {
         }
     },
     actions: {
-        async addNewReview({ commit }, review) {
+        async addReview({ commit }, review) {
             try {
                 const response = await this.$axios.post("/reviews", review);
                 commit("ADD_REVIEW", response.data);

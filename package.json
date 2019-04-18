@@ -48,13 +48,9 @@
     "last 2 versions"
   ],
   "dependencies": {
-<<<<<<< HEAD
-    "flickity": "^2.2.0",
-=======
     "@babel/polyfill": "^7.4.3",
     "axios": "^0.18.0",
     "font-awesome": "^4.7.0",
->>>>>>> 59d49c43bc81f41dd51bf1f96aa28a534c70d9de
     "hamburgers": "^1.1.3",
     "normalize.css": "^8.0.1",
     "polyfill": "^0.1.0",
