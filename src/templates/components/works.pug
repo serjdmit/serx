@@ -14,7 +14,7 @@ script(type="text/x-template")#slider-component
 script(type="text/x-template")#slider-display
     .works__left
         .preview(:data-slide="currentWork.id")
-            img(:src="currentWork.photo").preview__image
+            img(:src="`https://webdev-api.loftschool.com/${currentWork.photo}`").preview__image
             thumbs(
                 :works="works",
                 :currentWork="currentWork",
@@ -32,7 +32,7 @@ script(type="text/x-template")#slider-thumbs
                     @click.prevent="$emit('select', work.id)"
                 )
                     a.preview__thumb-link
-                        img(:src="work.photo").preview__small-image
+                        img(:src="`https://webdev-api.loftschool.com/${work.photo}`").preview__small-image
         .preview__buttons
             button(@click.prevent="$emit('slide', 'prev')" @click="previous()").button
                 +icon('arrow-right', 'button__arrow')
@@ -48,8 +48,8 @@ script(type="text/x-template")#slider-info
         .works__description
             h3.title.title--dark {{currentWork.title}}
             .content.content--dark
-                p {{currentWork.desc}}
-            a(:href="currentWork.link").link
+                p {{currentWork.description}}
+            a(:href="currentWork.link" target="_blank").link
                 +icon('link', 'link__icon')
                 span Посмотреть сайт
 

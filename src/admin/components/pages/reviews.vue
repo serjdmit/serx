@@ -6,6 +6,7 @@
             reviews-add(
                 v-if="showAddingForm  || showEditForm"
                 @closed="handleClose"
+                @edited="afterEdit"
                 :edit="editedReview"
             )
             ul.cards-group
@@ -17,7 +18,7 @@
                         .plus-icon.plus-icon--big +
                     .card-add__label Добавить работу
 
-                li.card-block.card-block__works(
+                li.card-block.card-block__reviews(
                     v-for="review in reviews"
                     :key="review.id"
                 )
@@ -38,7 +39,8 @@ export default {
         return {
             showAddingForm: false,
             showEditForm: false,
-            editedReview: {}
+            editedReview: {},
+            editmode: false,
         }
     },
     computed: {
@@ -55,12 +57,15 @@ export default {
         handleEdit(editReview) {
             this.showEditForm = true;
             this.showAddingForm = false;
-            this.editedReview = editReview
+            this.editedReview = editReview;
         },
         addForm() {
             this.showEditForm = false;
             this.showAddingForm = true;
             this.editedReview = {}
+        },
+        afterEdit() {
+            this.fetchReviews()
         }
     },
     async created() {

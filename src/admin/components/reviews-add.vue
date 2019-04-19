@@ -4,7 +4,6 @@
             .container
                 .card-block__header
                     .card-block__name Новый отзыв
-                    pre {{ edit }}
             hr.card-line
             .container
                 .card-block__body.card-block__body--flex-row
@@ -42,7 +41,8 @@
                                     button.button.button--cancel(
                                         @click="closeForm"
                                     ) Отмена
-                                    button.button(@click="save") Сохранить
+                                    button.button(@click="addReview" v-if="editmode === false") Сохранить
+                                    button.button(@click="save" v-if="editmode === true") Изменить
 </template>
 <script>
 import { mapActions } from "vuex";
@@ -60,7 +60,8 @@ export default {
                 occ: "",
                 text: ""
             },
-            editedReview: {...this.edit}
+            editedReview: {...this.edit},
+            editmode: false
         };
     },
     methods: {
@@ -93,6 +94,7 @@ export default {
             try {
                 const reviewFormData = this.createReviewFormData();
                 await this.addNewReview(reviewFormData);
+                this.closeForm();
             } catch (error) {
                 alert(error.message);
             }
@@ -100,16 +102,22 @@ export default {
         async save() {
             try {
                 await this.editReview(this.edit);
-                // this.closeForm();
+                this.closeForm();
+                this.$emit('edited');
             } catch (error) {
                 alert(error.message);
             }
         },
         editReviewMode() {
-            if(this.edit.id !== ""){
+            if(this.edit.id){
+                this.editmode = true;
                 this.review = this.edit;
                 this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo
-            }
+            } else {
+                this.editmode = false;
+                this.review = this.edit;
+                this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo
+            };
         }
     },
     created() {

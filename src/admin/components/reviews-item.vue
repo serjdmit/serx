@@ -32,7 +32,6 @@ export default {
     },
     data() {
         return {
-            editmode: false,
             editedReview: {...this.review},
             baseUrl: axios.defaults.baseURL
         }

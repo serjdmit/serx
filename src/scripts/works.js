@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import axios from 'axios';
 import Flickity from 'vue-flickity';
 
 
@@ -27,7 +28,6 @@ const thumbs = {
                 prevNextButtons: false,
                 pageDots: false,
                 wrapAround: true,
-                // freeScroll: true,
                 cellAlign: 'right'
             }
         }
@@ -63,7 +63,7 @@ const info = {
     }, 
     computed: {
         tagsArray() {
-            return this.currentWork.skills.split(',');
+            return this.currentWork.techs.split(',');
         }
     }
 }
@@ -79,17 +79,22 @@ new Vue ({
     data() {
         return {
             works: [],
-            currentIndex: 0
+            currentIndex: 0,
+            // currentId: 0,
         }
     },
     computed: {
         currentWork() {
+            console.log(this.works[this.currentIndex].id);
             return this.works[this.currentIndex];
         }
     },
     watch: {
         currentIndex(value) {
             this.loopForWorksSlider(value);
+        },
+        currentWork() {
+            return this.works[this.currentIndex];
         }
     },
     methods: {
@@ -100,7 +105,7 @@ new Vue ({
         },
         makeArreyWithRequiredImages(data) {
             return data.map(item => {
-                const requiredPic = require(`../images/works/${item.photo}`); 
+                const requiredPic = `https://webdev-api.loftschool.com/${item.photo}`; 
                 item.photo = requiredPic;
 
                 return item
@@ -118,11 +123,15 @@ new Vue ({
             }
         },
         selectWork(id){
-          this.currentIndex = (id - 1);
-        }
+            this.currentIndex = (id - 1);
+        },
+        fetchData() {
+            axios.get('https://webdev-api.loftschool.com/works/134').then(response => {
+                this.works = response.data;
+            });
+        },
     },
-    created() {
-        const data = require('../data/works.json');
-        this.works = this.makeArreyWithRequiredImages(data);
+    mounted() {
+        this.fetchData();
     }
 });
