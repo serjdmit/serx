@@ -9,3 +9,4 @@ import "./scripts/navigation";
 import "./scripts/message";
 import "./scripts/feedbacks";
 import "./scripts/parallax";
+import "./scripts/footer";
