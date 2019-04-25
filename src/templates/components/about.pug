@@ -1,0 +1,17 @@
+script(type="text/x-template")#about-block
+    .container.container__about
+            .about__left
+                .user
+                    //- +image('content/user.jpg', 'user__pic')
+                    img(:src="avatar").user__pic
+                    table.user-info
+                        tr(v-for="row in userData")
+                            th.user-info__title {{ row.title }}:
+                            td.user-info__data {{ row.data }}
+
+            .about__right
+                h2.hero-title.hero-title__about
+                    .hero-title__info.hero-title__info--small {{ greeting }}
+                    .hero-title__name.hero-title__name--small {{ userName }}
+                .content.about__content {{ content }}
+                .content.content--italic {{ subContent }}

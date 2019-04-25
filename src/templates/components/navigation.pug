@@ -3,8 +3,6 @@ script(type="text/x-template")#navigation-block
         ul.nav__list(@click="toggleActive")
             li.nav__item(v-for="item in items")  
                 a.nav__link(v-scroll-to="item.link") {{item.name}}
-                    .modal(v-if="open")
-                        .modal-points(v-scroll-lock="open")
 
 script(type="text/x-template")#socials-block
     .socials

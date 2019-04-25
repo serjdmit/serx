@@ -43,7 +43,7 @@ script(type="text/x-template")#slider-thumbs
 script(type="text/x-template")#slider-info
     .works__right
         tags(
-           :tagsArray="tagsArray" 
+           :currentWork="currentWork" 
         )
         .works__description
             h3.title.title--dark {{currentWork.title}}
@@ -55,5 +55,5 @@ script(type="text/x-template")#slider-info
 
 script(type="text/x-template")#slider-tags
     .tags
-        .tags__list(v-for="tag in tagsArray")
+        .tags__list(v-for="tag in currentWork.techs")
             .tags__item {{tag}}

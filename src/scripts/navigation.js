@@ -1,8 +1,6 @@
 import Vue from 'vue';
-import VScrollLock from 'v-scroll-lock';
-import vueScrollto from 'vue-scrollto'
+import vueScrollto from 'vue-scrollto';
 
-Vue.use(VScrollLock);
 Vue.use(vueScrollto);
 
 let menu = new Vue ({

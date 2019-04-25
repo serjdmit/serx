@@ -54,7 +54,8 @@ new Vue({
     data() {
         return {
             categories: [],
-            skills: []
+            skills: [],
+            leftImage: Image
         }
     },
     methods: {
@@ -72,5 +73,6 @@ new Vue({
     },
     created() {
         this.fetchData();
+        this.leftImage = require('../images/bg/arms.png');
     }
 })

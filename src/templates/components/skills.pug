@@ -1,10 +1,17 @@
 script(type="text/x-template")#skills-block
-    .skills-container
-        .skills-block(v-for="category in categories" :key="category.id")
-            skills-row(
-                :category="category"
-                :skills="filterSkillsByCategoryId(category.id)"
-            )
+    .container.container__skills
+        .skills__right
+            h2.title Чем я могу быть полезен вам
+            .content.skills__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .skills__widget
+                .skills-container
+                    .skills-block(v-for="category in categories" :key="category.id")
+                        skills-row(
+                            :category="category"
+                            :skills="filterSkillsByCategoryId(category.id)"
+                        )
+        .skills__left
+            img(:src="leftImage").skills__image
 
 script(type="text/x-template")#skills-row
     .skills-row

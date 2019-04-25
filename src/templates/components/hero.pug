@@ -1,0 +1,42 @@
+script(type="text/x-template")#hero-block
+    .container.container__hero
+        header.header
+            .logo SD
+            
+            hero_menu(
+                @toggle='handleMenu'
+                :items="items"
+                :menu='menu'
+            )
+            socials(
+                :socials='socials'
+            )
+            hamburger(
+                @toggle='handleMenu'
+                :menu='menu'
+            )
+        scroll
+
+script(type="text/x-template")#menu
+    nav.nav(:class="{'is-active': menu}")#navigation
+        ul.nav__list(@click.prevent="$emit('toggle')")
+            li.nav__item(v-for="item in items")  
+                a.nav__link(v-scroll-to="item.link") {{item.name}}
+
+script(type="text/x-template")#socials
+    .socials
+        ul.socials__list
+            li.socials__item(v-for="social in socials")
+                a(:href="social.link" target="_blank").socials__link
+                    i(:class="`fab fa-${social.name} socials__icon`")
+
+script(type="text/x-template")#hamburger
+    button.hamburger.hamburger--elastic(type='button', aria-label='Menu', aria-controls='navigation' @click.prevent="$emit('toggle')" :class="{'is-active': menu}")
+        span.hamburger-box
+            span.hamburger-inner
+
+script(type="text/x-template")#scroll   
+    .scroll       
+        a(v-scroll-to="'#about'").scroll__icon
+            span
+            div Scroll

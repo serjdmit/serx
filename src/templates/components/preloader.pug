@@ -1,0 +1,7 @@
+script(type="text/x-template")#preloader
+    .preloader(v-if="preloading")
+        orbit-spinner(
+            :animation-duration="1200"
+            :size="250"
+            :color="'#ea7400'"
+        )

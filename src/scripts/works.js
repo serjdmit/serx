@@ -24,7 +24,7 @@ const thumbs = {
     data() {
         return {
             flickityOptions: {
-                initialIndex: 1,
+                initialIndex: 0,
                 prevNextButtons: false,
                 pageDots: false,
                 wrapAround: true,
@@ -49,7 +49,7 @@ const display = {
 const tags = {
     template: "#slider-tags",
     props: {
-        tagsArray: Array
+        currentWork: Object,
     }
 }
 
@@ -60,11 +60,6 @@ const info = {
     },
     props: {
         currentWork: Object
-    }, 
-    computed: {
-        tagsArray() {
-            return this.currentWork.techs.split(',');
-        }
     }
 }
 
@@ -79,13 +74,11 @@ new Vue ({
     data() {
         return {
             works: [],
-            currentIndex: 0,
-            // currentId: 0,
+            currentIndex: 1
         }
     },
     computed: {
         currentWork() {
-            console.log(this.works[this.currentIndex].id);
             return this.works[this.currentIndex];
         }
     },
@@ -124,14 +117,18 @@ new Vue ({
         },
         selectWork(id){
             this.currentIndex = (id - 1);
-        },
-        fetchData() {
-            axios.get('https://webdev-api.loftschool.com/works/134').then(response => {
-                this.works = response.data;
-            });
-        },
+        }
     },
-    mounted() {
-        this.fetchData();
+    async created() {
+        await axios.get('https://webdev-api.loftschool.com/works/134').then(response => {
+            this.works = response.data;
+            const worksLength = this.works.length;
+
+            for(var i = 0; i <= worksLength; i++){
+                let tagsArray = this.works[i].techs.split(',');
+                this.works[i].techs = tagsArray;
+                this.works[i].id = i + 1;
+            }
+        });
     }
 });
