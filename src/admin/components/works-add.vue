@@ -34,7 +34,7 @@
                                 input(type="text" placeholder="Введите ссылку" v-model="work.link").card-block__input.card-block__input--long
                             .card-block__form-field
                                 label.card-block__label Описание
-                                textarea(v-model="work.description").card-block__textarea
+                                textarea(v-model="work.description" maxlength="191").card-block__textarea
                             .card-block__form-field
                                 label.card-block__label Добавление тега
                                 input(type="text" placeholder="Впишите теги через запятую" v-model="work.techs" v-on:input="stringToArray").card-block__input.card-block__input--long

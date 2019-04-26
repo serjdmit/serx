@@ -1,15 +1,17 @@
 script(type="text/x-template")#slider-component
-    .container.container__works
-        display(
-            :works="works",
-            :currentWork="currentWork",
-            :currentIndex="currentIndex",
-            @slide="handleSlide",
-            @select="selectWork"
-        )
-        info(
-            :currentWork="currentWork"
-        )
+    .slider-block(v-if="currentWork")
+        .container.container__works.container__works--title
+            h2.title.title--dark Мои работы
+        .container.container__works
+            display(
+                :works="works",
+                :currentWork="currentWork",
+                @slide="handleSlide",
+                @select="selectWork"
+            )
+            info(
+                :currentWork="currentWork"
+            )
 
 script(type="text/x-template")#slider-display
     .works__left
@@ -43,7 +45,7 @@ script(type="text/x-template")#slider-thumbs
 script(type="text/x-template")#slider-info
     .works__right
         tags(
-           :currentWork="currentWork" 
+           :currentWork="currentWork"
         )
         .works__description
             h3.title.title--dark {{currentWork.title}}
@@ -54,6 +56,6 @@ script(type="text/x-template")#slider-info
                 span Посмотреть сайт
 
 script(type="text/x-template")#slider-tags
-    .tags
+    .tags(v-if="currentWork.techs")
         .tags__list(v-for="tag in currentWork.techs")
             .tags__item {{tag}}

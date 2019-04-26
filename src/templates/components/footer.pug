@@ -16,7 +16,7 @@ script(type="text/x-template")#footer-block
                     .content.footer__about Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
                     .socials
                         ul.socials__list
-                            li.socials__item(v-for="social in socials" :key="social.id")
+                            li.socials__item.socials__item--circle(v-for="social in socials" :key="social.id")
                                 a(:href="social.link" target="_blank").socials__link.socials__link--circle
                                     i(class="fab socials__icon" :class="`fa-${social.name}`")
                 .quote.footer__quote

@@ -1,11 +1,15 @@
 import Vue from 'vue';
 import axios from 'axios';
+import VueWaypoint from 'vue-waypoint'
+ 
+Vue.use(VueWaypoint)
 
 
 const skill = {
     template: "#skill",
     props: {
-        skill: Object
+        skill: Object,
+        waypointed: Boolean
     },
     methods: {
         drawColoredCircle() {
@@ -18,7 +22,7 @@ const skill = {
             circle.style.strokeDashoffset = percents;
         }
     },
-    mounted() {
+    updated() {
         this.drawColoredCircle();
     }
 }
@@ -31,7 +35,8 @@ const skillsRow = {
     },
     props: {
         skills: Array,
-        category: Object
+        category: Object,
+        waypointed: Boolean
     },
     data() {
         return {
@@ -55,13 +60,19 @@ new Vue({
         return {
             categories: [],
             skills: [],
-            leftImage: Image
+            leftImage: Image,
+            waypointed: false,
+            intersectionOptions: {
+                root: null,
+                rootMargin: '2000px 0px 0px 0px',
+                thresholds: [0]
+            }
         }
     },
     methods: {
         fetchData() {
             axios.get('https://webdev-api.loftschool.com/categories/134').then(response => {
-                this.categories = response.data;
+                this.categories = response.data.reverse();
             });
             axios.get('https://webdev-api.loftschool.com/skills/134').then(response => {
                 this.skills = response.data;
@@ -70,6 +81,13 @@ new Vue({
         filterSkillsByCategoryId(categoryId) {
             return this.skills.filter(skill => skill.category === categoryId);
         },
+        onWaypoint ({going}) {
+            // going: in, out
+            // direction: top, right, bottom, left
+            if (going === this.$waypointMap.GOING_IN) {
+                this.waypointed = !this.waypointed;
+            }
+          }
     },
     created() {
         this.fetchData();

@@ -74,7 +74,7 @@ new Vue ({
     data() {
         return {
             works: [],
-            currentIndex: 1
+            currentIndex: 0
         }
     },
     computed: {
@@ -119,13 +119,15 @@ new Vue ({
             this.currentIndex = (id - 1);
         }
     },
-    async created() {
-        await axios.get('https://webdev-api.loftschool.com/works/134').then(response => {
-            this.works = response.data;
+    created() {
+        axios.get('https://webdev-api.loftschool.com/works/134').then(response => {
+            const worksData = response.data;
+            this.works = worksData;
             const worksLength = this.works.length;
+            let tagsArray = [];
 
             for(var i = 0; i <= worksLength; i++){
-                let tagsArray = this.works[i].techs.split(',');
+                tagsArray = this.works[i].techs.split(',');
                 this.works[i].techs = tagsArray;
                 this.works[i].id = i + 1;
             }
