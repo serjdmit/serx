@@ -15,7 +15,7 @@
                 input(
                     type="text"
                     placeholder="Название группы"
-                    v-model="editedCategory.title"
+                    v-model="category.category"
                     @keyup.enter="save"
                     @keyup.esc="editmode = false"
                 ).card-block__input
@@ -25,7 +25,7 @@
                             @click="save"
                         ).buttons-block__button.buttons-block__button--check
                         button(
-                            @click="editmode = false"
+                            @click="onClose"
                         ).buttons-block__button.buttons-block__button--remove
         hr.card-line
         .container
@@ -62,8 +62,7 @@ export default {
                 title: "",
                 percent: ""
             },
-            editmode: false,
-            editedCategory: {...this.category},
+            editmode: false
         }
     },
     components: {
@@ -88,11 +87,15 @@ export default {
         },
         async save() {
             try {
-                await this.editCategory(this.editedCaregory);
+                this.category.title = this.category.category;
+                await this.editCategory(this.category);
                 this.editmode = false;
             } catch (error) {
                 alert(error.message);
             }
+        },
+        onClose() {
+            this.editmode = false;
         }
     }
 }

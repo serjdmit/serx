@@ -69,8 +69,8 @@ export default {
                 photo: "",
                 link: "",
                 description: ""
-
             },
+
             tagsArray: [],
             editedWork: {...this.edit},
             editmode: false
@@ -122,6 +122,7 @@ export default {
         async save() {
             try {
                 await this.editWork(this.edit);
+                console.log(this.edit);
                 this.closeForm();
                 this.$emit('edited');
             } catch (error) {
@@ -132,11 +133,11 @@ export default {
             if(this.edit.id){
                 this.editmode = true;
                 this.work = this.edit;
-                this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo
+                this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo;
             } else {
                 this.editmode = false;
                 this.work = this.edit;
-                this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo
+                this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo;
             };
         }
     },
