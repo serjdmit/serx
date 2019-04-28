@@ -3,9 +3,16 @@
         .title-block
             h1.title.title__skills-page Блок "Отзывы"
         .content-block
-            reviews-add()
+            reviews-add(
+                v-if="showAddingForm  || showEditForm"
+                @closed="handleClose"
+                :edit="editedReview"
+            )
             ul.cards-group
-                li.card-block.card-add
+                li(
+                    @click="addForm"
+                    v-if="showAddingForm === false"
+                ).card-block.card-add
                     .add-icon.add-icon--big
                         .plus-icon.plus-icon--big +
                     .card-add__label Добавить работу
@@ -16,6 +23,7 @@
                 )
                     reviews-item(
                         :review="review"
+                        @edit="handleEdit"
                     )
 </template>
 
@@ -28,7 +36,9 @@ export default {
     },
     data() {
         return {
-            showAddingForm: false
+            showAddingForm: false,
+            showEditForm: false,
+            editedReview: {}
         }
     },
     computed: {
@@ -40,6 +50,17 @@ export default {
         ...mapActions('reviews', ['fetchReviews']),
         handleClose() {
             this.showAddingForm = false;
+            this.showEditForm = false;
+        },
+        handleEdit(editReview) {
+            this.showEditForm = true;
+            this.showAddingForm = false;
+            this.editedReview = editReview
+        },
+        addForm() {
+            this.showEditForm = false;
+            this.showAddingForm = true;
+            this.editedReview = {}
         }
     },
     async created() {

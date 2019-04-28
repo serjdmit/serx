@@ -4,6 +4,7 @@
             .container
                 .card-block__header
                     .card-block__name Новый отзыв
+                    pre {{ edit }}
             hr.card-line
             .container
                 .card-block__body.card-block__body--flex-row
@@ -30,20 +31,26 @@
                                 .card-block__form-header
                                     .card-block__form-field.card-block__form-field--row
                                         label.card-block__label Имя автора
-                                        input(type="text" v-model="review.author" placeholder="Имя автора" value="").card-block__input.card-block__input--long
+                                        input(type="text" v-model="review.author" placeholder="Имя автора").card-block__input.card-block__input--long
                                     .card-block__form-field.card-block__form-field--row
                                         label.card-block__label Титул автора
-                                        input(type="text" v-model="review.occ" placeholder="Титул автора" value="").card-block__input.card-block__input--long
+                                        input(type="text" v-model="review.occ" placeholder="Титул автора").card-block__input.card-block__input--long
                                 .card-block__form-field
                                     label.card-block__label Отзыв
                                     textarea(v-model="review.text").card-block__textarea.card-block__form-buttons
                                 .card-block__form-buttons
-                                    button.button.button--cancel Отмена
-                                    button.button(@click="addReview") Сохранить
+                                    button.button.button--cancel(
+                                        @click="closeForm"
+                                    ) Отмена
+                                    button.button(@click="save") Сохранить
 </template>
 <script>
 import { mapActions } from "vuex";
+import axios from "axios";
 export default {
+    props: {
+        edit: Object
+    },
     data() {
         return {
             rendedPhotoUrl: "",
@@ -52,7 +59,8 @@ export default {
                 author: "",
                 occ: "",
                 text: ""
-            }
+            },
+            editedReview: {...this.edit}
         };
     },
     methods: {
@@ -69,17 +77,47 @@ export default {
                 alert("sh*t happens :(");
             }
         },
-        ...mapActions('reviews', ['addReview']),
-        async addNewReview() {
-                console.log('sxsx');
-
+        ...mapActions('reviews', ['addNewReview', 'editReview']),
+        closeForm() {
+            this.$emit("closed");
+        },
+        createReviewFormData() {
+            const formData = new FormData();
+            formData.append("author", this.review.author);
+            formData.append("occ", this.review.occ);
+            formData.append("text", this.review.text);
+            formData.append("photo", this.review.photo);
+            return formData;
+        },
+        async addReview() {
             try {
-                
-                const response = await this.addReview(this.review)
+                const reviewFormData = this.createReviewFormData();
+                await this.addNewReview(reviewFormData);
             } catch (error) {
-                alert(error.message)
+                alert(error.message);
+            }
+        },
+        async save() {
+            try {
+                const reviewFormData = this.createReviewFormData();
+                await this.editReview(this.review.id, reviewFormData);
+                // this.closeForm();
+            } catch (error) {
+                alert(error.message);
+            }
+        },
+        editReview() {
+            if(this.edit.id !== ""){
+                this.review = this.edit;
+                this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo
             }
         }
+    },
+    created() {
+        this.editReview()
+    },
+    updated() {
+        this.editReview()
     }
 }
 </script>
