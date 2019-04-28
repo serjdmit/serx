@@ -9,15 +9,15 @@ export default {
         SET_WORKS: (state, works) => {
             state.works = works;
         },
-        ADD_WORK: (state, newwork) => {
-            state.works.push(newwork);
+        ADD_WORK: (state, newWork) => {
+            state.works.push(newWork);
         },
-        REMOVE_WORK: (state, deletedworkId) => {
-            state.works = state.works.filter(work => work.id !== deletedworkId);
+        REMOVE_WORK: (state, deletedWorkId) => {
+            state.works = state.works.filter(work => work.id !== deletedWorkId);
         },
-        EDIT_WORK: (state, editedwork) => {
+        EDIT_WORK: (state, editedWork) => {
             state.work = state.work.map(work =>
-                work.id === editedwork.id ? editedwork : work
+                work.id === editedWork.id ? editedWork : work
             );
         }
     },
@@ -62,7 +62,7 @@ export default {
             }
         },
 
-        creatework(store, work) {
+        createWork(store, work) {
             const formData = new FormData();
 
             formData.append('text', work.desc);

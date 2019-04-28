@@ -10,41 +10,30 @@ head
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 body
     include ./templates/entry.pug
+    include ./mixins
+
+    #preloader-component
     .wrapper
-
         .maincontent
-            //- +image('content/user.jpg', 'user-pic')
-            //- +icon('link', 'link-class')
-            //- .icon-bg
-            //- include ./sections/header.pug
-            include ./sections/hero.pug
-            include ./sections/about.pug
-            //- include ./sections/skills.pug
-            section.skills
-                .container.container__skills
-                    .skills__right
-                        h2.title Чем я могу быть полезен вам
-                        .content.skills__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-                        .skills__widget
-                            #skills-component
-                    .skills__left
-                        +image('bg/arms.png', 'skills__image')
-            include ./sections/works.pug
-
-            //- #wrapper-bottom-bg
+            section.hero#hero
+                #parallax-component
+                #hero-component
+            section.about#about
+                #about-component
+            section.skills#skills
+                #skills-component
+            section.works#works
+                #slider-container
             .wrapper-bottom
-                .container.container__bottom
+                .container.container__bottom#reviews
                     .wrapper-bottom__left
-                        include ./sections/reviews.pug
-                        include ./sections/contact.pug
+                        section.reviews
+                            #reviews-component
+                            #feedbacks-component
+                        section.contact#contact
+                            #message-component
                     .wrapper-bottom__right
-                        .leafs
-                            .leafs__layer
-                                +image('leafs/1.png', 'leafs__image')
-                            .leafs__layer
-                                +image('leafs/2.png', 'leafs__image')
-                            .leafs__layer
-                                +image('leafs/3.png', 'leafs__image')
-                            .leafs__layer
-                                +image('leafs/4.png', 'leafs__image')
-            include ./sections/footer
+                        #leafs-component
+                        
+            footer.footer
+                #footer-component

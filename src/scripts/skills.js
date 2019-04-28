@@ -1,12 +1,15 @@
 import Vue from 'vue';
 import axios from 'axios';
+import VueWaypoint from 'vue-waypoint'
+ 
+Vue.use(VueWaypoint)
 
 
 const skill = {
     template: "#skill",
     props: {
-        skillName: String,
-        skillPercents: Number
+        skill: Object,
+        waypointed: Boolean
     },
     methods: {
         drawColoredCircle() {
@@ -15,11 +18,11 @@ const skill = {
             const dashArrey = parseInt(
                 getComputedStyle(circle).getPropertyValue('stroke-dasharray')
             );
-            const percents = (dashArrey / 100) * (100 - this.skillPercents);
+            const percents = (dashArrey / 100) * (100 - this.skill.percent);
             circle.style.strokeDashoffset = percents;
         }
     },
-    mounted() {
+    updated() {
         this.drawColoredCircle();
     }
 }
@@ -31,7 +34,18 @@ const skillsRow = {
         skill
     },
     props: {
-        skill: Object
+        skills: Array,
+        category: Object,
+        waypointed: Boolean
+    },
+    data() {
+        return {
+            skill: {
+                category: this.category.id,
+                title: "",
+                percent: ""
+            },
+        }
     }
 }
 
@@ -44,21 +58,39 @@ new Vue({
     },
     data() {
         return {
+            categories: [],
             skills: [],
-            // posts: []
+            leftImage: Image,
+            waypointed: false,
+            intersectionOptions: {
+                root: null,
+                rootMargin: '2000px 0px 0px 0px',
+                thresholds: [0]
+            }
         }
     },
     methods: {
         fetchData() {
             axios.get('https://webdev-api.loftschool.com/categories/134').then(response => {
-                this.skills = response.data;
-                console.log(this.skills[0]);
+                this.categories = response.data.reverse();
             });
-        }
+            axios.get('https://webdev-api.loftschool.com/skills/134').then(response => {
+                this.skills = response.data;
+            });
+        },
+        filterSkillsByCategoryId(categoryId) {
+            return this.skills.filter(skill => skill.category === categoryId);
+        },
+        onWaypoint ({going}) {
+            // going: in, out
+            // direction: top, right, bottom, left
+            if (going === this.$waypointMap.GOING_IN) {
+                this.waypointed = !this.waypointed;
+            }
+          }
     },
     created() {
-        // const data = require("../data/skills.json");
-        // this.skills = data;
         this.fetchData();
+        this.leftImage = require('../images/bg/arms.png');
     }
 })

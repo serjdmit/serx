@@ -1,16 +1,14 @@
 script(type="text/x-template")#navigation-block
     nav.nav(:class="{'is-active': open}")#navigation
-        ul.nav__list()
+        ul.nav__list(@click="toggleActive")
             li.nav__item(v-for="item in items")  
-                a.nav__link(:href='item.link') {{item.name}}
-                    .modal(v-if="open")
-                        .modal-points(v-scroll-lock="open")
+                a.nav__link(v-scroll-to="item.link") {{item.name}}
 
 script(type="text/x-template")#socials-block
     .socials
         ul.socials__list
             li.socials__item(v-for="social in socials")
-                a(:href="social.link").socials__link
+                a(:href="social.link" target="_blank").socials__link
                     i(:class="`fab fa-${social.name} socials__icon`")
 
 script(type="text/x-template")#nav-hamburger

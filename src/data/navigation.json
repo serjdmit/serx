@@ -2,31 +2,31 @@
     {
         "id": 0,
         "name": "Главная",
-        "link": "https://google.com"
+        "link": "#hero"
     },
     {
         "id": 1,
         "name": "Обо мне",
-        "link": "https://google.com"
+        "link": "#about"
     },
     {
         "id": 2,
         "name": "Навыки",
-        "link": "https://google.com"
+        "link": "#skills"
     },
     {
         "id": 3,
         "name": "Работы",
-        "link": "https://google.com"
+        "link": "#works"
     },
     {
         "id": 4,
         "name": "Отзывы",
-        "link": "https://google.com"
+        "link": "#reviews"
     },
     {
         "id": 5,
         "name": "Связаться",
-        "link": "https://google.com"
+        "link": "#contact"
     }
 ]

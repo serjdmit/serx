@@ -1,9 +1,9 @@
 import Vue from 'vue';
-import VScrollLock from 'v-scroll-lock';
+import vueScrollto from 'vue-scrollto';
 
-Vue.use(VScrollLock);
-
-
+Vue.use(vueScrollto, {
+    duration: 10000
+});
 
 let menu = new Vue ({
     el: "#navigation-component",
@@ -12,17 +12,15 @@ let menu = new Vue ({
         items: [],
         open: false
     },
-    // methods: {
-    //     openModal () {
-    //         this.open = true
-    //     },
-    //     closeModal () {
-    //         this.open = false
-    //     }
-    // },
     created() {
         const data = require('../data/navigation.json');
         this.items = data;
+    },
+    methods: {
+        toggleActive() {
+            hamburger.open = !hamburger.open;
+            this.open = hamburger.open;
+        }
     }
 });
 
@@ -35,7 +33,7 @@ new Vue ({
     }
 });
 
-new Vue ({
+let hamburger = new Vue ({
     el: "#nav-button",
     template: "#nav-hamburger",
     data :{
@@ -45,8 +43,6 @@ new Vue ({
         toggleActive() {
             menu.open = !menu.open;
             this.open = menu.open;
-
-
         }
     }
 });

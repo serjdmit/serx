@@ -1,0 +1,25 @@
+script(type="text/x-template")#footer-block
+    .container.container__footer
+        .footer__left
+            .copyright  &copy; 2019
+            .hero-title.footer__hero-title
+                .hero-title__name.footer__hero-name Сергей Дмитриев
+                .hero-title__info.footer__hero-info Личный сайт веб-разработчика
+        .footer__right
+            .footer__menu
+                nav.footer__nav
+                    ul.footer__nav__list()
+                        li.footer__nav__item(v-for="item in items")  
+                            a.footer__nav__link(v-scroll-to="item.link") {{item.name}}
+            .footer__bottom
+                .footer__info
+                    .content.footer__about Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                    .socials
+                        ul.socials__list
+                            li.socials__item.socials__item--circle(v-for="social in socials" :key="social.id")
+                                a(:href="social.link" target="_blank").socials__link.socials__link--circle
+                                    i(class="fab socials__icon" :class="`fa-${social.name}`")
+                .quote.footer__quote
+                    article.quote__article Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живёте 
+                    .quote__name Martin Golding
+    

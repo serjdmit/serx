@@ -85,11 +85,13 @@
         }
 
         @include tablets() {
-            display: block;
-            position: absolute;
             top: 35%;
             left: 50%;
-            transform: translate(-50%, -50%);
+        }
+
+        @media screen and (max-height: 480px) {
+            top: 40%;
+            left: 50%;
         }
     }
 }

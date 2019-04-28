@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import axios from 'axios';
 import Flickity from 'vue-flickity';
 
 
@@ -23,11 +24,10 @@ const thumbs = {
     data() {
         return {
             flickityOptions: {
-                initialIndex: 1,
+                initialIndex: 0,
                 prevNextButtons: false,
                 pageDots: false,
                 wrapAround: true,
-                // freeScroll: true,
                 cellAlign: 'right'
             }
         }
@@ -49,7 +49,7 @@ const display = {
 const tags = {
     template: "#slider-tags",
     props: {
-        tagsArray: Array
+        currentWork: Object,
     }
 }
 
@@ -60,11 +60,6 @@ const info = {
     },
     props: {
         currentWork: Object
-    }, 
-    computed: {
-        tagsArray() {
-            return this.currentWork.skills.split(',');
-        }
     }
 }
 
@@ -90,6 +85,9 @@ new Vue ({
     watch: {
         currentIndex(value) {
             this.loopForWorksSlider(value);
+        },
+        currentWork() {
+            return this.works[this.currentIndex];
         }
     },
     methods: {
@@ -100,7 +98,7 @@ new Vue ({
         },
         makeArreyWithRequiredImages(data) {
             return data.map(item => {
-                const requiredPic = require(`../images/works/${item.photo}`); 
+                const requiredPic = `https://webdev-api.loftschool.com/${item.photo}`; 
                 item.photo = requiredPic;
 
                 return item
@@ -118,11 +116,21 @@ new Vue ({
             }
         },
         selectWork(id){
-          this.currentIndex = (id - 1);
+            this.currentIndex = (id - 1);
         }
     },
     created() {
-        const data = require('../data/works.json');
-        this.works = this.makeArreyWithRequiredImages(data);
+        axios.get('https://webdev-api.loftschool.com/works/134').then(response => {
+            const worksData = response.data;
+            this.works = worksData;
+            const worksLength = this.works.length;
+            let tagsArray = [];
+
+            for(var i = 0; i <= worksLength; i++){
+                tagsArray = this.works[i].techs.split(',');
+                this.works[i].techs = tagsArray;
+                this.works[i].id = i + 1;
+            }
+        });
     }
 });

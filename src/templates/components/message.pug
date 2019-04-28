@@ -1,27 +1,29 @@
-script(type="text/x-template")#message-block    
-    form.form(id="message")
-        .form__block
-            .form__field
-                .form__left  
-                    +icon('user', 'form__icon')
-                .form__right
-                    label.form__label(:class="{active: nameActive}") Ваше имя
-                    input(type="text" name="name" @focus="toggleName()" @blur="toggleName()" v-model="nameFilled").form__input
-                    
+script(type="text/x-template")#message-block
+    .message-wrap
+        h2.title.title--big Связаться со мной
+        form.form(id="message")
+            .form__block
+                .form__field
+                    .form__left  
+                        +icon('user', 'form__icon')
+                    .form__right
+                        label.form__label(:class="{active: nameActive}") Ваше имя
+                        input(type="text" name="name" @focus="toggleName()" @blur="toggleName()" v-model="nameFilled").form__input
+                        
 
-            .form__field
-                .form__left 
-                    +icon('envelope', 'form__icon')
-                .form__right
-                    label.form__label(:class="{active: emailActive}") Введите выш email
-                    input(type="text" name="email" @focus="toggleEmail()" @blur="toggleEmail()" v-model="emailFilled").form__input
+                .form__field
+                    .form__left 
+                        +icon('envelope', 'form__icon')
+                    .form__right
+                        label.form__label(:class="{active: emailActive}") Введите выш email
+                        input(type="text" name="email" @focus="toggleEmail()" @blur="toggleEmail()" v-model="emailFilled").form__input
 
-        .form__block
-            .form__field.form__field--message
-                .form__left.form__left--message
-                    +icon('message', 'form__icon')
-                .form__right.form__right--message
-                    label.form__label(:class="{active: messageActive}") Сообщение к письму
-                    textarea(name="message" @focus="toggleMessage()" @blur="toggleMessage()" v-model="messageFilled").form__input.form__input--message
-        .button-block
-            button(type="submit" value="Отправить" form="message").button.button--send Отправить
+            .form__block
+                .form__field.form__field--message
+                    .form__left.form__left--message
+                        +icon('message', 'form__icon')
+                    .form__right.form__right--message
+                        label.form__label(:class="{active: messageActive}") Сообщение к письму
+                        textarea(name="message" @focus="toggleMessage()" @blur="toggleMessage()" v-model="messageFilled").form__input.form__input--message
+            .button-block
+                button(type="submit" value="Отправить" form="message").button.button--send Отправить

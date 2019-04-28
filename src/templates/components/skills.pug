@@ -1,28 +1,40 @@
 script(type="text/x-template")#skills-block
-    .skills-container
-        .skills-block(v-for="skill in skills" :key="skill.category")
-            skills-row(
-                :skill="skill"
-            )
+    .container.container__skills
+        .skills__right
+            h2.title Чем я могу быть полезен вам
+            .content.skills__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .skills__widget
+                .skills-container
+                    .skills-block(v-for="category in categories" :key="category.id")
+                        skills-row(
+                            v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }"
+                            :category="category"
+                            :skills="filterSkillsByCategoryId(category.id)"
+                            :waypointed="waypointed"
+                        )
+        .skills__left
+            img(:src="leftImage").skills__image
 
 script(type="text/x-template")#skills-row
     .skills-row
-        h3.title.title--small {{skill.skillsGroup}}
+        h3.title.title--small {{category.category}}
         ul.skills-list
-            li.skills-list__item(v-for="(skillPercents, skillName) in skill.skills")
-                skill(
-                    :skillName="skillName"
-                    :skillPercents = "skillPercents"
-                )
+            skill(
+                v-for="skill in skills"
+                :key="skill.id"
+                :skill="skill"
+                :waypointed="waypointed"
+            )
 
 script(type="text/x-template")#skill
-    .skills-list__skill
-        svg(width="126" height="126" preserveAspectRatio="none").skills-list__level
-            linearGradient(id="orange" x1="0%" y1="0%" x2="100%" y2="0%")
-                stop(offset="0%" stop-color="#ed7400")
-                stop(offset="100%" stop-color="#f29400")
+    li.skills-list__item
+        .skills-list__skill
+            svg(width="126" height="126" preserveAspectRatio="none").skills-list__level
+                linearGradient(id="orange" x1="0%" y1="0%" x2="100%" y2="0%")
+                    stop(offset="0%" stop-color="#ed7400")
+                    stop(offset="100%" stop-color="#f29400")
 
-            
-            circle(r="60" cx="63" cy="63").skills-list__circle.skills-list__circle--under
-            circle(r="59" cx="63" cy="63" ref="color-circle" stroke="url(#orange)").skills-list__circle.skills-list__circle--above
-        .skills-list__name {{skillName}}
+                
+                circle(r="60" cx="63" cy="63").skills-list__circle.skills-list__circle--under
+                circle(r="59" cx="63" cy="63" ref="color-circle" stroke="url(#orange)" :class="{active: waypointed}").skills-list__circle.skills-list__circle--above
+            .skills-list__name {{skill.title}}

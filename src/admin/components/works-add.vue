@@ -4,6 +4,7 @@
             .container
                 .card-block__header
                     .card-block__name Редактирование работы
+                    .hidden {{ edit }}
             hr.card-line
             .card-block__body.card-block__body--flex-row
                 .card-block__left
@@ -33,7 +34,7 @@
                                 input(type="text" placeholder="Введите ссылку" v-model="work.link").card-block__input.card-block__input--long
                             .card-block__form-field
                                 label.card-block__label Описание
-                                textarea(v-model="work.description").card-block__textarea
+                                textarea(v-model="work.description" maxlength="191").card-block__textarea
                             .card-block__form-field
                                 label.card-block__label Добавление тега
                                 input(type="text" placeholder="Впишите теги через запятую" v-model="work.techs" v-on:input="stringToArray").card-block__input.card-block__input--long
@@ -45,17 +46,20 @@
                                                 @click="removeTag(index)"
                                             )
                             .card-block__form-buttons
-                                button(
-                                    @click="formOpened"
-                                ).button.button--cancel Отмена
-                                button(
-                                    @click="addWork"
-                                ).button Сохранить
+                                button.button.button--cancel(
+                                    @click="closeForm"
+                                ) Отмена
+                                button.button(@click="addWork" v-if="editmode === false") Сохранить
+                                button.button(@click="save" v-if="editmode === true") Изменить
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import axios from 'axios';
 export default {
+    props: {
+        edit: Object
+    },
     data() {
         return {
             rendedPhotoUrl: "",
@@ -65,9 +69,11 @@ export default {
                 photo: "",
                 link: "",
                 description: ""
-
             },
-            tagsArray: []
+
+            tagsArray: [],
+            editedWork: {...this.edit},
+            editmode: false
         };
     },
     methods: {
@@ -84,10 +90,24 @@ export default {
                 alert("sh*t happens :(");
             }
         },
-        ...mapActions('works', ['addNewWork']),
+        ...mapActions('works', ['addNewWork', 'editWork']),
+        closeForm() {
+            this.$emit("closed");
+        },
+        createWorkFormData() {
+            const formData = new FormData();
+            formData.append("title", this.work.title);
+            formData.append("techs", this.work.techs);
+            formData.append("photo", this.work.photo);
+            formData.append("link", this.work.link);
+            formData.append("description", this.work.description);
+            return formData;
+        },
         async addWork() {
             try {
-                const response = await this.addNewWork(this.work)
+                const workFormData = this.createWorkFormData();
+                await this.addNewWork(workFormData);
+                this.closeForm();
             } catch (error) {
                 alert(error.message)
             }
@@ -95,18 +115,45 @@ export default {
         stringToArray() {
             this.tagsArray = this.work.techs.split(',');
         },
-        formOpened() {
-            this.$emit("closed");
-        },
         removeTag(index) {
             this.tagsArray.splice(index, 1);
             this.work.techs = this.tagsArray.join();
+        },
+        async save() {
+            try {
+                await this.editWork(this.edit);
+                console.log(this.edit);
+                this.closeForm();
+                this.$emit('edited');
+            } catch (error) {
+                alert(error.message);
+            }
+        },
+        editWorkMode() {
+            if(this.edit.id){
+                this.editmode = true;
+                this.work = this.edit;
+                this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo;
+            } else {
+                this.editmode = false;
+                this.work = this.edit;
+                this.rendedPhotoUrl = axios.defaults.baseURL + this.edit.photo;
+            };
         }
+    },
+    created() {
+        this.editWorkMode()
+    },
+    updated() {
+        this.editWorkMode()
     }
 }
 </script>
 
 <style lang="postcss" scoped>
+    .hidden {
+        display: none;
+    }
     .upload__preview-wrap {
         position: absolute;
         left: 0;

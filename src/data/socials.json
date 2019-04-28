@@ -1,17 +1,17 @@
 [
     {
         "id": 0,
-        "name": "instagram",
-        "link": "https://google.com"
-    },
-    {
-        "id": 1,
-        "name": "vk",
-        "link": "https://google.com"
+        "name": "facebook",
+        "link": "https://www.facebook.com/mr.dmit"
     },
     {
         "id": 2,
         "name": "github",
-        "link": "https://google.com"
+        "link": "https://github.com/serjdmit"
+    },
+    {
+        "id": 3,
+        "name": "linkedin",
+        "link": "https://www.linkedin.com/in/mrdmit/"
     }
 ]
