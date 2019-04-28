@@ -54,7 +54,7 @@ export default {
 
         async editWork({ commit }, work) {
             try {
-                const response = await this.$axios.post(`/works/${work.id}`, work);
+                const response = await this.$axios.post(`/works/${work.id}`, work.data);
                 commit('EDIT_WORK', response.data.work);
                 return response;
             } catch (error) {

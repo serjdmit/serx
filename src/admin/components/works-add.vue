@@ -76,6 +76,7 @@ export default {
             editmode: false
         };
     },
+    
     methods: {
         appendFileAndRenderPhoto(e) {
             const file = e.target.files[0];
@@ -121,8 +122,11 @@ export default {
         },
         async save() {
             try {
-                await this.editWork(this.edit);
-                console.log(this.edit);
+                const workData = {
+                    id: this.work.id,
+                    data: this.createWorkFormData()
+                };
+                await this.editWork(workData);
                 this.closeForm();
                 this.$emit('edited');
             } catch (error) {
