@@ -69,7 +69,7 @@ new Vue ({
     template: "#slider-component",
     components: {
         display,
-        info
+        info,
     },
     data() {
         return {
