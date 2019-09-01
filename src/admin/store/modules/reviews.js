@@ -22,7 +22,7 @@ export default {
         }
     },
     actions: {
-        async addReview({ commit }, review) {
+        async addNewReview({ commit }, review) {
             try {
                 const response = await this.$axios.post("/reviews", review);
                 commit("ADD_REVIEW", response.data);
@@ -54,7 +54,7 @@ export default {
 
         async editReview({ commit }, review) {
             try {
-                const response = await this.$axios.post(`/reviews/${review.id}`, review);
+                const response = await this.$axios.post(`/reviews/${review.id}`, review.data);
                 commit('EDIT_REVIEW', response.data.review);
                 return response;
             } catch (error) {

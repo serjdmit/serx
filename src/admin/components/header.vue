@@ -5,8 +5,23 @@
                 img(src="../../images/content/user.jpg").admin__avatar
                 .admin__name Сергей Дмитриев
                 .admin-panel-name Панель администратора
-            a.logout(href="#/login") Выйти
+            a.logout(href="#/login" @click="logout") Выйти
 </template>
+<script>
+import $axios from "@/requests";
+export default {
+    methods: {
+        async logout() {
+            try {
+                await localStorage.removeItem("token");
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+    }
+}
+</script>
+
 <style lang="postcss" scoped>
     .header {
         width: 100vw;

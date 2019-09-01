@@ -101,7 +101,15 @@ export default {
         },
         async save() {
             try {
-                await this.editReview(this.edit);
+                // console.log("author " + this.review.author);
+                // console.log("occ " + this.review.occ);
+                // console.log("text " + this.review.text);
+                // console.log("photo " + this.review.photo);
+                const reviewData = {
+                    id: this.review.id,
+                    data: this.createReviewFormData()
+                };
+                await this.editReview(reviewData);
                 this.closeForm();
                 this.$emit('edited');
             } catch (error) {

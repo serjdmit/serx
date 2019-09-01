@@ -1,32 +1,32 @@
 [
     {
         "id": 0,
-        "name": "Главная",
+        "name": "Main",
         "link": "#hero"
     },
     {
         "id": 1,
-        "name": "Обо мне",
+        "name": "About me",
         "link": "#about"
     },
     {
         "id": 2,
-        "name": "Навыки",
+        "name": "Skills",
         "link": "#skills"
     },
     {
         "id": 3,
-        "name": "Работы",
+        "name": "Works",
         "link": "#works"
     },
     {
         "id": 4,
-        "name": "Отзывы",
+        "name": "Feedbacks",
         "link": "#reviews"
     },
     {
         "id": 5,
-        "name": "Связаться",
+        "name": "Contact",
         "link": "#contact"
     }
 ]

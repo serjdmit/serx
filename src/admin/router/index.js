@@ -6,14 +6,17 @@ import store from "@/store"
 
 Vue.use(VueRouter);
 
-const baseURL = "http://localhost:8080";
+const baseURL = "http://localhost:8080/admin/#";
 const guard = axios.create({ baseURL });
 
 const router = new VueRouter({ routes });
 
 router.beforeEach(async (to, from, next) => {
     const isPublicRoute = to.matched.some(record => record.meta.public);
-    const isUserLogged = store.getters["/admin#/user/userIsLogged"];
+    const isUserLogged = store.getters["user/userIsLogged"];
+
+    console.log(isPublicRoute, isUserLogged);
+
 
     if (isPublicRoute === false && isUserLogged === false) {
         const token = localStorage.getItem('token');
@@ -21,7 +24,9 @@ router.beforeEach(async (to, from, next) => {
 
         try {
             const response = await guard.get('/user');
-            store.commit('user/SET_USER', response.data.user);
+            console.log(response);
+            console.log(response);
+            store.commit('/user/SET_USER', response.data.user);
             next();
         } catch (error) {
             router.replace('/login');

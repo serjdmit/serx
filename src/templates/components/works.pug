@@ -1,7 +1,7 @@
 script(type="text/x-template")#slider-component
     .slider-block(v-if="currentWork")
         .container.container__works.container__works--title
-            h2.title.title--dark Мои работы
+            h2.title.title--dark My works
         .container.container__works
             display(
                 :works="works",
@@ -53,9 +53,9 @@ script(type="text/x-template")#slider-info
                 p {{currentWork.description}}
             a(:href="currentWork.link" target="_blank").link
                 +icon('link', 'link__icon')
-                span Посмотреть сайт
+                span View website
 
 script(type="text/x-template")#slider-tags
-    .tags(v-if="currentWork.techs")
+    .tags(v-if="currentWork")
         .tags__list(v-for="tag in currentWork.techs")
             .tags__item {{tag}}

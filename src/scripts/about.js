@@ -17,9 +17,9 @@ new Vue({
         const data = require('../data/user-info.json');
         this.userData = data;
         this.avatar = require('../images/content/user.jpg');
-        this.userName = "Сергей Дмитриев";
-        this.greeting = 'Привет, меня зовут';
-        this.content = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus atque adipisci velit necessitatibus dolorem corporis vero neque impedit non amet!'
-        this.subContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe corrupti, fuga dignissimos at officia non tempora similique esse repudiandae numquam.'
+        this.userName = "Sergei Dmitrijev";
+        this.greeting = 'Hi, my name is';
+        this.content = `Now and always I'm working on my skills. With changing and compare some things of my life, through all troubler, I always find a better way. This is endless way, fortunatelly :)`;
+        this.subContent = 'Growing up, making changes, fast studing, creativity and communication are my best sides.'
     }
 });
