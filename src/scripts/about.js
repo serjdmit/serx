@@ -19,7 +19,7 @@ new Vue({
         this.avatar = require('../images/content/user.jpg');
         this.userName = "Sergei Dmitrijev";
         this.greeting = 'Hi, my name is';
-        this.content = `Now and always I'm working on my skills. With changing and compare some things of my life, through all troubler, I always find a better way. This is endless way, fortunatelly :)`;
-        this.subContent = 'Growing up, making changes, fast studing, creativity and communication are my best sides.'
+        this.content = `Now and always I'm working on my skills. With changing and compare some things of my life, through all troubler, I always find a better way. This is endless way, fortunately :)`;
+        this.subContent = 'Growing up, making changes, fast studying, creativity and communication are my best sides.'
     }
 });

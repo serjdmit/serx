@@ -1,7 +1,8 @@
 .form {
     &__block {
-        display: block;
         margin-bottom: 40px;
+        background: transparent !important;
+        box-shadow: none !important;
 
         @include desktop() {
             text-align: center;
@@ -53,29 +54,20 @@
 
     }
     &__label {
-        color: #fff;
         font-size: 18px;
-        font-weight: 700;
-        line-height: 36px;
-        transition: ease-in-out .2s;
-        position: absolute;
-        pointer-events: none;
-
-        &.active {
-            opacity: 0.3;
-            transform: translate3d(-45px, -45px, -20px);
-        }
+        font-weight: 700 !important;
+        line-height: 36px !important;
+        font-family: 'Open Sans', Helvetica, sans-serif !important;
+        color: #fff !important;
     }
     &__input {
-        background: transparent;
-        border: none;
-        outline: none;
-        display: block;
-        width: 100%;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 36px;
+        font-size: 18px !important;
+        height: 4rem !important;
+        font-family: 'Open Sans', Helvetica, sans-serif !important;
+
+        &--textarea {
+            padding-top: 20px !important;
+        }
     }
     &__icon {
         width: 30px;
@@ -86,4 +78,14 @@
         margin-bottom: -8px;
         display: inline-block;
     }
+}
+
+.md-progress-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+.md-field.md-theme-default:before {
+    background-color: #f29400 !important;
 }

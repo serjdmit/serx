@@ -91,7 +91,7 @@ module.exports = (env, argv) => {
         admin: ["@babel/polyfill", "./src/admin/main.js"]
     },
     output: {
-      path: path.resolve(__dirname, "./dist"),
+      path: path.resolve(__dirname, "./serjdmit.github.io"),
       filename: "[name].[hash].build.js",
       publicPath: isProductionBuild ? publicPath : "",
       chunkFilename: "[chunkhash].js"
