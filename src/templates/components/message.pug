@@ -1,67 +1,29 @@
 script(type="text/x-template")#message-block
     .message-wrap
         h2.title.title--big Contact with me
-        form.md-layout(novalidate='', action='https://formspree.io/mr.dmit@gmail.com' method='POST' ref="form")
+        form.md-layout(name="message" novalidate='', action='https://formspree.io/mr.dmit@gmail.com' method='POST' @submit.prevent="sendMessage")
             md-card.md-layout-item.md-size-100.md-small-size-100.form__block
                 md-card-content
                     .md-layout.md-gutter
                         .md-layout-item.md-small-size-100
                             md-field(:class="getValidationClass('firstName')")
-                                label(for='first-name').form__label First Name
-                                md-input#first-name(name='first-name', autocomplete='given-name', v-model='form.firstName', :disabled='sending' required).form__input
+                                label(for='first-name').form__label <i class="fas fa-user fa-2x" style="margin-right: 15px; opacity: .3;"></i> <span>Name</span>
+                                md-input#first-name(name='name', autocomplete='given-name', v-model='form.firstName', :disabled='sending' required).form__input
                                     span.md-error(v-if='!$v.form.firstName.required') The first name is required
                                     span.md-error(v-else-if='!$v.form.firstName.minlength') Invalid first name
                         .md-layout-item.md-small-size-100
                             md-field(:class="getValidationClass('email')")
-                                label(for='email').form__label Email
-                                md-input#email(type='email', name='_replyto', autocomplete='email', v-model='form.email', :disabled='sending' required).form__input
+                                label(for='email').form__label <i class="far fa-paper-plane fa-2x" style="margin-right: 15px; opacity: .3;"></i> <span>Email</span>
+                                md-input#email(type='email', name='email', autocomplete='email', v-model='form.email', :disabled='sending' required).form__input
                                     span.md-error(v-if='!$v.form.email.required') The email is required
                                     span.md-error(v-else-if='!$v.form.email.email') Invalid email
                             
                     md-field(:class="getValidationClass('message')")
-                        label.form__label Your message
+                        label.form__label <i class="far fa-comment-dots fa-2x" style="margin-right: 15px; opacity: .3;"></i> <span>Your message</span>
                         md-textarea(v-model='form.message', md-autogrow, name='message', :disabled='sending' required maxlength="300").form__input.form__input--textarea
                             span.md-error(v-if='!$v.form.message.required') The message is required
                             span.md-error(v-else-if='!$v.form.message.minlength') Invalid message
                 md-progress-bar(md-mode='indeterminate', v-if='sending')
                 md-card-actions
                     md-button.md-primary.md-raised.button.button--send(type='submit', :disabled='sending') Send
-            md-snackbar(:md-active.sync='userSaved') The user {{ lastUser }} was saved with success!
-        //- form.form(id="message" :state="formstate" @submit.prevent="onSubmit()")
-
-            //- .form__block
-            //-     .form__field
-            //-         .form__left  
-            //-             +icon('user', 'form__icon')
-            //-         validate.form__right(tag="div")
-            //-             label.form__label(:class="{active: nameActive, empty: nameEmpty}") Your name
-            //-             input(type="text" name="name" v-model="model.name").form__input
-                        
-            //-             field-messages(name='name')
-            //-                 div Success!
-            //-                 siv(slot="required") Name is a required field
-
-            //-     .form__field
-            //-         .form__left 
-            //-             +icon('envelope', 'form__icon')
-            //-         validate(tag="div").form__right
-            //-             label.form__label(:class="{active: emailActive}") Enter your email
-            //-             input(type="email" name="_replyto" v-model="model.email").form__input
-
-            //-             field-messages(name='name')
-            //-                 div Success!
-            //-                 siv(slot="required") Name is a required field
-
-            //- .form__block
-            //-     .form__field.form__field--message
-            //-         .form__left.form__left--message
-            //-             +icon('message', 'form__icon')
-            //-         validate(tag="div").form__right.form__right--message
-            //-             label.form__label(:class="{active: messageActive}") Message to letter
-            //-             textarea(name="message" @focus="toggleMessage()" @blur="toggleMessage()" v-model="messageFilled").form__input.form__input--message
-
-            //-             field-messages(name='name')
-            //-                 div Success!
-            //-                 siv(slot="required") Name is a required field
-            .button-block
-                button(type="submit" value="Send" form="message" @click="sendEmail($event)").button.button--send Send
+            md-snackbar(:md-active.sync='messageSended') The user {{ lastMessage }} was saved with success!

@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 import VueMaterial from 'vue-material';
 import { validationMixin } from 'vuelidate';
 import {
@@ -11,6 +13,7 @@ import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/default-dark.css';
 
 Vue.use(VueMaterial);
+Vue.use(VueAxios, axios);
 
 new Vue({
     el: "#message-component",
@@ -20,12 +23,13 @@ new Vue({
     mixins: [validationMixin],
     data: () => ({
         form: {
-            firstName: null,
-            email: null,
+            firstName: '',
+            email: '',
+            message: ''
         },
-        userSaved: false,
+        messageSended: false,
         sending: false,
-        lastUser: null
+        lastMessage: null
     }),
     validations: {
         form: {
@@ -56,26 +60,50 @@ new Vue({
         },
         clearForm() {
             this.$v.$reset();
-            this.form.firstName = null;
-            this.form.email = null;
-            this.form.message = null;
+            this.form.firstName = '';
+            this.form.email = '';
+            this.form.message = '';
+            setTimeout(() => {
+                this.messageSended = false;
+            }, 10000);
         },
-        saveUser() {
+        sendMessage() {
             this.sending = true;
 
             // Instead of this timeout, here you can call your API
-            window.setTimeout(() => {
-                this.lastUser = `${this.form.firstName} ${this.form.email}`;
-                this.userSaved = true;
+            // window.setTimeout(() => {
+            //     this.lastMessage = `${this.form.firstName}, ${this.form.email}`;
+            //     this.messageSended = true;
+            //     this.sending = false;
+            //     this.clearForm();
+            // }, 100000);
+
+            axios.post('https://formcarry.com/s/dFrMZ5OGGZj', {
+                name: this.form.firstName,
+                email: this.form.email,
+                message: this.form.message
+            }, { headers: { 'Accept': 'application/json' } })
+            .then((response) => {
+                console.log(response);
+            })
+            .then(() => {
+                this.lastMessage = `Thank you, ${this.form.firstName} ;)`;
+                this.messageSended = true;
                 this.sending = false;
                 this.clearForm();
-            }, 1500);
+            })
+            .catch((error) => {
+                console.log(error);
+                this.messageSended = true;
+                this.lastMessage = `Oops, something went wrong :(`;
+                this.sending = false;
+            });
         },
         validateUser() {
             this.$v.$touch();
 
             if (!this.$v.$invalid) {
-                this.saveUser();
+                this.sendMessage();
             }
         }
     }

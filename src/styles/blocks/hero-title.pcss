@@ -45,6 +45,8 @@
         text-align: left;
         margin-left: 60px;
         vertical-align: top;
+        background-clip: text;
+        text-shadow: 3px 0px 3px rgba(0,0,0,0.5);
 
         @include tablets() {
             display: block;
@@ -52,6 +54,9 @@
             text-align: center;
             font-size: 48px;
             width: 50%;
+        }
+        @include phones() {
+            width: 45%;
         }
 
         &--small {
