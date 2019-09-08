@@ -32,12 +32,14 @@
         margin-bottom: 20px;
         margin-left: 0;
         text-align: left;
+        transform: skew(0, 0);
     }
     &__hero-info {
         display: block;
         opacity: 0.15;
         text-align: left;
         min-width: auto;
+        font-size: 10px;
 
         @include tablets() {
             margin: 0;
@@ -59,9 +61,9 @@
         }
         &__link {
             color: #fff !important;
-            font-weight: 400 !important;
             line-height: 30px !important;
             text-decoration: none !important;
+            font-family: 'Parisian';
         }
     }
 
@@ -96,6 +98,8 @@
     &__quote {
         width: 45%;
         display: inline-block;
+        font-family: 'Parisian';
+        font-size: 34px;
 
         @include desktop() {
             width: auto;

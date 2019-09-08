@@ -1,5 +1,5 @@
 script(type="text/x-template")#preloader
-    .preloader(v-if="preloading")
+    .preloader(v-if="preloading" :class="{'done' : doneClass}")
         orbit-spinner(
             :animation-duration="1200"
             :size="250"

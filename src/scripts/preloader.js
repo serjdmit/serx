@@ -11,12 +11,16 @@ new Vue({
     },
     data(){
         return {
-            preloading: true
-        }
+            preloading: true,
+            doneClass: false
+        };
     },
     methods: {
         loaded(){
-            this.preloading = false;
+            this.doneClass = true;
+            setTimeout(() => {
+                this.preloading = false;
+            }, 1500);
         },
         loading(){
             window.onload = this.loaded;

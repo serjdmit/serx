@@ -19,7 +19,7 @@ new Vue({
         this.avatar = require('../images/content/user.jpg');
         this.userName = "Sergei Dmitrijev";
         this.greeting = 'Hi, my name is';
-        this.content = `Now and always I'm working on my skills. With changing and compare some things of my life, through all troubler, I always find a better way. This is endless way, fortunately :)`;
-        this.subContent = 'Growing up, making changes, fast studying, creativity and communication are my best sides.'
+        this.content = `I'm FRONT-END developer. I was working as web developer in several big and little companies. I'm freelancer too, sometimes`;
+        this.subContent = 'If you need front-end developer, we have only one solution ever: CONTACT ME!';
     }
 });
