@@ -54,19 +54,20 @@
 
     }
     &__label {
-        font-size: 18px;
+        font-size: 24px !important;
         font-weight: 700 !important;
-        line-height: 36px !important;
-        font-family: 'Open Sans', Helvetica, sans-serif !important;
+        /* line-height: 36px !important; */
+        font-family: 'Parisian', sans-serif !important;
         color: #fff !important;
     }
     &__input {
-        font-size: 18px !important;
+        font-size: 32px !important;
         min-height: 4rem !important;
-        font-family: 'Open Sans', Helvetica, sans-serif !important;
+        font-family: 'flw script', 'Parisian', sans-serif !important;
+        margin-top: 10px;
 
         &--textarea {
-            padding-top: 20px !important;
+            padding-top: 10px !important;
         }
     }
     &__icon {
@@ -85,6 +86,12 @@
     top: 0;
     right: 0;
     left: 0;
+}
+
+.md-focused {
+    .form__label {
+        font-size: 18px !important;
+    }
 }
 .md-field.md-theme-default:before {
     background-color: #f29400 !important;

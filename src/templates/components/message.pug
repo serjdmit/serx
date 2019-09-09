@@ -7,19 +7,19 @@ script(type="text/x-template")#message-block
                     .md-layout.md-gutter
                         .md-layout-item.md-small-size-100
                             md-field(:class="getValidationClass('firstName')")
-                                label(for='first-name').form__label <i class="fas fa-user fa-2x" style="margin-right: 15px; opacity: .3;"></i> <span>Name</span>
+                                label(for='first-name').form__label <i class="fab fa-redhat fa-2x" style="margin-right: 15px; opacity: .3;"></i> <span>Name</span>
                                 md-input#first-name(name='name', autocomplete='given-name', v-model='form.firstName', :disabled='sending' required).form__input
                                     span.md-error(v-if='!$v.form.firstName.required') The first name is required
                                     span.md-error(v-else-if='!$v.form.firstName.minlength') Invalid first name
                         .md-layout-item.md-small-size-100
                             md-field(:class="getValidationClass('email')")
-                                label(for='email').form__label <i class="far fa-paper-plane fa-2x" style="margin-right: 15px; opacity: .3;"></i> <span>Email</span>
+                                label(for='email').form__label <i class="fas fa-dove fa-2x" style="margin-right: 15px; opacity: .3;"></i> <span>Email</span>
                                 md-input#email(type='email', name='email', autocomplete='email', v-model='form.email', :disabled='sending' required).form__input
                                     span.md-error(v-if='!$v.form.email.required') The email is required
                                     span.md-error(v-else-if='!$v.form.email.email') Invalid email
                             
                     md-field(:class="getValidationClass('message')")
-                        label.form__label <i class="far fa-comment-dots fa-2x" style="margin-right: 15px; opacity: .3;"></i> <span>Your message</span>
+                        label.form__label <i class="fas fa-pen-fancy fa-2x" style="margin-right: 15px; opacity: .3;"></i> <span>Your message</span>
                         md-textarea(v-model='form.message', md-autogrow, name='message', :disabled='sending' required maxlength="300").form__input.form__input--textarea
                             span.md-error(v-if='!$v.form.message.required') The message is required
                             span.md-error(v-else-if='!$v.form.message.minlength') Invalid message
