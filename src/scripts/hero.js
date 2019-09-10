@@ -2,7 +2,10 @@ import Vue from 'vue';
 
 import vueScrollto from 'vue-scrollto';
 
-Vue.use(vueScrollto);
+Vue.use(vueScrollto, {
+    duration:1500,
+    easing: 'ease-in-out'
+});
 
 let hero_menu = {
     template: "#menu",

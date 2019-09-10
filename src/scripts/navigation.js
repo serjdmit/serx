@@ -2,7 +2,7 @@ import Vue from 'vue';
 import vueScrollto from 'vue-scrollto';
 
 Vue.use(vueScrollto, {
-    duration: 10000
+    duration: 500
 });
 
 let menu = new Vue ({

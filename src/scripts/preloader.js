@@ -18,6 +18,8 @@ new Vue({
     methods: {
         loaded(){
             this.doneClass = true;
+            const orientacion = document.querySelector('.wrong-orientation .hero-title__name');
+            orientacion.append('Rotate Device');
             setTimeout(() => {
                 this.preloading = false;
             }, 1500);

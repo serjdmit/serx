@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import vueScrollto from 'vue-scrollto';
 
-Vue.use(vueScrollto);
+// Vue.use(vueScrollto, {
+//     duration
+// });
 
 new Vue({
     el: '#footer-component',
