@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import axios from 'axios';
-import VueWaypoint from 'vue-waypoint'
+import VueWaypoint from 'vue-waypoint';
  
-Vue.use(VueWaypoint)
+Vue.use(VueWaypoint);
 
 
 const skill = {

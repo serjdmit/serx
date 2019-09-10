@@ -13,5 +13,7 @@ script(type="text/x-template")#about-block
                 h2.hero-title.hero-title__about
                     .hero-title__info.hero-title__info--small {{ greeting }}
                     .hero-title__name.hero-title__name--small {{ userName }}
-                .content.about__content {{ content }}
-                .content.content--italic {{ subContent }}
+                .content.about__content(
+                    v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions}"
+                ) {{ typedContent }}
+                .content.content--italic(:class="{'visible': visible}") {{ subContent }}

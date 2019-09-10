@@ -9,6 +9,12 @@
 
     &--italic {
         font-style: italic;
+        opacity: 0;
+        transition: .7s ease-in-out .5s;
+
+        &.visible {
+            opacity: 1;
+        }
     }
 
     &--dark {
