@@ -22,7 +22,7 @@ new Vue({
             orientacion.append('Rotate Device');
             setTimeout(() => {
                 this.preloading = false;
-            }, 1500);
+            }, 500);
         },
         loading(){
             window.onload = this.loaded;

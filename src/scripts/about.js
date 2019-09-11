@@ -40,7 +40,7 @@ new Vue({
         },
         typeLetter(index) {
             this.typedContent += this.content[index];
-            let interval = this.randomNumber(5, 70);
+            let interval = this.randomNumber(3, 20);
             setTimeout(() => {
                 this.typeText();
             }, interval);
@@ -58,10 +58,16 @@ new Vue({
         const data = require('../data/user-info.json');
         this.userData = data;
         this.avatar = require('../images/content/user.png');
-        this.userName = "Sergei Dmitrijev";
         this.greeting = 'Hi, my name is';
-        this.content = `I'm FRONT-END developer. I was working as web developer in several big and little companies. I'm freelancer too, sometimes`;
-        this.subContent = 'If you need front-end developer, we have only one solution ever: CONTACT ME!';
+        this.userName = "Sergei Dmitrijev";
+        this.content = `
+            The story of my criminal life, as a developer, has a long history.
+            I worked on the front end for a long time, until they began to suspect me of petty projects.
+            I had to go underground, into the world of backend.
+            After some time, I decided to go to lie low and go to the IT-monastery, where the best gurus taught me programming skills.
+            It's time to stop hiding from the law of development and come into the world of front-end with renewed vigor!
+        `;
+        this.subContent = `To start doing something, just start doing something. Let's do it, take your chance!`;
     },
     // mounted() {
     //     this.typeText();

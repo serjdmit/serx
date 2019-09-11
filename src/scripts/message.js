@@ -68,15 +68,14 @@ new Vue({
             }, 10000);
         },
         sendMessage() {
-            this.sending = true;
+            const field = this.$v.form[fieldName];
 
-            // Instead of this timeout, here you can call your API
-            // window.setTimeout(() => {
-            //     this.lastMessage = `${this.form.firstName}, ${this.form.email}`;
-            //     this.messageSended = true;
-            //     this.sending = false;
-            //     this.clearForm();
-            // }, 100000);
+            if (field) {
+                return {
+                    'md-invalid': field.$invalid && field.$dirty
+                };
+            }
+            this.sending = true;
 
             axios.post('https://formcarry.com/s/dFrMZ5OGGZj', {
                 name: this.form.firstName,
@@ -94,7 +93,6 @@ new Vue({
             })
             .catch((error) => {
                 console.log(error);
-                this.messageSended = true;
                 this.lastMessage = `Oops, something went wrong :(`;
                 this.sending = false;
             });
