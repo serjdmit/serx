@@ -3,7 +3,11 @@ script(type="text/x-template")#about-block
             .about__left
                 .user
                     //- +image('content/user.jpg', 'user__pic')
-                    img(:src="avatar").user__pic
+                    img(
+                        :src="avatar"
+                        v-waypoint="{ active: true, callback: handleAvatar, options: intersectionOptions}"
+                        :class="{'active': active}"    
+                    ).user__pic
                     table.user-info
                         tr(v-for="row in userData")
                             th.user-info__title {{ row.title }}:

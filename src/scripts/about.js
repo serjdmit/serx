@@ -20,7 +20,8 @@ new Vue({
                 rootMargin: '0px 0px 0px 0px',
                 thresholds: [0]
             },
-            visible: false
+            visible: false,
+            active: false
         };
     },
     methods: {
@@ -29,29 +30,25 @@ new Vue({
                 this.typeText();
             }
         },
+        handleAvatar({going}) {
+            if (going === this.$waypointMap.GOING_IN) {
+                this.active = true;
+            }
+        },
         randomNumber(min, max) {
             return Math.random() * (max - min) + min;
         },
         typeLetter(index) {
             this.typedContent += this.content[index];
-            let interval = this.randomNumber(10, 90);
+            let interval = this.randomNumber(5, 70);
             setTimeout(() => {
                 this.typeText();
             }, interval);
             if (this.content === this.typedContent) {
-                console.log('asdasd')
                 this.visible = true;
             }
         },
         typeText() {
-            // let i = 0;
-            // while (i < this.content.length) {
-            //     setTimeout(() => {
-            //         this.typedContent += this.content[i];
-            //         console.log(this.typedContent);
-            //         i++;
-            //     }, 5000);
-            // }
             if (this.content !== this.typedContent) {
                 this.typeLetter(this.typedContent.length);
             }
@@ -60,7 +57,7 @@ new Vue({
     created(){
         const data = require('../data/user-info.json');
         this.userData = data;
-        this.avatar = require('../images/content/user.jpg');
+        this.avatar = require('../images/content/user.png');
         this.userName = "Sergei Dmitrijev";
         this.greeting = 'Hi, my name is';
         this.content = `I'm FRONT-END developer. I was working as web developer in several big and little companies. I'm freelancer too, sometimes`;

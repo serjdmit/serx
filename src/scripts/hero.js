@@ -1,6 +1,8 @@
 import Vue from 'vue';
-
+import VueDragscroll from 'vue-dragscroll';
 import vueScrollto from 'vue-scrollto';
+
+Vue.use(VueDragscroll);
 
 Vue.use(vueScrollto, {
     duration:1500,
@@ -52,6 +54,9 @@ new Vue({
     methods: {
         handleMenu() {
             this.menu = !this.menu
+        },
+        handleSwipe(direction){
+            console.log(direction);
         }
     },
     created() {
