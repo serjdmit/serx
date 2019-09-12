@@ -13,7 +13,7 @@ script(type="text/x-template")#about-block
                             th.user-info__title {{ row.title }}:
                             td.user-info__data {{ row.data }}
 
-            .about__right
+            .about__right(:class="{'active': active}")
                 h2.hero-title.hero-title__about
                     .hero-title__info.hero-title__info--small {{ greeting }}
                     .hero-title__name.hero-title__name--small {{ userName }}

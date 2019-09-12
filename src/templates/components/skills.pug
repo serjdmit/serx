@@ -7,10 +7,8 @@ script(type="text/x-template")#skills-block
                 .skills-container
                     .skills-block(v-for="category in categories" :key="category.id")
                         skills-row(
-                            v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }"
                             :category="category"
                             :skills="filterSkillsByCategoryId(category.id)"
-                            :waypointed="waypointed"
                         )
         .skills__left
             img(:src="leftImage").skills__image
@@ -23,11 +21,10 @@ script(type="text/x-template")#skills-row
                 v-for="skill in skills"
                 :key="skill.id"
                 :skill="skill"
-                :waypointed="waypointed"
             )
 
 script(type="text/x-template")#skill
-    li.skills-list__item
+    li.skills-list__item(v-waypoint="{ active: true, callback: onWaypoint}")
         .skills-list__skill
             svg(width="126" height="126" preserveAspectRatio="none").skills-list__level
                 linearGradient(id="orange" x1="0%" y1="0%" x2="100%" y2="0%")
@@ -36,5 +33,5 @@ script(type="text/x-template")#skill
 
                 
                 circle(r="60" cx="63" cy="63").skills-list__circle.skills-list__circle--under
-                circle(r="59" cx="63" cy="63" ref="color-circle" stroke="url(#orange)" :class="{active: waypointed}").skills-list__circle.skills-list__circle--above
+                circle(r="59" cx="63" cy="63" ref="color-circle" stroke="url(#orange)").skills-list__circle.skills-list__circle--above
             .skills-list__name {{skill.title}}

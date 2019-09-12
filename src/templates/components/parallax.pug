@@ -1,7 +1,7 @@
 script(type="text/x-template")#parallax-block
     .parallax(
         direction="up"
-        v-touch:swipe="swipeHandler"
+        v-touch="touchHandler"
     )
         parallax(:speedFactor="0.05")
             +image('parallax/layer-01.png', 'parallax__image')

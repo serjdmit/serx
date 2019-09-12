@@ -8,8 +8,7 @@ Vue.use(VueWaypoint);
 const skill = {
     template: "#skill",
     props: {
-        skill: Object,
-        waypointed: Boolean
+        skill: Object
     },
     methods: {
         drawColoredCircle() {
@@ -20,12 +19,17 @@ const skill = {
             );
             const percents = (dashArrey / 100) * (100 - this.skill.percent);
             circle.style.strokeDashoffset = percents;
+        },
+        onWaypoint({going}){
+            if (going === this.$waypointMap.GOING_IN) {
+                this.drawColoredCircle();
+            }
         }
     },
     updated() {
         this.drawColoredCircle();
     }
-}
+};
 
 
 const skillsRow = {
@@ -35,8 +39,7 @@ const skillsRow = {
     },
     props: {
         skills: Array,
-        category: Object,
-        waypointed: Boolean
+        category: Object
     },
     data() {
         return {
@@ -45,9 +48,9 @@ const skillsRow = {
                 title: "",
                 percent: ""
             },
-        }
+        };
     }
-}
+};
 
 
 new Vue({
@@ -67,7 +70,7 @@ new Vue({
                 rootMargin: '2000px 0px 0px 0px',
                 thresholds: [0]
             }
-        }
+        };
     },
     methods: {
         fetchData() {
@@ -80,17 +83,10 @@ new Vue({
         },
         filterSkillsByCategoryId(categoryId) {
             return this.skills.filter(skill => skill.category === categoryId);
-        },
-        onWaypoint ({going}) {
-            // going: in, out
-            // direction: top, right, bottom, left
-            if (going === this.$waypointMap.GOING_IN) {
-                this.waypointed = !this.waypointed;
-            }
-          }
+        }
     },
     created() {
         this.fetchData();
         this.leftImage = require('../images/bg/arms.png');
     }
-})
+});

@@ -19,13 +19,22 @@
         display: inline-block;
         width: 60%;
         text-align: left;
+        transform: translateX(50%);
+        transition: ease-in-out 1s;
+        opacity: 0;
 
         @include tablets() {
-            width: 45%;
+            width: 50%;
+            margin-left: 20px;
         }
         @include phones() {
             display: block;
             width: 100%;
+        }
+
+        &.active {
+            transform: translateX(0);
+            opacity: 1;
         }
     }
     &__content {

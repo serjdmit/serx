@@ -61,7 +61,7 @@ new Vue({
         this.greeting = 'Hi, my name is';
         this.userName = "Sergei Dmitrijev";
         this.content = `
-            The story of my criminal life, as a developer, has a long history.
+            The story of my criminal life as a developer goes back to the distant past.
             I worked on the front end for a long time, until they began to suspect me of petty projects.
             I had to go underground, into the world of backend.
             After some time, I decided to go to lie low and go to the IT-monastery, where the best gurus taught me programming skills.

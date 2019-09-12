@@ -71,6 +71,7 @@
     "vue-parallaxy": "^1.1.1",
     "vue-router": "^3.0.3",
     "vue-scrollto": "^2.15.0",
+    "vue-swipe-actions": "^2.0.0-beta.18",
     "vue-waypoint": "^3.2.2",
     "vue2-touch-events": "^2.0.0",
     "vuelidate": "^0.7.4",

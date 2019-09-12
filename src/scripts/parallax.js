@@ -12,7 +12,7 @@ new Vue ({
         Vue2TouchEvents
     },
     methods: {
-        swipeHandler(direction) {
+        touchHandler() {
             console.log('alal');
         }
     }

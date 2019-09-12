@@ -7052,6 +7052,11 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
+vue-swipe-actions@^2.0.0-beta.18:
+  version "2.0.0-beta.18"
+  resolved "https://registry.yarnpkg.com/vue-swipe-actions/-/vue-swipe-actions-2.0.0-beta.18.tgz#87edb0d3ee34d5bb87413c32082a834b0e614f80"
+  integrity sha512-ONa0l9K3iWw0RIX9Xs+ECCN0mqcyYsYodmcJ48HymZP18ZjFJu3n1zNapWGXXFDl72oJX5D7KSD1p0enBOJn2Q==
+
 vue-template-compiler@^2.6.7:
   version "2.6.8"
   resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.6.8.tgz#750802604595134775b9c53141b9850b35255e1c"
