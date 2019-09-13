@@ -23,9 +23,9 @@ new Vue({
     mixins: [validationMixin],
     data: () => ({
         form: {
-            firstName: '',
-            email: '',
-            message: ''
+            firstName: null,
+            email: null,
+            message: null
         },
         messageSended: false,
         sending: false,
@@ -60,21 +60,14 @@ new Vue({
         },
         clearForm() {
             this.$v.$reset();
-            this.form.firstName = '';
-            this.form.email = '';
-            this.form.message = '';
+            this.form.firstName = null;
+            this.form.email = null;
+            this.form.message = null;
             setTimeout(() => {
                 this.messageSended = false;
             }, 10000);
         },
         sendMessage() {
-            const field = this.$v.form[fieldName];
-
-            if (field) {
-                return {
-                    'md-invalid': field.$invalid && field.$dirty
-                };
-            }
             this.sending = true;
 
             axios.post('https://formcarry.com/s/dFrMZ5OGGZj', {
